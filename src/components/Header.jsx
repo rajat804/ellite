@@ -1,8 +1,10 @@
 // src/components/Header.jsx
 import React, { useState, useEffect } from 'react';
 import { FaPaw, FaChevronRight, FaSearch, FaBars, FaTimes, FaPhone, FaUser, FaHeart } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -16,11 +18,13 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', id: 'home' },
-    { name: 'Services', id: 'services' },
-    { name: 'About', id: 'about' },
-    { name: 'Testimonials', id: 'testimonials' },
-    { name: 'Contact', id: 'contact' },
+    { name: 'Home', path: "/"},
+    { name: 'Services', path: '/services' },
+    { name: 'About', path: '/about' },
+    { name: 'Gallery', path: '/gallery' },
+    { name: 'Contact', path: '/contact' },
+    { name: 'Vision', path: '/vision' },
+
   ];
 
   return (
@@ -69,15 +73,15 @@ const Header = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
-              {navItems.map((item) => (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  className="text-[#2C3E50] font-semibold hover:text-[#007B7F] transition-all relative group"
+              {navItems.map((item,index) => (
+                <Link
+                  key={index}
+                  to={item.path}
+                  className={`text-[#2C3E50] font-semibold hover:text-[#007B7F] transition-all relative group ${location.pathname == item.path ? "text-[#007B7F] border-b-2 border-[#007B7F]" : "text-gray-600 hover:text-[#007B7F]" }`}
                 >
                   {item.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#007B7F] transition-all group-hover:w-full"></span>
-                </a>
+                </Link>
               ))}
             </nav>
 
@@ -94,9 +98,9 @@ const Header = () => {
               
 
               {/* Book Now Button */}
-              <button className="hidden md:flex bg-[#007B7F] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#007B7F]/80 transition-all hover:scale-105 items-center gap-2 shadow-lg">
+              <Link to={'/contact'} className="hidden md:flex bg-[#007B7F] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#007B7F]/80 transition-all hover:scale-105 items-center gap-2 shadow-lg">
                 Book Now <FaChevronRight className="text-sm" />
-              </button>
+              </Link>
 
               {/* Mobile Menu Button */}
               <button 
@@ -132,15 +136,15 @@ const Header = () => {
           {mobileMenuOpen && (
             <div className="lg:hidden mt-6 pb-4 animate-slide-down">
               <div className="flex flex-col space-y-2">
-                {navItems.map((item) => (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
+                {navItems.map((item,index) => (
+                  <Link
+                    key={index}
+                    to={item.path}
                     onClick={() => setMobileMenuOpen(false)}
                     className="px-4 py-3 rounded-lg font-semibold text-[#2C3E50] hover:bg-[#007B7F]/10 transition-all"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
                 <hr className="my-2 border-gray-200" />
                 <button className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 border-[#007B7F] text-[#007B7F] font-semibold">
