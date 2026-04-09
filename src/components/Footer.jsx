@@ -7,6 +7,7 @@ import {
   FaArrowUp
 } from 'react-icons/fa';
 import { MdVerified, MdPets } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -26,8 +27,15 @@ const Footer = () => {
   };
 
   const quickLinks = [
-    'Home', 'About Us', 'Services', 'Testimonials', 
-    'Contact', 'FAQs', 'Privacy Policy', 'Terms & Conditions'
+
+    {name: 'Home', path: '/'},
+    {name: 'About Us', path: '/about'},
+    {name: 'Services', path: '/service'},
+    {name: 'Testimonials', path: '/testimonial'},
+    {name: 'Contact', path: '/contact'},
+    {name: 'FAQs', path: '/faq'},
+    {name: 'Privacy Policy', path: '/privacy'},
+    {name: 'Terms & Conditions', path: '/terms'},
   ];
 
   const services = [
@@ -99,15 +107,15 @@ const Footer = () => {
               <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-[#007B7F]"></span>
             </h3>
             <ul className="space-y-3">
-              {quickLinks.map((link, idx) => (
+              {quickLinks.map((items, idx) => (
                 <li key={idx}>
-                  <a 
-                    href={`#${link.toLowerCase()}`} 
+                  <Link
+                    to={items.path} 
                     className="text-gray-400 hover:text-[#007B7F] transition-colors flex items-center gap-2 group text-sm"
                   >
                     <FaChevronRight className="text-xs group-hover:translate-x-1 transition-transform" />
-                    {link}
-                  </a>
+                    {items.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -242,7 +250,7 @@ const Footer = () => {
                 © 2024 PetCare Services. All rights reserved. | 
                 <a href="#privacy" className="hover:text-[#007B7F] ml-1">Privacy Policy</a>
                 <span className="mx-2">|</span>
-                <a href="#terms" className="hover:text-[#007B7F]">Terms of Service</a>
+                <Link to={'/terms'} className="hover:text-[#007B7F]">Terms of Service</Link>
               </p>
             </div>
             
