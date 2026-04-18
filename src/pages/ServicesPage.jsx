@@ -70,12 +70,12 @@ const ServicesPage = () => {
       description: "Premium home-based boarding with cage-free environment. Your dog gets individual attention, daily walks, playtime, and lots of love in a real home setting.",
       longDescription: "Our luxury dog boarding service provides a stress-free alternative to traditional kennels. Dogs live in a real home environment with comfortable bedding, climate control, and constant supervision.",
       features: ["100% cage-free environment", "Daily walks (2-3 times)", "Individual attention", "Home-cooked meals", "Regular photo updates", "24/7 supervision"],
-      price: "₹500/day",
-      originalPrice: "₹699/day",
+      price: "₹800/day & ₹1000 Night",
+      originalPrice: "₹1699/day",
       popular: true,
       rating: 4.9,
       reviews: 234,
-      duration: "per night",
+      duration: "day",
       color: "#E67E22",
       bg: "bg-gradient-to-br from-orange-50 to-orange-100",
       iconBg: "bg-gradient-to-br from-orange-500 to-orange-600",
@@ -90,12 +90,12 @@ const ServicesPage = () => {
       description: "Calm, stress-free cat boarding in a separate quiet area. Complete with climbing structures, window perches, and cozy hiding spots.",
       longDescription: "Cats need a calm environment to feel safe. Our dedicated cat boarding area is separated from dogs to reduce stress.",
       features: ["Separate quiet zone", "Climbing structures", "Window perches", "Litter boxes cleaned 3x daily", "Individual play sessions", "Stress-free environment"],
-      price: "₹500/day",
-      originalPrice: "₹649/day",
+      price: "₹800/day & ₹1000/Night",
+      originalPrice: "₹1500/day",
       popular: true,
       rating: 4.8,
       reviews: 189,
-      duration: "per night",
+      duration: "day",
       color: "#007B7F",
       bg: "bg-gradient-to-br from-teal-50 to-teal-100",
       iconBg: "bg-gradient-to-br from-[#007B7F] to-[#005C5F]",
@@ -110,12 +110,12 @@ const ServicesPage = () => {
       description: "Perfect for long vacations or business trips. Special discounts for stays longer than 7 days with additional benefits.",
       longDescription: "Planning a long vacation? Our extended boarding service offers discounted rates and extra care for longer stays.",
       features: ["10% off for 7+ days", "15% off for 14+ days", "Free grooming session", "Priority booking", "Flexible pickup", "Emergency contacts"],
-      price: "₹450/day",
-      originalPrice: "₹599/day",
+      price: "₹800/day & ₹1000/Night",
+      originalPrice: "₹1299/day",
       popular: false,
       rating: 4.7,
       reviews: 156,
-      duration: "per night",
+      duration: "day",
       color: "#6B4E71",
       bg: "bg-gradient-to-br from-purple-50 to-purple-100",
       iconBg: "bg-gradient-to-br from-purple-500 to-purple-600",
@@ -130,12 +130,12 @@ const ServicesPage = () => {
       description: "Specialized care for senior pets or those with medical conditions. Administer medications, special diets, and extra attention.",
       longDescription: "Our medical boarding service is designed for pets with special health needs. Our trained staff can administer medications and monitor vital signs.",
       features: ["Medication administration", "Special diet", "Health monitoring", "Vet on call 24/7", "Comfortable bedding", "Extra gentle care"],
-      price: "₹699/day",
+      price: "₹1000/day & night",
       originalPrice: "₹849/day",
       popular: false,
       rating: 4.9,
       reviews: 98,
-      duration: "per night",
+      duration: "day & night",
       color: "#FF7A2F",
       bg: "bg-gradient-to-br from-orange-50 to-orange-100",
       iconBg: "bg-gradient-to-br from-orange-500 to-orange-600",
@@ -151,7 +151,7 @@ const ServicesPage = () => {
       description: "Professional veterinary care at your doorstep. Complete physical examination, health certificate, and prescription at home.",
       longDescription: "No more stressful car rides to the vet clinic! Our licensed veterinarians come to your home with portable equipment for complete checkups.",
       features: ["Full physical exam", "Health certificate", "Prescription meds", "Follow-up care", "No travel stress", "Same-day appointments"],
-      price: "₹999",
+      price: "₹800/day & ₹1000/Night",
       originalPrice: "₹1499",
       popular: true,
       rating: 4.9,
@@ -171,8 +171,8 @@ const ServicesPage = () => {
       description: "Essential vaccines for puppies and adult dogs. Includes certificate and reminder service for boosters.",
       longDescription: "Keep your pet protected with our comprehensive vaccination packages. All vaccinations are administered by licensed vets.",
       features: ["Core vaccines included", "Booster reminders", "Vaccination certificate", "Digital health record", "Home visit available", "Puppy packages"],
-      price: "₹599",
-      originalPrice: "₹899",
+      price: "₹800/day & ₹1000/Night",
+      originalPrice: "₹1899",
       popular: true,
       rating: 4.8,
       reviews: 567,
@@ -212,7 +212,7 @@ const ServicesPage = () => {
       description: "Complete grooming package including bath, haircut, nail trimming, ear cleaning, and teeth brushing.",
       longDescription: "Our professional grooming services keep your pet looking and feeling great. We use premium, pet-safe products.",
       features: ["Premium shampoo bath", "Breed-specific haircut", "Nail trimming", "Ear cleaning", "Teeth brushing", "Paw pad trimming"],
-      price: "₹799",
+      price: "₹800/day & ₹1000/Night",
       originalPrice: "₹1199",
       popular: true,
       rating: 4.9,
@@ -232,7 +232,7 @@ const ServicesPage = () => {
       description: "Premium styling for special occasions. Creative cuts, color-safe dyes, and accessories for that perfect look.",
       longDescription: "Make your pet the star of any occasion! Our styling service includes creative grooming and breed-standard cuts.",
       features: ["Creative styling", "Breed-standard cuts", "Color-safe dyes", "Bow ties & bandanas", "Pawdicure", "Perfume spritz"],
-      price: "₹1299",
+      price: "₹800/day & ₹1000/Night",
       originalPrice: "₹1799",
       popular: false,
       rating: 4.8,
@@ -253,8 +253,8 @@ const ServicesPage = () => {
       description: "Professional behavioral training for dogs of all ages. From basic commands to advanced obedience.",
       longDescription: "Our certified trainers use positive reinforcement techniques to teach your dog essential skills.",
       features: ["Basic commands", "Leash training", "Behavior correction", "Socialization", "Advanced commands", "Agility training"],
-      price: "₹499",
-      originalPrice: "₹749",
+      price: "₹800/day & ₹1000/Night",
+      originalPrice: "₹1749",
       popular: false,
       rating: 4.8,
       reviews: 267,
@@ -273,8 +273,8 @@ const ServicesPage = () => {
       description: "Essential training for puppies including potty training, crate training, bite inhibition, and basic commands.",
       longDescription: "The early months are crucial for your puppy's development. Our puppy training program focuses on essential life skills.",
       features: ["Potty training", "Crate training", "Bite inhibition", "Socialization", "Basic commands", "Puppy play dates"],
-      price: "₹449",
-      originalPrice: "₹649",
+      price: "₹800/day & ₹1000/Night",
+      originalPrice: "₹1649",
       popular: true,
       rating: 4.9,
       reviews: 423,
@@ -293,8 +293,8 @@ const ServicesPage = () => {
       description: "Specialized training for behavioral issues like aggression, separation anxiety, fear, and excessive barking.",
       longDescription: "Our certified behaviorists work with challenging cases using science-based, force-free methods.",
       features: ["Aggression management", "Separation anxiety", "Fear reduction", "Excessive barking", "Destructive behavior", "Custom behavior plan"],
-      price: "₹699",
-      originalPrice: "₹999",
+      price: "₹800/day & ₹1000/Night",
+      originalPrice: "₹1999",
       popular: false,
       rating: 4.9,
       reviews: 189,
@@ -311,15 +311,15 @@ const ServicesPage = () => {
     : services.filter((service) => service.category === selectedCategory);
 
   const openModal = (service) => {
-  setSelectedService(service);
-  setShowModal(true);
-};
+    setSelectedService(service);
+    setShowModal(true);
+  };
 
-useEffect(() => {
-  if (typeof window !== "undefined") {
-    document.body.style.overflow = showModal ? "hidden" : "auto";
-  }
-}, [showModal]);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      document.body.style.overflow = showModal ? "hidden" : "auto";
+    }
+  }, [showModal]);
 
   const closeModal = () => {
     setShowModal(false);
