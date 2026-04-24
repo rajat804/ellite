@@ -64,7 +64,7 @@ const Header = () => {
       </div>
 
       {/* Main Header - Warm & Welcoming */}
-      <header className={`sticky top-0 z-50 transition-all duration-300 ${
+      <header className={`shadow sticky top-0 z-50 transition-all duration-300 ${
         scrolled ? 'bg-[#FDF8F0] shadow-xl py-3' : 'bg-[#FDF8F0]/95 backdrop-blur-md py-5'
       }`}>
         <div className="container mx-auto px-4 md:px-8">
