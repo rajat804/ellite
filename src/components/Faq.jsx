@@ -1,4 +1,4 @@
-// src/components/FAQSection.jsx
+// src/components/Faq.jsx
 import React, { useState, useEffect } from 'react';
 import { 
   FaPlus, 
@@ -8,7 +8,9 @@ import {
   FaEnvelope,
   FaComments,
   FaChevronRight,
-  FaSearch
+  FaSearch,
+  FaGem,
+  FaCoffee
 } from 'react-icons/fa';
 import { MdVerified } from 'react-icons/md';
 
@@ -111,28 +113,28 @@ const Faq = () => {
   };
 
   return (
-    <section id="faq-section" className="py-20 md:py-28 bg-white">
+    <section id="faq-section" className="py-20 md:py-28 bg-gradient-to-b from-white to-[#FDF8F0]">
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className={`text-center max-w-3xl mx-auto mb-12 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 bg-[#007B7F]/10 px-4 py-2 rounded-full mb-4">
-            <FaQuestionCircle className="text-[#007B7F] text-lg" />
-            <span className="text-[#007B7F] font-semibold text-sm uppercase tracking-wide">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#8B5E3C]/10 to-[#D4A054]/10 px-4 py-2 rounded-full mb-4 mx-auto w-fit">
+            <FaQuestionCircle className="text-[#D4A054] text-lg" />
+            <span className="text-[#8B5E3C] font-semibold text-sm uppercase tracking-wide">
               FAQ
             </span>
           </div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C3E50] mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
             Frequently Asked{' '}
             <span className="relative inline-block">
               Questions
               <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8">
-                <path d="M0 4 L200 4" stroke="#FFD1B3" strokeWidth="4" strokeLinecap="round"/>
+                <path d="M0 4 L200 4" stroke="#D4A054" strokeWidth="4" strokeLinecap="round"/>
               </svg>
             </span>
           </h2>
           
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-500 text-lg">
             Everything you need to know about our services
           </p>
         </div>
@@ -140,13 +142,13 @@ const Faq = () => {
         {/* Search Bar */}
         <div className={`max-w-2xl mx-auto mb-8 transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="relative">
-            <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+            <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-[#D4A054]" />
             <input
               type="text"
               placeholder="Search your question..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-[#007B7F] focus:outline-none transition-all"
+              className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-[#D4A054] focus:outline-none transition-all"
             />
           </div>
         </div>
@@ -159,8 +161,8 @@ const Faq = () => {
               onClick={() => setSelectedCategory(category)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 selectedCategory === category
-                  ? 'bg-[#007B7F] text-white shadow-md'
-                  : 'bg-gray-100 text-gray-600 hover:bg-[#007B7F]/10 hover:text-[#007B7F]'
+                  ? 'bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white shadow-md'
+                  : 'bg-gray-100 text-gray-600 hover:bg-[#D4A054]/20 hover:text-[#8B5E3C]'
               }`}
             >
               {category}
@@ -183,18 +185,18 @@ const Faq = () => {
               >
                 <button
                   onClick={() => toggleFaq(idx)}
-                  className="w-full flex items-center justify-between p-5 bg-[#FFF9F0] hover:bg-[#FFF5E6] transition-colors text-left"
+                  className="w-full flex items-center justify-between p-5 bg-[#FDF8F0] hover:bg-[#F5EDE4] transition-colors text-left"
                 >
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-xs text-[#007B7F] font-semibold bg-[#007B7F]/10 px-2 py-0.5 rounded-full">
+                      <span className="text-xs text-[#D4A054] font-semibold bg-[#D4A054]/10 px-2 py-0.5 rounded-full">
                         {faq.category}
                       </span>
                     </div>
-                    <span className="font-semibold text-[#2C3E50]">{faq.question}</span>
+                    <span className="font-semibold text-gray-800">{faq.question}</span>
                   </div>
                   <div className={`ml-4 transition-transform duration-300 ${openIndex === idx ? 'rotate-180' : ''}`}>
-                    {openIndex === idx ? <FaMinus className="text-[#007B7F]" /> : <FaPlus className="text-[#007B7F]" />}
+                    {openIndex === idx ? <FaMinus className="text-[#D4A054]" /> : <FaPlus className="text-[#D4A054]" />}
                   </div>
                 </button>
                 
@@ -209,17 +211,29 @@ const Faq = () => {
         </div>
 
         {/* Still Have Questions */}
-        <div className={`text-center mt-12 p-8 bg-gradient-to-r from-[#007B7F]/5 to-[#FFD1B3]/20 rounded-2xl transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h3 className="text-xl font-bold text-[#2C3E50] mb-2">Still Have Questions?</h3>
-          <p className="text-gray-600 mb-4">Can't find the answer you're looking for? Please contact our support team.</p>
+        <div className={`text-center mt-12 p-8 bg-gradient-to-r from-[#D4A054]/10 to-[#F5C27B]/20 rounded-2xl transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="inline-flex items-center gap-2 bg-white/80 rounded-full px-4 py-1 mb-4">
+            <FaGem className="text-[#D4A054] text-sm" />
+            <span className="text-sm text-gray-600">Need Help?</span>
+          </div>
+          <h3 className="text-xl font-bold text-gray-800 mb-2">Still Have Questions?</h3>
+          <p className="text-gray-500 mb-4">Can't find the answer you're looking for? Please contact our support team.</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="bg-[#007B7F] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#007B7F]/80 transition-all flex items-center gap-2">
+            <button className="bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center gap-2">
               <FaPhoneAlt /> Call Us Now
             </button>
-            
-            <button className="border-2 border-gray-300 text-gray-600 px-6 py-2 rounded-full font-semibold hover:border-[#007B7F] hover:text-[#007B7F] transition-all flex items-center gap-2">
+            <button className="border-2 border-[#D4A054] text-[#8B5E3C] px-6 py-2 rounded-full font-semibold hover:bg-gradient-to-r hover:from-[#8B5E3C] hover:to-[#6B2E2E] hover:text-white transition-all flex items-center gap-2">
               <FaComments /> WhatsApp
             </button>
+          </div>
+        </div>
+
+        {/* Premium Badge */}
+        <div className={`text-center mt-8 transition-all duration-700 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="inline-flex items-center gap-2 bg-white shadow-md px-5 py-2 rounded-full">
+            <FaCoffee className="text-[#D4A054] text-sm" />
+            <span className="text-xs text-gray-500">Quick responses • 24/7 support</span>
+            <MdVerified className="text-[#D4A054] text-sm" />
           </div>
         </div>
       </div>
