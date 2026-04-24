@@ -1,4 +1,4 @@
-// src/components/TestimonialSection.jsx
+// src/components/Testimonial.jsx
 import React, { useState, useEffect } from 'react';
 import { 
   FaStar, 
@@ -8,7 +8,9 @@ import {
   FaHeart,
   FaTwitter,
   FaFacebook,
-  FaLinkedin
+  FaLinkedin,
+  FaGem,
+  FaCoffee
 } from 'react-icons/fa';
 import { MdVerified } from 'react-icons/md';
 
@@ -116,24 +118,24 @@ const Testimonial = () => {
   };
 
   const stats = [
-    { number: "500+", label: "5-Star Reviews", icon: <FaStar className="text-yellow-400" /> },
-    { number: "98%", label: "Customer Satisfaction", icon: <FaHeart className="text-rose-500" /> },
-    { number: "4.9", label: "Google Rating", icon: <MdVerified className="text-[#007B7F]" /> }
+    { number: "500+", label: "5-Star Reviews", icon: <FaStar className="text-[#D4A054]" /> },
+    { number: "98%", label: "Customer Satisfaction", icon: <FaHeart className="text-[#D4A054]" /> },
+    { number: "4.9", label: "Google Rating", icon: <MdVerified className="text-[#D4A054]" /> }
   ];
 
   return (
-    <section id="testimonial-section" className="py-20 md:py-28 bg-gradient-to-br from-[#007B7F] to-[#005C5F] relative overflow-hidden">
+    <section id="testimonial-section" className="py-20 md:py-28 bg-gradient-to-br from-[#2C1810] to-[#1A0F0A] relative overflow-hidden">
       {/* Background Decor */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-64 h-64 bg-[#D4A054] rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#D4A054] rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         {/* Section Header */}
         <div className={`text-center text-white mb-12 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
-            <FaQuoteLeft className="text-[#FFD1B3] text-lg" />
+          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4 mx-auto w-fit">
+            <FaQuoteLeft className="text-[#D4A054] text-lg" />
             <span className="text-sm font-medium">Testimonials</span>
           </div>
           
@@ -142,7 +144,7 @@ const Testimonial = () => {
             <span className="relative inline-block">
               Say
               <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8">
-                <path d="M0 4 L200 4" stroke="#FFD1B3" strokeWidth="4" strokeLinecap="round"/>
+                <path d="M0 4 L200 4" stroke="#D4A054" strokeWidth="4" strokeLinecap="round"/>
               </svg>
             </span>
           </h2>
@@ -155,8 +157,8 @@ const Testimonial = () => {
         {/* Stats Row */}
         <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {stats.map((stat, idx) => (
-            <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover:bg-white/20 transition-all">
-              <div className="text-4xl mb-3">{stat.icon}</div>
+            <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center hover:bg-white/20 transition-all group">
+              <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">{stat.icon}</div>
               <div className="text-3xl md:text-4xl font-bold text-white mb-1">{stat.number}</div>
               <div className="text-white/80 text-sm">{stat.label}</div>
             </div>
@@ -173,12 +175,12 @@ const Testimonial = () => {
                 style={{ transitionDelay: `${idx * 0.1}s` }}
               >
                 {/* Quote Icon */}
-                <FaQuoteLeft className="text-[#007B7F]/20 text-4xl mb-4 group-hover:text-[#007B7F]/40 transition-all" />
+                <FaQuoteLeft className="text-[#D4A054]/20 text-4xl mb-4 group-hover:text-[#D4A054]/40 transition-all" />
                 
                 {/* Rating */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <FaStar key={i} className="text-yellow-400" />
+                    <FaStar key={i} className="text-[#D4A054]" />
                   ))}
                 </div>
                 
@@ -195,17 +197,17 @@ const Testimonial = () => {
                     className="w-12 h-12 rounded-full object-cover"
                   />
                   <div>
-                    <h4 className="font-bold text-[#2C3E50]">{testimonial.name}</h4>
+                    <h4 className="font-bold text-[#2C1810]">{testimonial.name}</h4>
                     <p className="text-sm text-gray-500">{testimonial.location}</p>
                   </div>
                 </div>
                 
                 {/* Pet & Service Info */}
                 <div className="flex flex-wrap gap-2 pt-3 border-t border-gray-100">
-                  <span className="text-xs bg-[#007B7F]/10 text-[#007B7F] px-2 py-1 rounded-full">
+                  <span className="text-xs bg-[#D4A054]/10 text-[#8B5E3C] px-2 py-1 rounded-full">
                     🐾 {testimonial.petName}
                   </span>
-                  <span className="text-xs bg-orange-100 text-orange-600 px-2 py-1 rounded-full">
+                  <span className="text-xs bg-[#D4A054]/10 text-[#8B5E3C] px-2 py-1 rounded-full">
                     {testimonial.service}
                   </span>
                   <span className="text-xs text-gray-400">
@@ -231,7 +233,7 @@ const Testimonial = () => {
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
                 className={`w-2 h-2 rounded-full transition-all ${
-                  currentIndex === idx ? 'bg-[#FFD1B3] w-6' : 'bg-white/50'
+                  currentIndex === idx ? 'bg-[#D4A054] w-6' : 'bg-white/50'
                 }`}
               />
             ))}
@@ -252,11 +254,20 @@ const Testimonial = () => {
             { text: "15+ Years Experience", icon: "⭐" },
             { text: "24/7 Support", icon: "🕐" }
           ].map((badge, idx) => (
-            <div key={idx} className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2">
+            <div key={idx} className="bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full flex items-center gap-2 hover:bg-white/20 transition-all">
               <span>{badge.icon}</span>
               <span className="text-white text-sm font-medium">{badge.text}</span>
             </div>
           ))}
+        </div>
+
+        {/* Premium Badge */}
+        <div className={`text-center mt-10 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#D4A054] to-[#F5C27B] px-6 py-2 rounded-full shadow-lg">
+            <FaGem className="text-[#2C1810] text-sm" />
+            <span className="text-[#2C1810] font-semibold text-sm">Trusted by Pet Parents Since 2008</span>
+            <FaCoffee className="text-[#2C1810] text-sm" />
+          </div>
         </div>
       </div>
     </section>
