@@ -19,7 +19,9 @@ import {
   FaMoon,
   FaRunning,
   FaGem,
-  FaCoffee
+  FaCoffee,
+  FaChevronDown,
+  FaChevronUp
 } from 'react-icons/fa';
 import { GiDogBowl, GiDogHouse, GiPawHeart } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
@@ -27,6 +29,7 @@ import { Link } from 'react-router-dom';
 const PlayHours = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedSlot, setSelectedSlot] = useState('morning');
+  const [showAllBenefits, setShowAllBenefits] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -47,16 +50,8 @@ const PlayHours = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Bruno's Family Color Palette
-  const colors = {
-    primary: '#8B5E3C',      // Warm Brown
-    secondary: '#6B2E2E',     // Deep Maroon
-    accent: '#D4A054',        // Golden Amber
-    lightAccent: '#F5C27B',   // Light Gold
-    dark: '#4A3728',          // Dark Brown
-    cream: '#FDF8F0',         // Soft Cream
-    text: '#2C1810'           // Darkest Brown
-  };
+  // Check if mobile
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   const playSlots = [
     { 
@@ -65,7 +60,7 @@ const PlayHours = () => {
       icon: <FaSun />, 
       time: '7:00 AM - 9:00 AM',
       bg: 'from-[#D4A054]/20 to-[#F5C27B]/20',
-      color: colors.accent
+      color: '#D4A054'
     },
     { 
       id: 'evening', 
@@ -73,16 +68,18 @@ const PlayHours = () => {
       icon: <FaMoon />, 
       time: '4:00 PM - 6:00 PM',
       bg: 'from-[#6B2E2E]/20 to-[#4A3728]/20',
-      color: colors.secondary
+      color: '#6B2E2E'
     }
   ];
 
-  const benefits = [
+  const allBenefits = [
     { icon: <FaHeart className="text-[#D4A054]" />, title: 'Reduces Anxiety', desc: 'Helps calm nervous pets' },
     { icon: <FaUsers className="text-[#8B5E3C]" />, title: 'Social Skills', desc: 'Better interaction with others' },
     { icon: <FaSmile className="text-[#D4A054]" />, title: 'Happy Pet', desc: 'Improved overall mood' },
     { icon: <FaLeaf className="text-[#6B2E2E]" />, title: 'Healthy Weight', desc: 'Maintains fitness' },
   ];
+
+  const displayedBenefits = isMobile && !showAllBenefits ? allBenefits.slice(0, 2) : allBenefits;
 
   const features = [
     { icon: <FaShieldAlt className="text-[#8B5E3C]" />, title: 'Supervised Play', desc: 'Trained handlers always present' },
@@ -91,188 +88,209 @@ const PlayHours = () => {
     { icon: <GiDogBowl className="text-[#8B5E3C]" />, title: 'Separate Zones', desc: 'Small & large dog areas' },
   ];
 
+  const whatIncluded = [
+    'Open play & social interaction',
+    'Exercise and activity time',
+    'Supervised environment by trained handlers',
+    'Fresh drinking water availability',
+    'Clean and sanitized play area',
+    'Stress-free engagement for your pet'
+  ];
+
+  const toggleBenefits = () => {
+    setShowAllBenefits(!showAllBenefits);
+  };
+
   return (
     <section 
       ref={sectionRef}
-      className="py-20 md:py-28 bg-gradient-to-br from-white via-[#FDF8F0] to-[#F5EDE4]"
+      className="py-12 sm:py-16 md:py-20 lg:py-28 bg-gradient-to-br from-white via-[#FDF8F0] to-[#F5EDE4]"
     >
-      <div className="container mx-auto px-4 md:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#8B5E3C]/10 to-[#D4A054]/10 px-4 py-2 rounded-full mb-4 mx-auto w-fit">
-            <FaPlay className="text-[#8B5E3C] text-lg" />
-            <span className="text-[#8B5E3C] font-semibold text-sm uppercase tracking-wide">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8">
+        
+        {/* Section Header - Mobile Optimized */}
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 md:mb-12">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#8B5E3C]/10 to-[#D4A054]/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-5 mx-auto w-fit">
+            <FaPlay className="text-[#8B5E3C] text-base sm:text-lg" />
+            <span className="text-[#8B5E3C] font-semibold text-xs sm:text-sm uppercase tracking-wide">
               Play Hours
             </span>
           </div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-3 sm:mb-4">
             🐾 Play Hours –{' '}
             <span className="relative inline-block bg-gradient-to-r from-[#8B5E3C] to-[#D4A054] bg-clip-text text-transparent">
               Fun, Social & Active Time
-              <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8">
-                <path d="M0 4 L200 4" stroke="#D4A054" strokeWidth="3" strokeLinecap="round" strokeDasharray="4 4" className="animate-dash"/>
+              <svg className="absolute -bottom-2 left-0 w-full" height="6" viewBox="0 0 200 6">
+                <path d="M0 3 L200 3" stroke="#D4A054" strokeWidth="2" strokeLinecap="round" strokeDasharray="3 3" className="animate-dash"/>
               </svg>
             </span>
           </h2>
           
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-500 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
             At Bruno's Family, we believe <strong className="text-[#8B5E3C]">playtime is essential</strong> for a dog's happiness, 
-            physical health, and mental stimulation. Supervised play sessions allow pets to socialize, 
-            exercise, and enjoy a safe environment while you stay worry-free.
+            physical health, and mental stimulation.
           </p>
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 mb-12 sm:mb-16">
+          
           {/* Left Column - Play Hours Info */}
-          <div className={`space-y-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
+          <div className="flex-1 space-y-4 sm:space-y-5 md:space-y-6">
             {/* Timing Card */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-l-[#D4A054]">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="bg-gradient-to-r from-[#8B5E3C]/10 to-[#D4A054]/10 p-3 rounded-xl">
-                  <FaClock className="text-[#8B5E3C] text-xl" />
+            <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg border-l-4 border-l-[#D4A054]">
+              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                <div className="bg-gradient-to-r from-[#8B5E3C]/10 to-[#D4A054]/10 p-2 sm:p-3 rounded-xl">
+                  <FaClock className="text-[#8B5E3C] text-lg sm:text-xl" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">🕒 Play Hours Timing</h3>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800">🕒 Play Hours Timing</h3>
               </div>
-              <div className="space-y-3">
-                <div className="flex items-center justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-500">Daily Play Session Duration:</span>
-                  <span className="font-bold text-[#D4A054]">2 Hours</span>
+              <div className="space-y-2 sm:space-y-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between py-1.5 sm:py-2 border-b border-gray-100 gap-1 sm:gap-0">
+                  <span className="text-gray-500 text-xs sm:text-sm">Daily Play Session Duration:</span>
+                  <span className="font-bold text-[#D4A054] text-sm sm:text-base">2 Hours</span>
                 </div>
-                <div className="flex items-center justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-500">Available Timings:</span>
-                  <span className="font-bold text-[#D4A054]">Morning & Evening Slots</span>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between py-1.5 sm:py-2 border-b border-gray-100 gap-1 sm:gap-0">
+                  <span className="text-gray-500 text-xs sm:text-sm">Available Timings:</span>
+                  <span className="font-bold text-[#D4A054] text-sm sm:text-base">Morning & Evening Slots</span>
                 </div>
-                <div className="flex items-center justify-between py-2 border-b border-gray-100">
-                  <span className="text-gray-500">Supervision:</span>
-                  <span className="font-bold text-[#D4A054]">Trained Handlers</span>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between py-1.5 sm:py-2 border-b border-gray-100 gap-1 sm:gap-0">
+                  <span className="text-gray-500 text-xs sm:text-sm">Supervision:</span>
+                  <span className="font-bold text-[#D4A054] text-sm sm:text-base">Trained Handlers</span>
                 </div>
-                <div className="flex items-center justify-between py-2">
-                  <span className="text-gray-500">Play Areas:</span>
-                  <span className="font-bold text-[#D4A054]">Separate for Small & Large Dogs</span>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between py-1.5 sm:py-2 gap-1 sm:gap-0">
+                  <span className="text-gray-500 text-xs sm:text-sm">Play Areas:</span>
+                  <span className="font-bold text-[#D4A054] text-sm sm:text-base">Separate for Small & Large Dogs</span>
                 </div>
               </div>
             </div>
 
-            {/* Pricing Card - Premium Gradient */}
-            <div className="bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] rounded-2xl p-6 text-white shadow-xl">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="bg-white/20 p-3 rounded-xl">
-                  <FaRupeeSign className="text-[#D4A054] text-xl" />
+            {/* Pricing Card */}
+            <div className="bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 text-white shadow-xl">
+              <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                <div className="bg-white/20 p-2 sm:p-3 rounded-xl">
+                  <FaRupeeSign className="text-[#D4A054] text-lg sm:text-xl" />
                 </div>
-                <h3 className="text-xl font-bold">💰 Play Hours Pricing</h3>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold">💰 Play Hours Pricing</h3>
               </div>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between py-2 border-b border-white/20">
-                  <span className="text-white/90">2 Hours Play Time:</span>
-                  <span className="font-bold text-2xl text-[#D4A054]">₹100 <span className="text-sm font-normal text-white/80">only</span></span>
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between py-1.5 sm:py-2 border-b border-white/20 gap-1 sm:gap-0">
+                  <span className="text-white/90 text-sm sm:text-base">2 Hours Play Time:</span>
+                  <span className="font-bold text-xl sm:text-2xl text-[#D4A054]">₹100 <span className="text-xs sm:text-sm font-normal text-white/80">only</span></span>
                 </div>
-                <div className="flex items-center justify-between py-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between py-1.5 sm:py-2 gap-1 sm:gap-0">
                   <div className="flex items-center gap-2">
-                    <FaCar className="text-white/80" />
-                    <span className="text-white/90">Pick & Drop Service:</span>
+                    <FaCar className="text-white/80 text-sm sm:text-base" />
+                    <span className="text-white/90 text-sm sm:text-base">Pick & Drop Service:</span>
                   </div>
-                  <span className="font-bold text-xl text-[#D4A054]">₹250</span>
+                  <span className="font-bold text-xl sm:text-2xl text-[#D4A054]">₹250</span>
                 </div>
-                <p className="text-white/80 text-sm mt-2">(Doorstep pickup & drop by our team)</p>
+                <p className="text-white/80 text-xs sm:text-sm mt-2">(Doorstep pickup & drop by our team)</p>
               </div>
             </div>
 
             {/* Slot Selector */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
-              <h3 className="font-bold text-gray-800 text-lg mb-4">Choose Your Play Slot</h3>
-              <div className="flex gap-4">
+            <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg">
+              <h3 className="font-bold text-gray-800 text-base sm:text-lg mb-3 sm:mb-4">Choose Your Play Slot</h3>
+              <div className="flex gap-3 sm:gap-4">
                 {playSlots.map((slot) => (
                   <button
                     key={slot.id}
                     onClick={() => setSelectedSlot(slot.id)}
-                    className={`flex-1 p-4 rounded-xl text-center transition-all duration-300 ${
+                    className={`flex-1 p-3 sm:p-4 rounded-xl text-center transition-all duration-300 ${
                       selectedSlot === slot.id
                         ? `bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white shadow-lg scale-105`
                         : `bg-gradient-to-r ${slot.bg} text-gray-600 hover:scale-105`
                     }`}
                   >
-                    <div className="text-2xl mb-2">{slot.icon}</div>
-                    <div className="font-semibold">{slot.name}</div>
-                    <div className="text-xs mt-1 opacity-80">{slot.time}</div>
+                    <div className="text-xl sm:text-2xl mb-1 sm:mb-2">{slot.icon}</div>
+                    <div className="font-semibold text-sm sm:text-base">{slot.name}</div>
+                    <div className="text-[10px] sm:text-xs mt-1 opacity-80">{slot.time}</div>
                   </button>
                 ))}
               </div>
-              <Link to="/booknow" className="w-full mt-6 bg-gradient-to-r from-[#D4A054] to-[#B8860B] text-white py-3 rounded-xl font-semibold hover:shadow-xl transition-all hover:scale-105 flex items-center justify-center gap-2 block text-center">
+              <Link to="/booknow" className="w-full mt-4 sm:mt-6 bg-gradient-to-r from-[#D4A054] to-[#B8860B] text-white py-2.5 sm:py-3 rounded-xl font-semibold hover:shadow-xl transition-all hover:scale-105 flex items-center justify-center gap-2 block text-center text-sm sm:text-base">
                 Book {selectedSlot === 'morning' ? 'Morning' : 'Evening'} Slot <FaArrowRight />
               </Link>
             </div>
           </div>
 
           {/* Right Column - What's Included & Benefits */}
-          <div className={`space-y-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
+          <div className="flex-1 space-y-4 sm:space-y-5 md:space-y-6">
             {/* What's Included */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="bg-gradient-to-r from-[#D4A054]/20 to-[#F5C27B]/20 p-3 rounded-xl">
-                  <GiDogHouse className="text-[#8B5E3C] text-xl" />
+            <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg">
+              <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <div className="bg-gradient-to-r from-[#D4A054]/20 to-[#F5C27B]/20 p-2 sm:p-3 rounded-xl">
+                  <GiDogHouse className="text-[#8B5E3C] text-lg sm:text-xl" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">🐕 What's Included in Play Hours</h3>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800">🐕 What's Included</h3>
               </div>
-              <div className="grid grid-cols-1 gap-3">
-                {[
-                  'Open play & social interaction',
-                  'Exercise and activity time',
-                  'Supervised environment by trained handlers',
-                  'Fresh drinking water availability',
-                  'Clean and sanitized play area',
-                  'Stress-free engagement for your pet'
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 p-2 rounded-lg hover:bg-[#FDF8F0] transition-colors">
-                    <FaCheckCircle className="text-[#D4A054] text-sm" />
-                    <span className="text-gray-600 text-sm">{item}</span>
+              <div className="grid grid-cols-1 gap-2 sm:gap-3">
+                {whatIncluded.slice(0, isMobile ? 4 : 6).map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-2 sm:gap-3 p-1.5 sm:p-2 rounded-lg hover:bg-[#FDF8F0] transition-colors">
+                    <FaCheckCircle className="text-[#D4A054] text-xs sm:text-sm flex-shrink-0" />
+                    <span className="text-gray-600 text-xs sm:text-sm">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Why Play Hours Matter */}
-            <div className="bg-gradient-to-br from-[#FDF8F0] to-white rounded-2xl p-6 shadow-lg border border-[#D4A054]/30">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="bg-gradient-to-r from-[#8B5E3C]/10 to-[#D4A054]/10 p-3 rounded-xl">
-                  <FaHeart className="text-[#D4A054] text-xl" />
+            {/* Why Play Hours Matter - Mobile Optimized */}
+            <div className="bg-gradient-to-br from-[#FDF8F0] to-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 shadow-lg border border-[#D4A054]/30">
+              <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+                <div className="bg-gradient-to-r from-[#8B5E3C]/10 to-[#D4A054]/10 p-2 sm:p-3 rounded-xl">
+                  <FaHeart className="text-[#D4A054] text-lg sm:text-xl" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-800">❤️ Why Play Hours Matter</h3>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800">❤️ Why Play Hours Matter</h3>
               </div>
-              <p className="text-gray-600 mb-4 text-sm">
+              <p className="text-gray-600 mb-3 sm:mb-4 text-xs sm:text-sm">
                 Regular play sessions help in:
               </p>
-              <div className="grid grid-cols-2 gap-3">
-                {benefits.map((benefit, idx) => (
-                  <div key={idx} className="bg-white rounded-xl p-3 text-center shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                    <div className="text-2xl mb-1 flex justify-center">{benefit.icon}</div>
-                    <h4 className="font-bold text-gray-800 text-sm">{benefit.title}</h4>
-                    <p className="text-gray-500 text-xs">{benefit.desc}</p>
+              <div className="grid grid-cols-2 gap-2 sm:gap-3">
+                {displayedBenefits.map((benefit, idx) => (
+                  <div key={idx} className="bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 text-center shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                    <div className="text-xl sm:text-2xl mb-1 flex justify-center">{benefit.icon}</div>
+                    <h4 className="font-bold text-gray-800 text-xs sm:text-sm">{benefit.title}</h4>
+                    <p className="text-gray-500 text-[10px] sm:text-xs">{benefit.desc}</p>
                   </div>
                 ))}
               </div>
+              
+              {/* Show More/Less Button - Mobile Only */}
+              {isMobile && allBenefits.length > 2 && (
+                <button
+                  onClick={toggleBenefits}
+                  className="mt-3 w-full flex items-center justify-center gap-1 text-[#D4A054] text-xs sm:text-sm font-semibold hover:underline"
+                >
+                  {showAllBenefits ? (
+                    <>Show Less <FaChevronUp className="text-xs" /></>
+                  ) : (
+                    <>Show More Benefits <FaChevronDown className="text-xs" /></>
+                  )}
+                </button>
+              )}
             </div>
 
             {/* Features Grid */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3">
               {features.map((feature, idx) => (
-                <div key={idx} className="bg-white rounded-xl p-3 text-center shadow-md hover:shadow-lg transition-all hover:-translate-y-1 group">
-                  <div className="text-2xl mb-1 flex justify-center group-hover:scale-110 transition-transform">{feature.icon}</div>
-                  <h4 className="font-bold text-gray-800 text-sm">{feature.title}</h4>
-                  <p className="text-gray-500 text-xs">{feature.desc}</p>
+                <div key={idx} className="bg-white rounded-lg sm:rounded-xl p-2 sm:p-3 text-center shadow-md hover:shadow-lg transition-all hover:-translate-y-1 group">
+                  <div className="text-xl sm:text-2xl mb-1 flex justify-center group-hover:scale-110 transition-transform">{feature.icon}</div>
+                  <h4 className="font-bold text-gray-800 text-xs sm:text-sm">{feature.title}</h4>
+                  <p className="text-gray-500 text-[10px] sm:text-xs">{feature.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Premium Badge */}
-        <div className={`text-center mt-8 transition-all duration-700 delay-300 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#8B5E3C] to-[#D4A054] px-6 py-3 rounded-full shadow-lg">
-            <GiPawHeart className="text-white text-xl" />
-            <span className="text-white font-semibold">Premium Play Hours • Limited Slots</span>
-            <FaGem className="text-[#F5C27B] text-sm" />
+        {/* Premium Badge - Mobile Optimized */}
+        <div className={`text-center mt-6 sm:mt-8 transition-all duration-700 delay-300 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <div className="inline-flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-[#8B5E3C] to-[#D4A054] px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 rounded-full shadow-lg">
+            <GiPawHeart className="text-white text-base sm:text-lg md:text-xl" />
+            <span className="text-white font-semibold text-xs sm:text-sm md:text-base">Premium Play Hours</span>
+            <FaGem className="text-[#F5C27B] text-xs sm:text-sm" />
           </div>
         </div>
 
@@ -282,7 +300,7 @@ const PlayHours = () => {
         @keyframes fade-in-up {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
           }
           to {
             opacity: 1;
@@ -295,7 +313,7 @@ const PlayHours = () => {
         }
         
         .animate-fade-in-up {
-          animation: fade-in-up 0.6s ease-out forwards;
+          animation: fade-in-up 0.5s ease-out forwards;
           opacity: 0;
         }
         
