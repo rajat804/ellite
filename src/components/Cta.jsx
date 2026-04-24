@@ -10,13 +10,25 @@ import {
   FaShieldAlt,
   FaSmile,
   FaCalendarCheck,
-  FaGift
+  FaGift,
+  FaCheckCircle,
+  FaSpinner
 } from 'react-icons/fa';
 
 const Cta = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  
+  // Form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +52,94 @@ const Cta = () => {
       setSubscribed(true);
       setTimeout(() => setSubscribed(false), 3000);
       setEmail('');
+    }
+  };
+
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // Send WhatsApp message
+  const sendWhatsAppMessage = async (data) => {
+    const phoneNumber = "";
+    
+    // Format the message
+    const message = `🐾 *New Pet Care Request* 🐾
+
+📋 *Customer Details:*
+━━━━━━━━━━━━━━━━━━━━
+👤 *Name:* ${data.name}
+📧 *Email:* ${data.email}
+📞 *Phone:* ${data.phone}
+🎯 *Service:* ${data.service}
+━━━━━━━━━━━━━━━━━━━━
+
+⏰ *Request Time:* ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
+
+📌 *Status:* Pending - Need immediate follow-up
+
+━━━━━━━━━━━━━━━━━━━━
+*PetCare Team* 🐕🐈`;
+
+    // Encode the message for WhatsApp API
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+    
+    return true;
+  };
+
+  // Handle form submission
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Validate form
+    if (!formData.name || !formData.email || !formData.phone || !formData.service) {
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(null), 3000);
+      return;
+    }
+    
+    // Validate phone number (basic validation)
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!phoneRegex.test(formData.phone)) {
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(null), 3000);
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      // Send WhatsApp message
+      await sendWhatsAppMessage(formData);
+      
+      setSubmitStatus('success');
+      
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: ''
+      });
+      
+      // Clear success message after 3 seconds
+      setTimeout(() => setSubmitStatus(null), 3000);
+      
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(null), 3000);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -131,33 +231,81 @@ const Cta = () => {
                   Fill in your details and we'll get back to you within 30 minutes
                 </p>
 
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <div className="mb-4 p-3 bg-green-500/20 border border-green-500 rounded-lg flex items-center gap-2 animate-fade-in">
+                    <FaCheckCircle className="text-green-500" />
+                    <span className="text-sm">Request sent! We'll contact you shortly on WhatsApp.</span>
+                  </div>
+                )}
+                
+                {submitStatus === 'error' && (
+                  <div className="mb-4 p-3 bg-red-500/20 border border-red-500 rounded-lg flex items-center gap-2 animate-fade-in">
+                    <span className="text-sm">Please fill all fields correctly (10-digit phone number)</span>
+                  </div>
+                )}
+
                 {/* Contact Form */}
-                <form className="space-y-4 mb-6">
+                <form onSubmit={handleFormSubmit} className="space-y-4 mb-6">
                   <input 
                     type="text" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     placeholder="Your Name"
+                    required
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-[#FFD1B3] text-white placeholder:text-white/50"
                   />
                   <input 
                     type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     placeholder="Your Email"
+                    required
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-[#FFD1B3] text-white placeholder:text-white/50"
                   />
                   <input 
                     type="tel" 
-                    placeholder="Phone Number"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="Phone Number (10 digits)"
+                    required
+                    pattern="[0-9]{10}"
+                    maxLength="10"
                     className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-[#FFD1B3] text-white placeholder:text-white/50"
                   />
-                  <select className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-[#FFD1B3] text-white">
-                    <option className="text-[#2C3E50]">Select Service</option>
-                    <option className="text-[#2C3E50]">Dog Boarding</option>
-                    <option className="text-[#2C3E50]">Cat Boarding</option>
-                    <option className="text-[#2C3E50]">Vet Home Visit</option>
-                    <option className="text-[#2C3E50]">Grooming</option>
-                    <option className="text-[#2C3E50]">Training</option>
+                  <select 
+                    name="service"
+                    value={formData.service}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-[#FFD1B3] text-white"
+                  >
+                    <option value="" className="text-[#2C3E50]">Select Service</option>
+                    <option value="Dog Boarding" className="text-[#2C3E50]">Dog Boarding</option>
+                    <option value="Cat Boarding" className="text-[#2C3E50]">Cat Boarding</option>
+                    <option value="Vet Home Visit" className="text-[#2C3E50]">Vet Home Visit</option>
+                    <option value="Grooming" className="text-[#2C3E50]">Grooming</option>
+                    <option value="Training" className="text-[#2C3E50]">Training</option>
+                    <option value="Play Hours" className="text-[#2C3E50]">Play Hours</option>
                   </select>
-                  <button className="w-full bg-[#FFD1B3] text-[#007B7F] px-6 py-3 rounded-lg font-semibold hover:bg-[#FFE4CC] transition-all flex items-center justify-center gap-2">
-                    <FaCalendarCheck /> Request Callback
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-[#FFD1B3] text-[#007B7F] px-6 py-3 rounded-lg font-semibold hover:bg-[#FFE4CC] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <FaSpinner className="animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <FaWhatsapp /> Request Callback on WhatsApp
+                      </>
+                    )}
                   </button>
                 </form>
 
@@ -173,7 +321,7 @@ const Cta = () => {
                   </div>
                   <div className="flex items-center gap-2 text-white/80">
                     <FaWhatsapp className="text-[#FFD1B3]" />
-                    <span>+91-9582582689 (WhatsApp)</span>
+                    <span>+91-7217747900 (WhatsApp)</span>
                   </div>
                 </div>
               </div>
@@ -182,7 +330,7 @@ const Cta = () => {
 
           {/* Newsletter Subscription */}
           <div className="mt-8 text-center">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
+            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg flex-wrap">
               <span className="text-[#007B7F]">📧</span>
               <span className="text-[#2C3E50] text-sm">Get 10% off on your first booking</span>
               <form onSubmit={handleSubscribe} className="flex gap-2 ml-4">
@@ -208,11 +356,19 @@ const Cta = () => {
 
       <style jsx>{`
         @keyframes fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in {
           animation: fade-in 0.3s ease-out;
+        }
+        
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .animate-spin {
+          animation: spin 1s linear infinite;
         }
       `}</style>
     </section>
