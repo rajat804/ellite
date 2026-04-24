@@ -12,6 +12,8 @@ import {
   FaCut,
   FaBone,
   FaStar,
+  FaGem,
+  FaCoffee
 } from "react-icons/fa";
 import {
   MdPets,
@@ -23,7 +25,7 @@ import {
 } from "react-icons/md";
 import { GiDogHouse, GiMeditation } from "react-icons/gi";
 
-// Import Components (make sure these files exist)
+// Import Components
 import WhyChooseUs from "../components/WhyChooseUs";
 import Testimonial from "../components/Testimonial";
 import Faq from "../components/Faq";
@@ -53,11 +55,11 @@ const ServicesPage = () => {
   }, []);
 
   const categories = [
-    { id: "all", name: "All Services", icon: <MdPets />, color: "#007B7F", count: 12 },
-    { id: "boarding", name: "Boarding", icon: <GiDogHouse />, color: "#E67E22", count: 4 },
-    { id: "medical", name: "Medical", icon: <MdLocalHospital />, color: "#FF7A2F", count: 3 },
-    { id: "grooming", name: "Grooming", icon: <MdFace />, color: "#6B4E71", count: 2 },
-    { id: "training", name: "Training", icon: <MdTrain />, color: "#007B7F", count: 3 },
+    { id: "all", name: "All Services", icon: <MdPets />, color: "#8B5E3C", count: 12 },
+    { id: "boarding", name: "Boarding", icon: <GiDogHouse />, color: "#D4A054", count: 4 },
+    { id: "medical", name: "Medical", icon: <MdLocalHospital />, color: "#6B2E2E", count: 3 },
+    { id: "grooming", name: "Grooming", icon: <MdFace />, color: "#D4A054", count: 2 },
+    { id: "training", name: "Training", icon: <MdTrain />, color: "#8B5E3C", count: 3 },
   ];
 
   const services = [
@@ -77,9 +79,9 @@ const ServicesPage = () => {
       rating: 4.9,
       reviews: 234,
       duration: "day",
-      color: "#E67E22",
-      bg: "bg-gradient-to-br from-orange-50 to-orange-100",
-      iconBg: "bg-gradient-to-br from-orange-500 to-orange-600",
+      color: "#D4A054",
+      bg: "bg-gradient-to-br from-[#D4A054]/10 to-[#F5C27B]/20",
+      iconBg: "bg-gradient-to-br from-[#D4A054] to-[#F5C27B]",
       image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800",
     },
     {
@@ -97,9 +99,9 @@ const ServicesPage = () => {
       rating: 4.8,
       reviews: 189,
       duration: "day",
-      color: "#007B7F",
-      bg: "bg-gradient-to-br from-teal-50 to-teal-100",
-      iconBg: "bg-gradient-to-br from-[#007B7F] to-[#005C5F]",
+      color: "#8B5E3C",
+      bg: "bg-gradient-to-br from-[#8B5E3C]/10 to-[#A0714F]/20",
+      iconBg: "bg-gradient-to-br from-[#8B5E3C] to-[#6B2E2E]",
       image: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=800",
     },
     {
@@ -117,9 +119,9 @@ const ServicesPage = () => {
       rating: 4.7,
       reviews: 156,
       duration: "day",
-      color: "#6B4E71",
-      bg: "bg-gradient-to-br from-purple-50 to-purple-100",
-      iconBg: "bg-gradient-to-br from-purple-500 to-purple-600",
+      color: "#6B2E2E",
+      bg: "bg-gradient-to-br from-[#6B2E2E]/10 to-[#4A3728]/20",
+      iconBg: "bg-gradient-to-br from-[#6B2E2E] to-[#4A3728]",
       image: "https://images.unsplash.com/photo-1587300003387-592e2f1b61e1?w=800",
     },
     {
@@ -137,9 +139,9 @@ const ServicesPage = () => {
       rating: 4.9,
       reviews: 98,
       duration: "day & night",
-      color: "#FF7A2F",
-      bg: "bg-gradient-to-br from-orange-50 to-orange-100",
-      iconBg: "bg-gradient-to-br from-orange-500 to-orange-600",
+      color: "#D4A054",
+      bg: "bg-gradient-to-br from-[#D4A054]/10 to-[#F5C27B]/20",
+      iconBg: "bg-gradient-to-br from-[#D4A054] to-[#F5C27B]",
       image: "https://images.unsplash.com/photo-1544568100-847a5145851d?w=800",
     },
     // Medical Services
@@ -158,9 +160,9 @@ const ServicesPage = () => {
       rating: 4.9,
       reviews: 342,
       duration: "per visit",
-      color: "#007B7F",
-      bg: "bg-gradient-to-br from-teal-50 to-teal-100",
-      iconBg: "bg-gradient-to-br from-[#007B7F] to-[#005C5F]",
+      color: "#8B5E3C",
+      bg: "bg-gradient-to-br from-[#8B5E3C]/10 to-[#A0714F]/20",
+      iconBg: "bg-gradient-to-br from-[#8B5E3C] to-[#6B2E2E]",
       image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=800",
     },
     {
@@ -178,9 +180,9 @@ const ServicesPage = () => {
       rating: 4.8,
       reviews: 567,
       duration: "per pet",
-      color: "#E67E22",
-      bg: "bg-gradient-to-br from-orange-50 to-orange-100",
-      iconBg: "bg-gradient-to-br from-orange-500 to-orange-600",
+      color: "#D4A054",
+      bg: "bg-gradient-to-br from-[#D4A054]/10 to-[#F5C27B]/20",
+      iconBg: "bg-gradient-to-br from-[#D4A054] to-[#F5C27B]",
       image: "https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?w=800",
     },
     {
@@ -198,9 +200,9 @@ const ServicesPage = () => {
       rating: 4.9,
       reviews: 234,
       duration: "emergency",
-      color: "#FF7A2F",
-      bg: "bg-gradient-to-br from-red-50 to-red-100",
-      iconBg: "bg-gradient-to-br from-red-500 to-red-600",
+      color: "#6B2E2E",
+      bg: "bg-gradient-to-br from-[#6B2E2E]/10 to-[#4A3728]/20",
+      iconBg: "bg-gradient-to-br from-[#6B2E2E] to-[#4A3728]",
       image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800",
     },
     // Grooming Services
@@ -219,9 +221,9 @@ const ServicesPage = () => {
       rating: 4.9,
       reviews: 423,
       duration: "per session",
-      color: "#6B4E71",
-      bg: "bg-gradient-to-br from-purple-50 to-purple-100",
-      iconBg: "bg-gradient-to-br from-purple-500 to-purple-600",
+      color: "#D4A054",
+      bg: "bg-gradient-to-br from-[#D4A054]/10 to-[#F5C27B]/20",
+      iconBg: "bg-gradient-to-br from-[#D4A054] to-[#F5C27B]",
       image: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=800",
     },
     {
@@ -239,9 +241,9 @@ const ServicesPage = () => {
       rating: 4.8,
       reviews: 189,
       duration: "per session",
-      color: "#FF7A2F",
-      bg: "bg-gradient-to-br from-orange-50 to-orange-100",
-      iconBg: "bg-gradient-to-br from-orange-500 to-orange-600",
+      color: "#8B5E3C",
+      bg: "bg-gradient-to-br from-[#8B5E3C]/10 to-[#A0714F]/20",
+      iconBg: "bg-gradient-to-br from-[#8B5E3C] to-[#6B2E2E]",
       image: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=800",
     },
     // Training Services
@@ -260,9 +262,9 @@ const ServicesPage = () => {
       rating: 4.8,
       reviews: 267,
       duration: "per session",
-      color: "#007B7F",
-      bg: "bg-gradient-to-br from-teal-50 to-teal-100",
-      iconBg: "bg-gradient-to-br from-[#007B7F] to-[#005C5F]",
+      color: "#8B5E3C",
+      bg: "bg-gradient-to-br from-[#8B5E3C]/10 to-[#A0714F]/20",
+      iconBg: "bg-gradient-to-br from-[#8B5E3C] to-[#6B2E2E]",
       image: "https://images.unsplash.com/photo-1587300003387-592e2f1b61e1?w=800",
     },
     {
@@ -280,9 +282,9 @@ const ServicesPage = () => {
       rating: 4.9,
       reviews: 423,
       duration: "per session",
-      color: "#E67E22",
-      bg: "bg-gradient-to-br from-orange-50 to-orange-100",
-      iconBg: "bg-gradient-to-br from-orange-500 to-orange-600",
+      color: "#D4A054",
+      bg: "bg-gradient-to-br from-[#D4A054]/10 to-[#F5C27B]/20",
+      iconBg: "bg-gradient-to-br from-[#D4A054] to-[#F5C27B]",
       image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800",
     },
     {
@@ -300,9 +302,9 @@ const ServicesPage = () => {
       rating: 4.9,
       reviews: 189,
       duration: "per session",
-      color: "#6B4E71",
-      bg: "bg-gradient-to-br from-purple-50 to-purple-100",
-      iconBg: "bg-gradient-to-br from-purple-500 to-purple-600",
+      color: "#6B2E2E",
+      bg: "bg-gradient-to-br from-[#6B2E2E]/10 to-[#4A3728]/20",
+      iconBg: "bg-gradient-to-br from-[#6B2E2E] to-[#4A3728]",
       image: "https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?w=800",
     },
   ];
@@ -330,23 +332,23 @@ const ServicesPage = () => {
   };
 
   return (
-    <div id="services-page" className="min-h-screen bg-gradient-to-b from-white to-[#FFF9F0]">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-[#007B7F] to-[#005C5F] h-screen max-h-[700px] min-h-[550px] flex items-center justify-center overflow-hidden">
+    <div id="services-page" className="min-h-screen bg-gradient-to-b from-white to-[#FDF8F0]">
+      {/* Hero Section - Bruno's Theme */}
+      <section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] h-screen max-h-[700px] min-h-[550px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute top-10 left-10 w-72 h-72 bg-[#D4A054] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#D4A054] rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className={`text-center text-white transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-              <FaPaw className="text-[#FFD1B3]" />
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 mx-auto w-fit">
+              <FaPaw className="text-[#D4A054]" />
               <span className="text-sm font-medium">Our Services</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               Professional Pet Care
-              <span className="block text-[#FFD1B3]">at Your Doorstep</span>
+              <span className="block text-[#D4A054]">at Your Doorstep</span>
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
               Comprehensive, loving, and professional services tailored to your pet's unique needs
@@ -357,12 +359,12 @@ const ServicesPage = () => {
         {/* Animated Wave */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
-            <path fill="#FFF9F0" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            <path fill="#FDF8F0" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
           </svg>
         </div>
       </section>
 
-      {/* Category Filters */}
+      {/* Category Filters - Bruno's Theme */}
       <div className="container mx-auto px-4 md:px-8 -mt-8 relative z-20">
         <div className={`flex flex-wrap justify-center gap-3 mb-12 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
           {categories.map((category, idx) => (
@@ -371,8 +373,8 @@ const ServicesPage = () => {
               onClick={() => setSelectedCategory(category.id)}
               className={`group flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
                 selectedCategory === category.id
-                  ? "bg-[#007B7F] text-white shadow-lg scale-105"
-                  : "bg-white text-gray-600 hover:bg-[#007B7F]/10 hover:text-[#007B7F] shadow-md"
+                  ? "bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white shadow-lg scale-105"
+                  : "bg-white text-gray-600 hover:bg-[#D4A054]/20 hover:text-[#8B5E3C] shadow-md"
               }`}
               style={{ transitionDelay: `${idx * 0.05}s` }}
             >
@@ -386,7 +388,7 @@ const ServicesPage = () => {
         </div>
       </div>
 
-      {/* Services Grid */}
+      {/* Services Grid - Bruno's Theme */}
       <div className="container mx-auto px-4 md:px-8 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredServices.map((service, idx) => (
@@ -394,13 +396,13 @@ const ServicesPage = () => {
               key={service.id}
               className={`group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              } ${service.popular ? "relative ring-2 ring-[#FFD1B3]" : ""}`}
+              } ${service.popular ? "relative ring-2 ring-[#D4A054]" : ""}`}
               style={{ transitionDelay: `${idx * 0.1}s` }}
             >
               {/* Popular Badge */}
               {service.popular && (
                 <div className="absolute top-4 right-4 z-10 animate-bounce-slow">
-                  <div className="bg-gradient-to-r from-[#FFD1B3] to-[#FFE4CC] text-[#2C3E50] text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                  <div className="bg-gradient-to-r from-[#D4A054] to-[#F5C27B] text-[#2C1810] text-xs font-bold px-3 py-1 rounded-full shadow-lg">
                     🔥 Most Popular
                   </div>
                 </div>
@@ -412,7 +414,7 @@ const ServicesPage = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute bottom-4 left-4">
                   <div className="flex items-center gap-2 text-white">
-                    <FaStar className="text-yellow-400" />
+                    <FaStar className="text-[#D4A054]" />
                     <span className="font-semibold">{service.rating}</span>
                     <span className="text-sm">({service.reviews} reviews)</span>
                   </div>
@@ -423,7 +425,7 @@ const ServicesPage = () => {
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <h3 className="text-xl font-bold text-[#2C3E50] group-hover:text-[#007B7F] transition-colors">
+                    <h3 className="text-xl font-bold text-gray-800 group-hover:text-[#8B5E3C] transition-colors">
                       {service.title}
                     </h3>
                     <p className="text-sm text-gray-500">{service.subtitle}</p>
@@ -453,7 +455,7 @@ const ServicesPage = () => {
 
                 {/* Price Section */}
                 <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-2xl font-bold text-[#007B7F]">{service.price}</span>
+                  <span className="text-2xl font-bold text-[#D4A054]">{service.price}</span>
                   {service.originalPrice && (
                     <span className="text-sm text-gray-400 line-through">{service.originalPrice}</span>
                   )}
@@ -462,10 +464,10 @@ const ServicesPage = () => {
 
                 {/* Action Buttons */}
                 <div className="flex gap-3">
-                  <button onClick={() => openModal(service)} className="flex-1 bg-[#007B7F] text-white px-4 py-2.5 rounded-lg font-semibold hover:bg-[#007B7F]/80 transition-all hover:scale-105 text-sm flex items-center justify-center gap-2 group">
+                  <button onClick={() => openModal(service)} className="flex-1 bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white px-4 py-2.5 rounded-lg font-semibold hover:shadow-lg transition-all hover:scale-105 text-sm flex items-center justify-center gap-2 group">
                     Book Now <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
                   </button>
-                  <button onClick={() => openModal(service)} className="px-4 py-2.5 rounded-lg border border-gray-300 text-gray-600 hover:border-[#007B7F] hover:text-[#007B7F] transition-all text-sm font-medium">
+                  <button onClick={() => openModal(service)} className="px-4 py-2.5 rounded-lg border border-gray-300 text-gray-600 hover:border-[#D4A054] hover:text-[#D4A054] transition-all text-sm font-medium">
                     Details
                   </button>
                 </div>
@@ -475,13 +477,22 @@ const ServicesPage = () => {
         </div>
       </div>
 
+      {/* Premium Badge */}
+      <div className="text-center pt-4 pb-8">
+        <div className="inline-flex items-center gap-2 bg-white shadow-md px-5 py-2 rounded-full">
+          <FaGem className="text-[#D4A054] text-sm" />
+          <span className="text-xs text-gray-500">Premium Pet Care Services</span>
+          <FaCoffee className="text-[#D4A054] text-sm" />
+        </div>
+      </div>
+
       {/* Imported Components */}
       <WhyChooseUs />
       <Testimonial />
       <Faq />
       <Cta />
 
-      {/* Service Details Modal */}
+      {/* Service Details Modal - Bruno's Theme */}
       {showModal && selectedService && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in" onClick={closeModal}>
           <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto animate-scale-up" onClick={(e) => e.stopPropagation()}>
@@ -491,7 +502,7 @@ const ServicesPage = () => {
                 ✕
               </button>
               {selectedService.popular && (
-                <div className="absolute top-4 left-4 bg-gradient-to-r from-[#FFD1B3] to-[#FFE4CC] text-[#2C3E50] text-xs font-bold px-3 py-1 rounded-full">
+                <div className="absolute top-4 left-4 bg-gradient-to-r from-[#D4A054] to-[#F5C27B] text-[#2C1810] text-xs font-bold px-3 py-1 rounded-full">
                   🔥 Most Popular
                 </div>
               )}
@@ -500,7 +511,7 @@ const ServicesPage = () => {
             <div className="p-6 md:p-8">
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#2C3E50]">{selectedService.title}</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-800">{selectedService.title}</h2>
                   <p className="text-gray-500">{selectedService.subtitle}</p>
                 </div>
                 <div className={`${selectedService.iconBg} w-16 h-16 rounded-xl flex items-center justify-center text-white text-2xl`}>
@@ -510,12 +521,12 @@ const ServicesPage = () => {
 
               <div className="flex items-center gap-4 mb-6 pb-4 border-b">
                 <div className="flex items-center gap-1">
-                  <FaStar className="text-yellow-400" />
+                  <FaStar className="text-[#D4A054]" />
                   <span className="font-semibold">{selectedService.rating}</span>
                   <span className="text-gray-500">({selectedService.reviews} reviews)</span>
                 </div>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-2xl font-bold text-[#007B7F]">{selectedService.price}</span>
+                  <span className="text-2xl font-bold text-[#D4A054]">{selectedService.price}</span>
                   {selectedService.originalPrice && (
                     <span className="text-gray-400 line-through">{selectedService.originalPrice}</span>
                   )}
@@ -533,7 +544,7 @@ const ServicesPage = () => {
                 <div className="grid md:grid-cols-2 gap-3">
                   {selectedService.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-2">
-                      <FaCheckCircle className="text-[#007B7F] text-sm" />
+                      <FaCheckCircle className="text-[#D4A054] text-sm" />
                       <span className="text-gray-600">{feature}</span>
                     </div>
                   ))}
@@ -541,10 +552,10 @@ const ServicesPage = () => {
               </div>
 
               <div className="flex gap-4">
-                <Link to={'/booknow'} className="flex-1 bg-[#007B7F] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#007B7F]/80 transition-all">
+                <Link to={'/booknow'} className="flex-1 bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
                   Book Now
                 </Link>
-                <button onClick={closeModal} className="px-6 py-3 rounded-lg border border-gray-300 text-gray-600 hover:border-[#007B7F] hover:text-[#007B7F] transition-all">
+                <button onClick={closeModal} className="px-6 py-3 rounded-lg border border-gray-300 text-gray-600 hover:border-[#D4A054] hover:text-[#D4A054] transition-all">
                   Close
                 </button>
               </div>
