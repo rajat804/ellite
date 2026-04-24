@@ -14,6 +14,7 @@ import {
   FaClock
 } from 'react-icons/fa';
 import { MdPets, MdHealthAndSafety, MdVerified } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const HowItWorks = () => {
   const [activeStep, setActiveStep] = useState(1); // ✅ Keep this
@@ -253,9 +254,9 @@ const HowItWorks = () => {
                 <div><div className="text-2xl font-bold">24/7</div><div className="text-sm text-white/80">Support Available</div></div>
               </div>
               <div className="flex flex-wrap gap-4">
-                <button className="bg-white text-[#007B7F] px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center gap-2">
+                <Link to={'/booknow'} className="bg-white text-[#007B7F] px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center gap-2">
                   Book Now <FaArrowRight />
-                </button>
+                </Link>
                 <button className="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white/10 transition-all flex items-center gap-2">
                   <FaVideo /> Watch Demo
                 </button>
