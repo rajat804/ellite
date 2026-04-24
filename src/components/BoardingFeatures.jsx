@@ -13,9 +13,14 @@ import {
   FaSnowflake,
   FaHome,
   FaShieldAlt,
+  FaBath,
+  FaHeart,
+  FaCheckCircle,
+  FaArrowRight
 } from "react-icons/fa";
-import { MdAir, MdPets, MdHealthAndSafety } from "react-icons/md";
-import { GiHeartBeats, GiDogHouse } from "react-icons/gi";
+import { MdAir, MdPets, MdHealthAndSafety, MdCleaningServices } from "react-icons/md";
+import { GiHeartBeats, GiDogHouse, GiPawHeart } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 const BoardingFeatures = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,13 +44,16 @@ const BoardingFeatures = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Bruno's Family Color Palette
+  
+
   const features = [
     {
       id: 1,
       icon: <GiDogHouse className="text-3xl" />,
       title: "Spacious Air-Conditioned Kennels",
       description: "Premium climate-controlled kennels with soft bedding and ample space for your pet to relax comfortably.",
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-[#8B5E3C] to-[#A0714F]",
       delay: 0,
     },
     {
@@ -53,7 +61,7 @@ const BoardingFeatures = () => {
       icon: <FaHome className="text-3xl" />,
       title: "Cage-Free Stay",
       description: "Freedom to roam in our secure, supervised play areas. No cages, just a home-like environment.",
-      gradient: "from-green-500 to-teal-500",
+      gradient: "from-[#D4A054] to-[#B8860B]",
       delay: 0.1,
     },
     {
@@ -61,7 +69,7 @@ const BoardingFeatures = () => {
       icon: <FaWalking className="text-3xl" />,
       title: "Daily Walks & Playtime",
       description: "Structured exercise sessions with professional handlers. Multiple walks and play sessions every day.",
-      gradient: "from-orange-500 to-red-500",
+      gradient: "from-[#6B2E2E] to-[#4A3728]",
       delay: 0.2,
     },
     {
@@ -69,7 +77,7 @@ const BoardingFeatures = () => {
       icon: <FaUtensils className="text-3xl" />,
       title: "Nutritious Feeding",
       description: "Premium quality meals prepared fresh. Special diets accommodated (vet prescribed, homemade, raw, etc.).",
-      gradient: "from-purple-500 to-pink-500",
+      gradient: "from-[#8B5E3C] to-[#D4A054]",
       delay: 0.3,
     },
     {
@@ -77,7 +85,7 @@ const BoardingFeatures = () => {
       icon: <MdHealthAndSafety className="text-3xl" />,
       title: "Special Diet Care",
       description: "Individualized meal plans for pets with allergies, medical conditions, or specific dietary requirements.",
-      gradient: "from-rose-500 to-orange-500",
+      gradient: "from-[#D4A054] to-[#F5C27B]",
       delay: 0.4,
     },
     {
@@ -85,7 +93,7 @@ const BoardingFeatures = () => {
       icon: <FaVideo className="text-3xl" />,
       title: "24/7 Supervision",
       description: "Trained staff present round the clock. Immediate attention to any needs or emergencies.",
-      gradient: "from-indigo-500 to-purple-500",
+      gradient: "from-[#6B2E2E] to-[#8B5E3C]",
       delay: 0.5,
     },
     {
@@ -93,7 +101,7 @@ const BoardingFeatures = () => {
       icon: <FaShieldAlt className="text-3xl" />,
       title: "CCTV Monitoring",
       description: "Live camera access for pet parents. Watch your furry friend anytime from your smartphone.",
-      gradient: "from-gray-700 to-gray-900",
+      gradient: "from-[#4A3728] to-[#2C1810]",
       delay: 0.6,
     },
     {
@@ -101,7 +109,7 @@ const BoardingFeatures = () => {
       icon: <FaCut className="text-3xl" />,
       title: "Professional Grooming",
       description: "Bath, brushing, nail trimming, ear cleaning, and styling available during stay.",
-      gradient: "from-pink-500 to-rose-500",
+      gradient: "from-[#D4A054] to-[#B8860B]",
       delay: 0.7,
     },
     {
@@ -109,7 +117,7 @@ const BoardingFeatures = () => {
       icon: <MdPets className="text-3xl" />,
       title: "Hygiene Services",
       description: "Regular cleaning, sanitization, and pest control. Fresh bedding and bowls daily.",
-      gradient: "from-teal-500 to-emerald-500",
+      gradient: "from-[#8B5E3C] to-[#6B2E2E]",
       delay: 0.8,
     },
     {
@@ -117,7 +125,7 @@ const BoardingFeatures = () => {
       icon: <FaGraduationCap className="text-3xl" />,
       title: "Basic Training",
       description: "Reinforcement of basic commands like sit, stay, come, and leash manners during stay.",
-      gradient: "from-yellow-500 to-orange-500",
+      gradient: "from-[#D4A054] to-[#F5C27B]",
       delay: 0.9,
     },
     {
@@ -125,7 +133,7 @@ const BoardingFeatures = () => {
       icon: <GiHeartBeats className="text-3xl" />,
       title: "Socialization Sessions",
       description: "Controlled interaction with other friendly, vaccinated pets to improve social skills.",
-      gradient: "from-red-500 to-pink-500",
+      gradient: "from-[#6B2E2E] to-[#8B5E3C]",
       delay: 1.0,
     },
     {
@@ -133,7 +141,7 @@ const BoardingFeatures = () => {
       icon: <FaAmbulance className="text-3xl" />,
       title: "On-Call Veterinary Care",
       description: "24/7 access to licensed veterinarians. Emergency medical attention when needed.",
-      gradient: "from-red-600 to-red-800",
+      gradient: "from-[#4A3728] to-[#2C1810]",
       delay: 1.1,
     },
     {
@@ -141,7 +149,7 @@ const BoardingFeatures = () => {
       icon: <FaCar className="text-3xl" />,
       title: "Home Pick-Up & Drop",
       description: "Doorstep transportation service available. Stress-free travel for your pet.",
-      gradient: "from-blue-600 to-indigo-600",
+      gradient: "from-[#8B5E3C] to-[#D4A054]",
       delay: 1.2,
     },
     {
@@ -149,23 +157,30 @@ const BoardingFeatures = () => {
       icon: <FaCamera className="text-3xl" />,
       title: "Daily Photo & Video Updates",
       description: "Receive regular updates with pictures and videos of your happy, playing pet.",
-      gradient: "from-emerald-500 to-green-600",
+      gradient: "from-[#D4A054] to-[#F5C27B]",
       delay: 1.3,
     },
   ];
 
+  const groomingServices = [
+    { icon: <FaBath />, title: "Bath & Drying", price: "₹299", description: "Premium shampoo bath with gentle drying", gradient: "from-[#8B5E3C] to-[#A0714F]" },
+    { icon: <FaCut />, title: "Basic Brushing", price: "₹149", description: "Thorough brushing to remove loose fur", gradient: "from-[#D4A054] to-[#B8860B]" },
+    { icon: <MdCleaningServices />, title: "Hygiene Cleaning", price: "₹199", description: "Ear cleaning, nail trimming, paw care", gradient: "from-[#6B2E2E] to-[#4A3728]" }
+  ];
+
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-white to-[#FDF8F0] overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
+        
         {/* Section Header */}
         <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-          <div className="inline-flex items-center gap-2 bg-[#007B7F]/10 px-4 py-2 rounded-full mb-4">
-            <FaDog className="text-[#007B7F]" />
-            <span className="text-sm font-semibold text-[#007B7F]">Premium Boarding</span>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#8B5E3C]/10 to-[#D4A054]/10 px-4 py-2 rounded-full mb-4 mx-auto w-fit">
+            <FaDog className="text-[#8B5E3C]" />
+            <span className="text-sm font-semibold text-[#8B5E3C]">Premium Boarding</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
             Safe & Comfortable
-            <span className="text-[#007B7F] block">Overnight Boarding</span>
+            <span className="bg-gradient-to-r from-[#8B5E3C] to-[#D4A054] bg-clip-text text-transparent block">Overnight Boarding</span>
           </h2>
           <p className="text-gray-600 text-lg">
             Your pet deserves the best care while you're away. Experience luxury boarding with our comprehensive services.
@@ -173,7 +188,7 @@ const BoardingFeatures = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {features.map((feature) => (
             <div
               key={feature.id}
@@ -185,36 +200,69 @@ const BoardingFeatures = () => {
               <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-[#007B7F] transition-colors">
+              <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-[#8B5E3C] transition-colors">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-sm">
                 {feature.description}
               </p>
             </div>
           ))}
         </div>
 
+        {/* Grooming Services Section */}
+        <div className={`mb-16 transition-all duration-700 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#D4A054]/10 to-[#F5C27B]/10 px-4 py-2 rounded-full mb-4 mx-auto w-fit">
+              <FaCut className="text-[#D4A054]" />
+              <span className="text-sm font-semibold text-[#D4A054]">Optional Add-On</span>
+            </div>
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
+              Grooming{' '}
+              <span className="bg-gradient-to-r from-[#D4A054] to-[#F5C27B] bg-clip-text text-transparent">Services</span>
+            </h3>
+            <p className="text-gray-500 text-lg">
+              Keep Your Pet Clean & Happy — We offer basic grooming services to keep your dog fresh and comfortable.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {groomingServices.map((service, idx) => (
+              <div key={idx} className="group bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-gray-100">
+                <div className={`w-20 h-20 mx-auto rounded-2xl bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white text-3xl mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
+                  {service.icon}
+                </div>
+                <h4 className="text-xl font-bold text-gray-800 mb-2">{service.title}</h4>
+                <p className="text-gray-500 text-sm mb-3">{service.description}</p>
+                <p className="text-2xl font-bold text-[#D4A054]">{service.price}</p>
+                <Link to={'/booknow'} className="mt-4 w-full bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white py-2 rounded-lg font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2">
+                  Add to Booking <FaArrowRight className="text-sm" />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Trust Badges */}
-        <div className={`mt-16 pt-8 border-t border-gray-200 transition-all duration-700 delay-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        <div className={`mt-8 pt-8 border-t border-gray-200 transition-all duration-700 delay-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
           <div className="flex flex-wrap justify-center gap-8 items-center">
             <div className="flex items-center gap-2">
-              <MdAir className="text-[#007B7F] text-2xl" />
+              <MdAir className="text-[#8B5E3C] text-2xl" />
               <span className="text-gray-600">Climate Controlled</span>
             </div>
             <div className="w-px h-6 bg-gray-300 hidden md:block"></div>
             <div className="flex items-center gap-2">
-              <FaShieldAlt className="text-[#007B7F] text-2xl" />
+              <FaShieldAlt className="text-[#8B5E3C] text-2xl" />
               <span className="text-gray-600">Licensed & Insured</span>
             </div>
             <div className="w-px h-6 bg-gray-300 hidden md:block"></div>
             <div className="flex items-center gap-2">
-              <FaVideo className="text-[#007B7F] text-2xl" />
+              <FaVideo className="text-[#8B5E3C] text-2xl" />
               <span className="text-gray-600">24/7 Live Cameras</span>
             </div>
             <div className="w-px h-6 bg-gray-300 hidden md:block"></div>
             <div className="flex items-center gap-2">
-              <GiHeartBeats className="text-[#007B7F] text-2xl" />
+              <GiHeartBeats className="text-[#8B5E3C] text-2xl" />
               <span className="text-gray-600">Vet on Call</span>
             </div>
           </div>
@@ -222,17 +270,18 @@ const BoardingFeatures = () => {
 
         {/* CTA Button */}
         <div className={`text-center mt-12 transition-all duration-700 delay-800 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-          <button className="bg-gradient-to-r from-[#007B7F] to-[#005C5F] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+          <Link to="/book-now" className="inline-block bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white px-8 py-3 rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300">
             Book Your Pet's Stay Today
-          </button>
+          </Link>
           <p className="text-sm text-gray-500 mt-3">
             Limited spots available • Book in advance for peak seasons
           </p>
         </div>
+
       </div>
 
       <style jsx>{`
-        @keyframes fade-in {
+        @keyframes fade-in-up {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
         }
