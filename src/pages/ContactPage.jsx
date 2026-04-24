@@ -22,7 +22,9 @@ import {
   FaBuilding,
   FaMobile,
   FaFax,
-  FaSpinner
+  FaSpinner,
+  FaGem,
+  FaCoffee
 } from 'react-icons/fa';
 import { MdVerified, MdLocationOn, MdEmail, MdPhone, MdAccessTime } from 'react-icons/md';
 
@@ -36,7 +38,7 @@ const ContactPage = () => {
     message: ''
   });
   const [submitting, setSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,14 +65,13 @@ const ContactPage = () => {
 
   // Send WhatsApp message function
   const sendWhatsAppMessage = async (data) => {
-    const phoneNumber = "7217747900"; // Your WhatsApp number
+    const phoneNumber = "";
     
-    // Format the message with all details
-    const message = `🐾 *NEW CONTACT FORM SUBMISSION* 🐾
+    const message = `🐾 *NEW CONTACT FORM SUBMISSION - Bruno's Family* 🐾
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━
+☕━━━━━━━━━━━━━━━━━━━━━━━━━━━☕
 📋 *CONTACT DETAILS*
-━━━━━━━━━━━━━━━━━━━━━━━━━━━
+☕━━━━━━━━━━━━━━━━━━━━━━━━━━━☕
 
 👤 *Name:* ${data.name}
 📧 *Email:* ${data.email}
@@ -78,45 +79,39 @@ const ContactPage = () => {
 🎯 *Service:* ${data.service || "Not specified"}
 💬 *Message:* ${data.message}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━
+☕━━━━━━━━━━━━━━━━━━━━━━━━━━━☕
 ⏰ *Submitted on:* ${new Date().toLocaleString('en-IN', { 
   timeZone: 'Asia/Kolkata',
   day: '2-digit',
-  month: '2-digit',
+ month: '2-digit',
   year: 'numeric',
   hour: '2-digit',
   minute: '2-digit',
   second: '2-digit'
 })}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━
+☕━━━━━━━━━━━━━━━━━━━━━━━━━━━☕
 
 📌 *Status:* Pending - Need follow-up
 📱 *Contact via:* WhatsApp/Call
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━
-*Happy Pettings Customer Care* 🐕🐈`;
+☕━━━━━━━━━━━━━━━━━━━━━━━━━━━☕
+*Bruno's Family & Cafe* 🐕🐈☕`;
 
-    // Encode the message for WhatsApp API
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    
-    // Open WhatsApp in a new tab
     window.open(whatsappUrl, '_blank');
-    
     return true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Validate form
     if (!formData.name || !formData.email || !formData.phone || !formData.message) {
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus(null), 3000);
       return;
     }
     
-    // Validate phone number (10 digits)
     const phoneRegex = /^[0-9]{10}$/;
     if (!phoneRegex.test(formData.phone)) {
       setSubmitStatus('error');
@@ -127,12 +122,8 @@ const ContactPage = () => {
     setSubmitting(true);
     
     try {
-      // Send WhatsApp message
       await sendWhatsAppMessage(formData);
-      
       setSubmitStatus('success');
-      
-      // Reset form after successful submission
       setFormData({
         name: '',
         email: '',
@@ -140,12 +131,9 @@ const ContactPage = () => {
         service: '',
         message: ''
       });
-      
-      // Clear success message after 5 seconds
       setTimeout(() => {
         setSubmitStatus(null);
       }, 5000);
-      
     } catch (error) {
       console.error('Error sending message:', error);
       setSubmitStatus('error');
@@ -160,8 +148,8 @@ const ContactPage = () => {
       icon: <FaPhoneAlt />,
       title: "Phone Number",
       details: ["+91-9582582689", "+91-9876543210"],
-      color: "#007B7F",
-      bg: "bg-gradient-to-br from-teal-50 to-teal-100",
+      color: "#8B5E3C",
+      bg: "bg-gradient-to-br from-[#8B5E3C]/10 to-[#A0714F]/20",
       whatsappClick: false
     },
     {
@@ -169,31 +157,30 @@ const ContactPage = () => {
       title: "WhatsApp",
       details: ["+91-7217747900"],
       color: "#25D366",
-      bg: "bg-gradient-to-br from-green-50 to-green-100",
+      bg: "bg-gradient-to-br from-[#D4A054]/10 to-[#F5C27B]/20",
       whatsappClick: true,
       whatsappNumber: "7217747900"
     },
     {
       icon: <FaEnvelope />,
       title: "Email Address",
-      details: ["care@happypettings.com", "info@happypettings.com"],
-      color: "#E67E22",
-      bg: "bg-gradient-to-br from-orange-50 to-orange-100",
+      details: ["care@brunosfamily.com", "info@brunosfamily.com"],
+      color: "#6B2E2E",
+      bg: "bg-gradient-to-br from-[#6B2E2E]/10 to-[#4A3728]/20",
       whatsappClick: false
     },
     {
       icon: <FaClock />,
       title: "Business Hours",
       details: ["Monday - Sunday: 24/7", "365 Days a Year"],
-      color: "#6B4E71",
-      bg: "bg-gradient-to-br from-purple-50 to-purple-100",
+      color: "#D4A054",
+      bg: "bg-gradient-to-br from-[#D4A054]/10 to-[#F5C27B]/20",
       whatsappClick: false
     }
   ];
 
-  // Handle WhatsApp click on contact card
   const handleWhatsAppClick = (number) => {
-    const message = encodeURIComponent(`Hello! I'm interested in your pet services. Can you please help me?`);
+    const message = encodeURIComponent(`Hello! I'm interested in your pet services at Bruno's Family & Cafe. Can you please help me?`);
     window.open(`https://wa.me/${number}?text=${message}`, '_blank');
   };
 
@@ -202,7 +189,7 @@ const ContactPage = () => {
       name: "Head Office - Gurgaon",
       address: "DLF Phase 3, Sector 24, Gurugram, Haryana 122002",
       phone: "+91-9582582689",
-      email: "gurgaon@happypettings.com",
+      email: "gurgaon@brunosfamily.com",
       timing: "24/7 Open",
       mapUrl: "https://maps.google.com/?q=DLF+Phase+3+Gurgaon"
     },
@@ -210,7 +197,7 @@ const ContactPage = () => {
       name: "Branch - Noida",
       address: "Sector 18, Noida, Uttar Pradesh 201301",
       phone: "+91-9876543210",
-      email: "noida@happypettings.com",
+      email: "noida@brunosfamily.com",
       timing: "24/7 Open",
       mapUrl: "https://maps.google.com/?q=Sector+18+Noida"
     },
@@ -218,7 +205,7 @@ const ContactPage = () => {
       name: "Branch - Delhi",
       address: "Connaught Place, New Delhi 110001",
       phone: "+91-9999998888",
-      email: "delhi@happypettings.com",
+      email: "delhi@brunosfamily.com",
       timing: "24/7 Open",
       mapUrl: "https://maps.google.com/?q=Connaught+Place+Delhi"
     }
@@ -237,27 +224,27 @@ const ContactPage = () => {
   ];
 
   return (
-    <div id="contact-page" className="min-h-screen bg-gradient-to-b from-white to-[#FFF9F0]">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-[#007B7F] to-[#005C5F] h-screen max-h-[700px] min-h-[550px] flex items-center justify-center overflow-hidden">
+    <div id="contact-page" className="min-h-screen bg-gradient-to-b from-white to-[#FDF8F0]">
+      {/* Hero Section - Bruno's Theme */}
+      <section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] h-screen max-h-[700px] min-h-[550px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute top-20 left-10 w-64 h-64 bg-[#D4A054] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#D4A054] rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className={`text-center text-white transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-sm px-5 py-2.5 rounded-full mb-6 mx-auto w-fit">
-              <FaHeart className="text-[#FFD1B3]" />
+              <FaHeart className="text-[#D4A054]" />
               <span className="text-sm font-medium">Get in Touch</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               Contact{' '}
-              <span className="relative inline-block text-[#FFD1B3]">
+              <span className="relative inline-block text-[#D4A054]">
                 Us
                 <svg className="absolute -bottom-2 left-0 w-full" height="6" viewBox="0 0 200 6">
-                  <path d="M0 3 L200 3" stroke="#FFD1B3" strokeWidth="2" strokeLinecap="round" strokeDasharray="6 6" className="animate-dash"/>
+                  <path d="M0 3 L200 3" stroke="#D4A054" strokeWidth="2" strokeLinecap="round" strokeDasharray="6 6" className="animate-dash"/>
                 </svg>
               </span>
             </h1>
@@ -271,12 +258,12 @@ const ContactPage = () => {
         {/* Wave */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
-            <path fill="#FFF9F0" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            <path fill="#FDF8F0" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
           </svg>
         </div>
       </section>
 
-      {/* Contact Info Cards */}
+      {/* Contact Info Cards - Bruno's Theme */}
       <div className="container mx-auto px-4 md:px-8 -mt-12 relative z-20">
         <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {contactInfo.map((info, idx) => (
@@ -288,9 +275,9 @@ const ContactPage = () => {
               <div className="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style={{ color: info.color }}>
                 <span className="text-xl">{info.icon}</span>
               </div>
-              <h3 className="font-bold text-[#2C3E50] mb-2">{info.title}</h3>
+              <h3 className="font-bold text-gray-800 mb-2">{info.title}</h3>
               {info.details.map((detail, i) => (
-                <p key={i} className="text-gray-600 text-sm">{detail}</p>
+                <p key={i} className="text-gray-500 text-sm">{detail}</p>
               ))}
             </div>
           ))}
@@ -304,7 +291,7 @@ const ContactPage = () => {
           <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
               <div className="mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-[#2C3E50] mb-2">Send Us a Message</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Send Us a Message</h2>
                 <p className="text-gray-500">Fill out the form below and we'll get back to you on WhatsApp within 30 minutes</p>
               </div>
 
@@ -337,31 +324,31 @@ const ContactPage = () => {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-[#2C3E50] mb-2">Your Name *</label>
+                    <label className="block text-sm font-semibold text-gray-800 mb-2">Your Name *</label>
                     <div className="relative">
-                      <FaUser className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                      <FaUser className="absolute left-3 top-1/2 -translate-y-1/2 text-[#D4A054]" />
                       <input
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:border-[#007B7F] focus:outline-none transition-all"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:border-[#D4A054] focus:outline-none transition-all"
                         placeholder="John Doe"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-[#2C3E50] mb-2">Email Address *</label>
+                    <label className="block text-sm font-semibold text-gray-800 mb-2">Email Address *</label>
                     <div className="relative">
-                      <FaEnvelope className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                      <FaEnvelope className="absolute left-3 top-1/2 -translate-y-1/2 text-[#D4A054]" />
                       <input
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:border-[#007B7F] focus:outline-none transition-all"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:border-[#D4A054] focus:outline-none transition-all"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -370,9 +357,9 @@ const ContactPage = () => {
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-[#2C3E50] mb-2">Phone Number *</label>
+                    <label className="block text-sm font-semibold text-gray-800 mb-2">Phone Number *</label>
                     <div className="relative">
-                      <FaPhoneAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                      <FaPhoneAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-[#D4A054]" />
                       <input
                         type="tel"
                         name="phone"
@@ -381,20 +368,20 @@ const ContactPage = () => {
                         required
                         maxLength="10"
                         pattern="[0-9]{10}"
-                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:border-[#007B7F] focus:outline-none transition-all"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:border-[#D4A054] focus:outline-none transition-all"
                         placeholder="9876543210"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-[#2C3E50] mb-2">Select Service</label>
+                    <label className="block text-sm font-semibold text-gray-800 mb-2">Select Service</label>
                     <div className="relative">
-                      <FaPaw className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                      <FaPaw className="absolute left-3 top-1/2 -translate-y-1/2 text-[#D4A054]" />
                       <select
                         name="service"
                         value={formData.service}
                         onChange={handleChange}
-                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:border-[#007B7F] focus:outline-none transition-all appearance-none bg-white"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:border-[#D4A054] focus:outline-none transition-all appearance-none bg-white"
                       >
                         <option value="">Select a service</option>
                         {services.map((service, idx) => (
@@ -406,16 +393,16 @@ const ContactPage = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-[#2C3E50] mb-2">Your Message *</label>
+                  <label className="block text-sm font-semibold text-gray-800 mb-2">Your Message *</label>
                   <div className="relative">
-                    <FaComment className="absolute left-3 top-3 text-gray-400" />
+                    <FaComment className="absolute left-3 top-3 text-[#D4A054]" />
                     <textarea
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       required
                       rows="5"
-                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:border-[#007B7F] focus:outline-none transition-all resize-none"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:border-[#D4A054] focus:outline-none transition-all resize-none"
                       placeholder="Tell us about your pet and requirements..."
                     ></textarea>
                   </div>
@@ -424,7 +411,7 @@ const ContactPage = () => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full bg-[#007B7F] text-white py-3 rounded-lg font-semibold hover:bg-[#007B7F]/80 transition-all hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white py-3 rounded-lg font-semibold hover:shadow-xl transition-all hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {submitting ? (
                     <>
@@ -456,7 +443,7 @@ const ContactPage = () => {
           {/* Map & Location */}
           <div className={`transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#2C3E50] mb-4">Visit Our Locations</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Visit Our Locations</h2>
               <p className="text-gray-500 mb-6">We have multiple locations across Delhi NCR to serve you better</p>
 
               {/* Map Embed */}
@@ -468,7 +455,7 @@ const ContactPage = () => {
                   style={{ border: 0 }}
                   allowFullScreen=""
                   loading="lazy"
-                  title="Happy Pettings Location"
+                  title="Bruno's Family Location"
                   className="rounded-xl"
                 ></iframe>
               </div>
@@ -476,18 +463,18 @@ const ContactPage = () => {
               {/* Locations List */}
               <div className="space-y-4">
                 {locations.map((location, idx) => (
-                  <div key={idx} className="p-4 bg-[#FFF9F0] rounded-xl hover:shadow-md transition-all">
+                  <div key={idx} className="p-4 bg-[#FDF8F0] rounded-xl hover:shadow-md transition-all">
                     <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-[#007B7F]/10 rounded-lg flex items-center justify-center text-[#007B7F]">
+                      <div className="w-10 h-10 bg-[#D4A054]/10 rounded-lg flex items-center justify-center text-[#D4A054]">
                         <FaMapMarkerAlt />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-bold text-[#2C3E50] mb-1">{location.name}</h3>
+                        <h3 className="font-bold text-gray-800 mb-1">{location.name}</h3>
                         <p className="text-gray-500 text-sm mb-2">{location.address}</p>
                         <div className="flex flex-wrap gap-3 text-xs">
-                          <span className="flex items-center gap-1 text-gray-500"><FaPhoneAlt className="text-[#007B7F]" /> {location.phone}</span>
-                          <span className="flex items-center gap-1 text-gray-500"><FaEnvelope className="text-[#007B7F]" /> {location.email}</span>
-                          <span className="flex items-center gap-1 text-gray-500"><FaClock className="text-[#007B7F]" /> {location.timing}</span>
+                          <span className="flex items-center gap-1 text-gray-500"><FaPhoneAlt className="text-[#D4A054]" /> {location.phone}</span>
+                          <span className="flex items-center gap-1 text-gray-500"><FaEnvelope className="text-[#D4A054]" /> {location.email}</span>
+                          <span className="flex items-center gap-1 text-gray-500"><FaClock className="text-[#D4A054]" /> {location.timing}</span>
                         </div>
                       </div>
                     </div>
@@ -499,13 +486,13 @@ const ContactPage = () => {
         </div>
       </div>
 
-      {/* FAQ Section */}
-      <section className="py-16 bg-gradient-to-r from-[#007B7F]/5 to-[#FFD1B3]/20">
+      {/* FAQ Section - Bruno's Theme */}
+      <section className="py-16 bg-gradient-to-r from-[#D4A054]/5 to-[#F5C27B]/20">
         <div className="container mx-auto px-4 md:px-8">
           <div className={`text-center max-w-3xl mx-auto mb-10 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-3">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">
               Frequently Asked{' '}
-              <span className="text-[#007B7F]">Questions</span>
+              <span className="text-[#D4A054]">Questions</span>
             </h2>
             <p className="text-gray-500">Quick answers to common questions</p>
           </div>
@@ -518,7 +505,7 @@ const ContactPage = () => {
               { q: "Is my pet safe with you?", a: "Absolutely! We have 24/7 monitoring, trained staff, and vet-on-call for emergencies." }
             ].map((faq, idx) => (
               <div key={idx} className="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all">
-                <h3 className="font-bold text-[#2C3E50] mb-2">{faq.q}</h3>
+                <h3 className="font-bold text-gray-800 mb-2">{faq.q}</h3>
                 <p className="text-gray-500 text-sm">{faq.a}</p>
               </div>
             ))}
@@ -526,12 +513,12 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Emergency Contact Banner */}
-      <section className="py-12 bg-gradient-to-r from-[#007B7F] to-[#005C5F]">
+      {/* Emergency Contact Banner - Bruno's Theme */}
+      <section className="py-12 bg-gradient-to-r from-[#2C1810] to-[#1A0F0A]">
         <div className="container mx-auto px-4 md:px-8 text-center">
           <div className={`max-w-3xl mx-auto transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4 mx-auto w-fit">
-              <FaHeart className="text-[#FFD1B3]" />
+              <FaHeart className="text-[#D4A054]" />
               <span className="text-sm font-medium text-white">Emergency Support</span>
             </div>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
@@ -542,7 +529,7 @@ const ContactPage = () => {
             </p>
             <button 
               onClick={() => handleWhatsAppClick("7217747900")}
-              className="bg-white text-[#007B7F] px-8 py-3 rounded-full font-semibold hover:shadow-xl transition-all hover:scale-105 inline-flex items-center gap-2"
+              className="bg-gradient-to-r from-[#D4A054] to-[#F5C27B] text-[#2C1810] px-8 py-3 rounded-full font-semibold hover:shadow-xl transition-all hover:scale-105 inline-flex items-center gap-2"
             >
               <FaWhatsapp /> WhatsApp Emergency: +91-7217747900
             </button>
