@@ -1,6 +1,6 @@
 // src/components/HeroSection.jsx
 import React, { useState, useEffect } from 'react';
-import { FaPaw, FaPlay, FaChevronRight, FaHeart, FaShieldAlt, FaClock, FaStar } from 'react-icons/fa';
+import { FaPaw, FaPlay, FaChevronRight, FaHeart, FaShieldAlt, FaClock, FaStar, FaCoffee, FaBone } from 'react-icons/fa';
 import { MdPets, MdHealthAndSafety } from 'react-icons/md';
 
 const HeroSection = () => {
@@ -56,9 +56,9 @@ const HeroSection = () => {
     },
     {
       bg: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=1600',
-      title: 'Happy Pettings',
-      highlight: 'Trusted Since 2008',
-      badge: '🏆 India\'s Most Trusted Pet Care',
+      title: 'Bruno\'s Family',
+      highlight: '& Cafe',
+      badge: '☕ Pet-Friendly Cafe Since 2008',
       desc: 'Join 17,000+ happy families who trust us with their beloved pets. Experience the best care in Delhi NCR.',
       features: ['15+ Years Experience', '10,000+ Boarding Stays', '4.9 Rating']
     }
@@ -79,7 +79,8 @@ const HeroSection = () => {
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${slide.bg})` }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30"></div>
+              {/* Bruno's Theme Gradient Overlay - Warm Brown to Deep Maroon */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#8B5E3C]/90 via-[#6B2E2E]/80 to-[#4A3728]/90"></div>
             </div>
           </div>
         ))}
@@ -91,21 +92,23 @@ const HeroSection = () => {
           <div className="max-w-4xl">
             {/* Animated Badge */}
             <div className="animate-fade-in-up">
-              <div className="inline-flex items-center gap-2 bg-[#007B7F]/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-[#007B7F]/30">
-                <div className="w-2 h-2 bg-[#007B7F] rounded-full animate-pulse"></div>
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-6 border border-[#D4A054]/30">
+                <div className="w-2 h-2 bg-[#D4A054] rounded-full animate-pulse"></div>
                 <span className="text-white text-sm font-medium">
                   {slides[currentSlide].badge}
                 </span>
               </div>
             </div>
 
-            {/* Main Heading with Typing Effect */}
+            {/* Main Heading */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 animate-fade-in-up animation-delay-200">
               {slides[currentSlide].title}{' '}
-              <span className="text-[#FFD1B3] relative inline-block">
-                {slides[currentSlide].highlight}
+              <span className="relative inline-block">
+                <span className="bg-gradient-to-r from-[#D4A054] to-[#F5C27B] bg-clip-text text-transparent">
+                  {slides[currentSlide].highlight}
+                </span>
                 <svg className="absolute -bottom-2 left-0 w-full" height="4" viewBox="0 0 200 4" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0 2 L200 2" stroke="#FFD1B3" strokeWidth="3" strokeDasharray="4 4" className="animate-dash"/>
+                  <path d="M0 2 L200 2" stroke="#D4A054" strokeWidth="3" strokeDasharray="4 4" className="animate-dash"/>
                 </svg>
               </span>
             </h1>
@@ -114,23 +117,23 @@ const HeroSection = () => {
             <div className="mb-6 animate-fade-in-up animation-delay-400">
               <p className="text-xl md:text-2xl text-white/90">
                 Making your pet feel 
-                <span className="text-[#FFD1B3] font-semibold ml-2 relative">
+                <span className="text-[#D4A054] font-semibold ml-2 relative">
                   {typedText}
-                  <span className="absolute -right-2 top-0 w-0.5 h-7 bg-[#FFD1B3] animate-blink"></span>
+                  <span className="absolute -right-2 top-0 w-0.5 h-7 bg-[#D4A054] animate-blink"></span>
                 </span>
               </p>
             </div>
 
             {/* Description */}
-            <p className="text-base md:text-lg text-gray-200 mb-8 max-w-2xl animate-fade-in-up animation-delay-600">
+            <p className="text-base md:text-lg text-white/80 mb-8 max-w-2xl animate-fade-in-up animation-delay-600">
               {slides[currentSlide].desc}
             </p>
 
             {/* Features List */}
             <div className="flex flex-wrap gap-4 mb-8 animate-fade-in-up animation-delay-800">
               {slides[currentSlide].features.map((feature, idx) => (
-                <div key={idx} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
-                  <FaCheckCircle className="text-[#FFD1B3] text-xs" />
+                <div key={idx} className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-[#D4A054]/30">
+                  <FaCheckCircle className="text-[#D4A054] text-xs" />
                   <span className="text-white text-sm">{feature}</span>
                 </div>
               ))}
@@ -138,10 +141,10 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up animation-delay-1000">
-              <button className="group bg-[#007B7F] hover:bg-[#007B7F]/80 text-white px-8 py-3.5 rounded-full font-semibold transition-all hover:scale-105 flex items-center justify-center gap-2 shadow-lg hover:shadow-[#007B7F]/30">
+              <button className="group bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] hover:shadow-2xl text-white px-8 py-3.5 rounded-full font-semibold transition-all hover:scale-105 flex items-center justify-center gap-2 shadow-lg">
                 Book a Stay <FaChevronRight className="group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="group border-2 border-white hover:bg-white/10 text-white px-8 py-3.5 rounded-full font-semibold transition-all flex items-center justify-center gap-2">
+              <button className="group border-2 border-[#D4A054] hover:bg-[#D4A054]/10 text-white px-8 py-3.5 rounded-full font-semibold transition-all flex items-center justify-center gap-2 backdrop-blur-sm">
                 <FaPlay className="group-hover:scale-110 transition-transform" />
                 Watch Video
               </button>
@@ -149,22 +152,22 @@ const HeroSection = () => {
 
             {/* Stats Section */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-white/20 animate-fade-in-up animation-delay-1200">
-              <div className="text-center md:text-left">
-                <div className="text-2xl md:text-3xl font-bold text-white">15+</div>
-                <div className="text-sm text-gray-300">Years Experience</div>
+              <div className="text-center md:text-left group">
+                <div className="text-2xl md:text-3xl font-bold text-[#D4A054] group-hover:scale-110 transition-transform">15+</div>
+                <div className="text-sm text-white/70">Years Experience</div>
               </div>
-              <div className="text-center md:text-left">
-                <div className="text-2xl md:text-3xl font-bold text-white">17k+</div>
-                <div className="text-sm text-gray-300">Happy Families</div>
+              <div className="text-center md:text-left group">
+                <div className="text-2xl md:text-3xl font-bold text-[#D4A054] group-hover:scale-110 transition-transform">17k+</div>
+                <div className="text-sm text-white/70">Happy Families</div>
               </div>
-              <div className="text-center md:text-left">
-                <div className="text-2xl md:text-3xl font-bold text-white">24/7</div>
-                <div className="text-sm text-gray-300">Emergency Support</div>
+              <div className="text-center md:text-left group">
+                <div className="text-2xl md:text-3xl font-bold text-[#D4A054] group-hover:scale-110 transition-transform">24/7</div>
+                <div className="text-sm text-white/70">Emergency Support</div>
               </div>
-              <div className="text-center md:text-left">
-                <div className="text-2xl md:text-3xl font-bold text-white">4.9</div>
-                <div className="text-sm text-gray-300 flex items-center justify-center md:justify-start gap-1">
-                  <FaStar className="text-yellow-400 text-xs" /> Rating
+              <div className="text-center md:text-left group">
+                <div className="text-2xl md:text-3xl font-bold text-[#D4A054] group-hover:scale-110 transition-transform">4.9</div>
+                <div className="text-sm text-white/70 flex items-center justify-center md:justify-start gap-1">
+                  <FaStar className="text-[#D4A054] text-xs" /> Rating
                 </div>
               </div>
             </div>
@@ -173,15 +176,15 @@ const HeroSection = () => {
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {slides.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrentSlide(idx)}
             className={`transition-all duration-300 rounded-full ${
               currentSlide === idx 
-                ? 'w-10 h-2 bg-[#FFD1B3]' 
-                : 'w-2 h-2 bg-white/50 hover:bg-white/80'
+                ? 'w-10 h-2.5 bg-[#D4A054]' 
+                : 'w-2 h-2 bg-white/40 hover:bg-white/60'
             }`}
           />
         ))}
@@ -190,8 +193,8 @@ const HeroSection = () => {
       {/* Scroll Down Indicator */}
       <div className="absolute bottom-8 right-8 z-20 hidden md:block">
         <div className="animate-bounce">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-2 bg-white rounded-full mt-2 animate-scroll-down"></div>
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1 h-2 bg-[#D4A054] rounded-full mt-2 animate-scroll-down"></div>
           </div>
         </div>
       </div>
