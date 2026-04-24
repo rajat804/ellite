@@ -12,7 +12,9 @@ import {
   FaCalendarCheck,
   FaGift,
   FaCheckCircle,
-  FaSpinner
+  FaSpinner,
+  FaGem,
+  FaCoffee
 } from 'react-icons/fa';
 
 const Cta = () => {
@@ -66,12 +68,12 @@ const Cta = () => {
 
   // Send WhatsApp message
   const sendWhatsAppMessage = async (data) => {
-    const phoneNumber = "";
+    const phoneNumber = "917217747900"; // Remove + sign for international format
     
     // Format the message
-    const message = `🐾 *New Pet Care Request* 🐾
+    const message = `🐾 *New Pet Care Request - Bruno's Family* 🐾
 
-📋 *Customer Details:*
+☕ *Customer Details:*
 ━━━━━━━━━━━━━━━━━━━━
 👤 *Name:* ${data.name}
 📧 *Email:* ${data.email}
@@ -84,7 +86,7 @@ const Cta = () => {
 📌 *Status:* Pending - Need immediate follow-up
 
 ━━━━━━━━━━━━━━━━━━━━
-*PetCare Team* 🐕🐈`;
+*Bruno's Family & Cafe* 🐕☕`;
 
     // Encode the message for WhatsApp API
     const encodedMessage = encodeURIComponent(message);
@@ -144,10 +146,10 @@ const Cta = () => {
   };
 
   const benefits = [
-    { icon: <FaClock />, text: "Instant Confirmation", color: "text-[#007B7F]" },
-    { icon: <FaShieldAlt />, text: "Safe & Secure", color: "text-emerald-500" },
-    { icon: <FaHeart />, text: "Loving Care", color: "text-rose-500" },
-    { icon: <FaSmile />, text: "100% Satisfaction", color: "text-orange-500" }
+    { icon: <FaClock />, text: "Instant Confirmation", color: "text-[#8B5E3C]" },
+    { icon: <FaShieldAlt />, text: "Safe & Secure", color: "text-[#6B2E2E]" },
+    { icon: <FaHeart />, text: "Loving Care", color: "text-[#D4A054]" },
+    { icon: <FaSmile />, text: "100% Satisfaction", color: "text-[#F5C27B]" }
   ];
 
   const offers = [
@@ -159,13 +161,13 @@ const Cta = () => {
 
   return (
     <section id="cta-section" className="py-20 md:py-28 relative overflow-hidden">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#FFD1B3] to-[#FFE4CC]"></div>
+      {/* Background Gradient - Bruno's Theme */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#FDF8F0] to-[#F5EDE4]"></div>
       
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-64 h-64 bg-[#007B7F] rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#007B7F] rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-64 h-64 bg-[#D4A054] rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#8B5E3C] rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
@@ -175,17 +177,17 @@ const Cta = () => {
             <div className="grid lg:grid-cols-2">
               {/* Left Side - Content */}
               <div className="p-8 md:p-10">
-                <div className="inline-flex items-center gap-2 bg-[#FFD1B3]/30 px-4 py-2 rounded-full mb-6">
-                  <FaGift className="text-[#007B7F]" />
-                  <span className="text-[#007B7F] font-semibold text-sm">Limited Time Offer</span>
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#D4A054]/20 to-[#F5C27B]/20 px-4 py-2 rounded-full mb-6">
+                  <FaGift className="text-[#D4A054]" />
+                  <span className="text-[#8B5E3C] font-semibold text-sm">Limited Time Offer</span>
                 </div>
                 
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C3E50] mb-4">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
                   Ready to Give Your{' '}
-                  <span className="text-[#007B7F]">Pet the Best Care?</span>
+                  <span className="bg-gradient-to-r from-[#8B5E3C] to-[#D4A054] bg-clip-text text-transparent">Pet the Best Care?</span>
                 </h2>
                 
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-500 mb-6 leading-relaxed">
                   Join 17,000+ happy pet parents who trust us with their furry family members. 
                   Limited slots available for personalized care. Book your pet's stay or service today!
                 </p>
@@ -195,7 +197,7 @@ const Cta = () => {
                   {offers.map((offer, idx) => (
                     <div key={idx} className="flex items-center gap-2">
                       <span className="text-lg">{offer.icon}</span>
-                      <span className="text-sm text-gray-700">{offer.text}</span>
+                      <span className="text-sm text-gray-600">{offer.text}</span>
                     </div>
                   ))}
                 </div>
@@ -205,28 +207,31 @@ const Cta = () => {
                   {benefits.map((benefit, idx) => (
                     <div key={idx} className="flex items-center gap-1 text-sm">
                       <span className={benefit.color}>{benefit.icon}</span>
-                      <span className="text-gray-600">{benefit.text}</span>
+                      <span className="text-gray-500">{benefit.text}</span>
                     </div>
                   ))}
                 </div>
 
-                {/* CTA Buttons */}
+                {/* CTA Buttons - Bruno's Theme */}
                 <div className="flex flex-wrap gap-4">
-                  <button className="bg-[#007B7F] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#007B7F]/80 transition-all hover:scale-105 flex items-center gap-2 shadow-lg">
+                  <button className="bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white px-8 py-3 rounded-full font-semibold hover:shadow-xl transition-all hover:scale-105 flex items-center gap-2 shadow-lg">
                     Book Now <FaArrowRight />
                   </button>
-                  <button className="border-2 border-[#007B7F] text-[#007B7F] px-8 py-3 rounded-full font-semibold hover:bg-[#007B7F] hover:text-white transition-all flex items-center gap-2">
+                  <button className="border-2 border-[#D4A054] text-[#8B5E3C] px-8 py-3 rounded-full font-semibold hover:bg-gradient-to-r hover:from-[#8B5E3C] hover:to-[#6B2E2E] hover:text-white transition-all flex items-center gap-2">
                     <FaPhoneAlt /> Call Now
                   </button>
-                  <button className="border-2 border-gray-300 text-gray-600 px-8 py-3 rounded-full font-semibold hover:border-[#007B7F] hover:text-[#007B7F] transition-all flex items-center gap-2">
+                  <button className="border-2 border-gray-300 text-gray-500 px-8 py-3 rounded-full font-semibold hover:border-[#D4A054] hover:text-[#D4A054] transition-all flex items-center gap-2">
                     <FaWhatsapp /> WhatsApp
                   </button>
                 </div>
               </div>
 
-              {/* Right Side - Contact Form & Info */}
-              <div className="bg-gradient-to-br from-[#007B7F] to-[#005C5F] p-8 md:p-10 text-white">
-                <h3 className="text-2xl font-bold mb-4">Get a Free Quote</h3>
+              {/* Right Side - Contact Form & Info - Bruno's Theme */}
+              <div className="bg-gradient-to-br from-[#8B5E3C] to-[#6B2E2E] p-8 md:p-10 text-white">
+                <div className="flex items-center gap-2 mb-4">
+                  <FaGem className="text-[#D4A054] text-2xl" />
+                  <h3 className="text-2xl font-bold">Get a Free Quote</h3>
+                </div>
                 <p className="text-white/90 mb-6 text-sm">
                   Fill in your details and we'll get back to you within 30 minutes
                 </p>
@@ -254,7 +259,7 @@ const Cta = () => {
                     onChange={handleInputChange}
                     placeholder="Your Name"
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-[#FFD1B3] text-white placeholder:text-white/50"
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-[#D4A054] text-white placeholder:text-white/50"
                   />
                   <input 
                     type="email" 
@@ -263,7 +268,7 @@ const Cta = () => {
                     onChange={handleInputChange}
                     placeholder="Your Email"
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-[#FFD1B3] text-white placeholder:text-white/50"
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-[#D4A054] text-white placeholder:text-white/50"
                   />
                   <input 
                     type="tel" 
@@ -274,27 +279,27 @@ const Cta = () => {
                     required
                     pattern="[0-9]{10}"
                     maxLength="10"
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-[#FFD1B3] text-white placeholder:text-white/50"
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-[#D4A054] text-white placeholder:text-white/50"
                   />
                   <select 
                     name="service"
                     value={formData.service}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-[#FFD1B3] text-white"
+                    className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:border-[#D4A054] text-white"
                   >
-                    <option value="" className="text-[#2C3E50]">Select Service</option>
-                    <option value="Dog Boarding" className="text-[#2C3E50]">Dog Boarding</option>
-                    <option value="Cat Boarding" className="text-[#2C3E50]">Cat Boarding</option>
-                    <option value="Vet Home Visit" className="text-[#2C3E50]">Vet Home Visit</option>
-                    <option value="Grooming" className="text-[#2C3E50]">Grooming</option>
-                    <option value="Training" className="text-[#2C3E50]">Training</option>
-                    <option value="Play Hours" className="text-[#2C3E50]">Play Hours</option>
+                    <option value="" className="text-[#2C1810]">Select Service</option>
+                    <option value="Dog Boarding" className="text-[#2C1810]">Dog Boarding</option>
+                    <option value="Cat Boarding" className="text-[#2C1810]">Cat Boarding</option>
+                    <option value="Vet Home Visit" className="text-[#2C1810]">Vet Home Visit</option>
+                    <option value="Grooming" className="text-[#2C1810]">Grooming</option>
+                    <option value="Training" className="text-[#2C1810]">Training</option>
+                    <option value="Play Hours" className="text-[#2C1810]">Play Hours</option>
                   </select>
                   <button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="w-full bg-[#FFD1B3] text-[#007B7F] px-6 py-3 rounded-lg font-semibold hover:bg-[#FFE4CC] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-gradient-to-r from-[#D4A054] to-[#F5C27B] text-[#2C1810] px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <>
@@ -312,15 +317,15 @@ const Cta = () => {
                 {/* Contact Info */}
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center gap-2 text-white/80">
-                    <FaPhoneAlt className="text-[#FFD1B3]" />
+                    <FaPhoneAlt className="text-[#D4A054]" />
                     <span>+91-9582582689 (24/7 Support)</span>
                   </div>
                   <div className="flex items-center gap-2 text-white/80">
-                    <FaEnvelope className="text-[#FFD1B3]" />
-                    <span>care@petcare.com</span>
+                    <FaEnvelope className="text-[#D4A054]" />
+                    <span>care@brunosfamily.com</span>
                   </div>
                   <div className="flex items-center gap-2 text-white/80">
-                    <FaWhatsapp className="text-[#FFD1B3]" />
+                    <FaWhatsapp className="text-[#D4A054]" />
                     <span>+91-7217747900 (WhatsApp)</span>
                   </div>
                 </div>
@@ -328,21 +333,21 @@ const Cta = () => {
             </div>
           </div>
 
-          {/* Newsletter Subscription */}
+          {/* Newsletter Subscription - Bruno's Theme */}
           <div className="mt-8 text-center">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg flex-wrap">
-              <span className="text-[#007B7F]">📧</span>
-              <span className="text-[#2C3E50] text-sm">Get 10% off on your first booking</span>
+            <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg flex-wrap">
+              <span className="text-[#D4A054]">☕</span>
+              <span className="text-gray-700 text-sm">Get 10% off on your first booking</span>
               <form onSubmit={handleSubscribe} className="flex gap-2 ml-4">
                 <input 
                   type="email" 
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="px-4 py-1 rounded-full text-sm border border-gray-300 focus:outline-none focus:border-[#007B7F]"
+                  className="px-4 py-1 rounded-full text-sm border border-gray-300 focus:outline-none focus:border-[#D4A054]"
                   required
                 />
-                <button type="submit" className="bg-[#007B7F] text-white px-4 py-1 rounded-full text-sm hover:bg-[#007B7F]/80 transition-all">
+                <button type="submit" className="bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white px-4 py-1 rounded-full text-sm hover:shadow-md transition-all">
                   Subscribe
                 </button>
               </form>
