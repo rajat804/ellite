@@ -19,7 +19,7 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', path: "/"},
+    { name: 'Home', path: "/" },
     { name: 'Services', path: '/services' },
     { name: 'About', path: '/about' },
     { name: 'Gallery', path: '/gallery' },
@@ -64,15 +64,21 @@ const Header = () => {
       </div>
 
       {/* Main Header - Warm & Welcoming */}
-      <header className={`shadow sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#FDF8F0] shadow-xl py-3' : 'bg-[#FDF8F0]/95 backdrop-blur-md py-5'
-      }`}>
+      <header className={`shadow sticky top-0 z-50 transition-all duration-300 ${scrolled
+          ? 'bg-[#FDF8F0] shadow-xl py-2 sm:py-3'
+          : 'bg-[#FDF8F0]/95 backdrop-blur-md py-3 sm:py-5'
+        }`}>
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <div className="flex items-center gap-3 cursor-pointer group">
-              <Link to={'/'}>
-                <img src={logo} alt="Logo" className='w-[100px] group-hover:scale-105 transition-transform'/>
+            <div className="flex items-center gap-2 sm:gap-3 cursor-pointer group">
+              <Link to={'/'} className="flex items-center">
+                <img
+                  src={logo}
+                  alt="Bruno's Family & Cafe"
+                  className='
+                  w-14 xs:w-16 sm:w-20 md:w-24 lg:w-28 xl:w-[100px] group-hover:scale-105 transition-all duration-300'
+                />
               </Link>
             </div>
 
@@ -82,16 +88,14 @@ const Header = () => {
                 <Link
                   key={index}
                   to={item.path}
-                  className={`font-semibold transition-all relative group ${
-                    location.pathname === item.path 
-                      ? 'text-[#8B5E3C]' 
-                      : 'text-gray-600 hover:text-[#8B5E3C]'
-                  }`}
+                  className={`font-semibold transition-all relative group ${location.pathname === item.path
+                    ? 'text-[#8B5E3C]'
+                    : 'text-gray-600 hover:text-[#8B5E3C]'
+                    }`}
                 >
                   {item.name}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#D4A054] transition-all duration-300 ${
-                    location.pathname === item.path ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`}></span>
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#D4A054] transition-all duration-300 ${location.pathname === item.path ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}></span>
                 </Link>
               ))}
             </nav>
@@ -99,7 +103,7 @@ const Header = () => {
             {/* Right Side */}
             <div className="flex items-center gap-3">
               {/* Search Button */}
-              <button 
+              <button
                 onClick={() => setSearchOpen(!searchOpen)}
                 className="p-2 rounded-full hover:bg-[#8B5E3C]/10 transition-colors"
               >
@@ -112,7 +116,7 @@ const Header = () => {
               </Link>
 
               {/* Mobile Menu Button */}
-              <button 
+              <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="lg:hidden p-2 rounded-lg hover:bg-[#8B5E3C]/10 transition-colors"
               >
@@ -129,9 +133,9 @@ const Header = () => {
           {searchOpen && (
             <div className="mt-4 animate-fade-in">
               <div className="relative">
-                <input 
-                  type="text" 
-                  placeholder="Search services, locations, or FAQs..." 
+                <input
+                  type="text"
+                  placeholder="Search services, locations, or FAQs..."
                   className="w-full px-5 py-3 pr-12 rounded-xl border-2 border-[#D4A054]/30 focus:border-[#8B5E3C] focus:outline-none bg-white"
                 />
                 <button className="absolute right-3 top-1/2 -translate-y-1/2 bg-[#8B5E3C] text-white p-2 rounded-lg hover:bg-[#6B2E2E] transition-all">
@@ -150,11 +154,10 @@ const Header = () => {
                     key={index}
                     to={item.path}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`px-4 py-3 rounded-lg font-semibold transition-all ${
-                      location.pathname === item.path 
-                        ? 'bg-[#8B5E3C] text-white' 
-                        : 'text-gray-600 hover:bg-[#8B5E3C]/10'
-                    }`}
+                    className={`px-4 py-3 rounded-lg font-semibold transition-all ${location.pathname === item.path
+                      ? 'bg-[#8B5E3C] text-white'
+                      : 'text-gray-600 hover:bg-[#8B5E3C]/10'
+                      }`}
                   >
                     {item.name}
                   </Link>
