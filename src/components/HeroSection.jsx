@@ -23,15 +23,24 @@ const HeroSection = () => {
   useEffect(() => {
     setIsVisible(true);
     const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % 3);
-    }, 6000);
+      setCurrentImage((prev) => (prev + 1) % 4);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
+  // Images: 2 Golden Retrievers + 2 Cats
   const backgroundImages = [
-    'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1600',
-    'https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1600',
-    'https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=1600'
+    'https://images.unsplash.com/photo-1552053831-71594a27632d?w=1600',  // Golden Retriever smiling
+    'https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=1600',  // Cute Persian Cat
+    'https://images.unsplash.com/photo-1558788353-f76dae27f7d0?w=1600',  // Golden Retriever puppy
+    'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=1600'   // Beautiful Cat
+  ];
+
+  const imagesInfo = [
+    { type: 'Golden Retriever', emoji: '🐕', description: 'Happy & Playful' },
+    { type: 'Persian Cat', emoji: '🐱', description: 'Calm & Elegant' },
+    { type: 'Golden Retriever Puppy', emoji: '🐕', description: 'Cute & Energetic' },
+    { type: 'Beautiful Cat', emoji: '🐱', description: 'Graceful & Loving' }
   ];
 
   const features = [
@@ -57,10 +66,23 @@ const HeroSection = () => {
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${img})` }}
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-[#2C1810]/90 via-[#2C1810]/80 to-[#1A0F0A]/95"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#2C1810]/95 via-[#2C1810]/85 to-[#1A0F0A]/90"></div>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Pet Type Indicator */}
+      <div className="absolute top-24 right-4 sm:right-6 md:right-8 z-20">
+        <div className="bg-black/30 backdrop-blur-md rounded-full px-3 sm:px-4 py-1.5 sm:py-2 border border-[#D4A054]/30">
+          <div className="flex items-center gap-2">
+            <span className="text-xl sm:text-2xl">{imagesInfo[currentImage].emoji}</span>
+            <div>
+              <span className="text-white text-xs sm:text-sm font-medium">{imagesInfo[currentImage].type}</span>
+              <p className="text-white/60 text-[10px] sm:text-xs">{imagesInfo[currentImage].description}</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Decorative Elements - Hidden on mobile */}
@@ -100,7 +122,7 @@ const HeroSection = () => {
                 Your furry friend deserves the best — and we're here to give it.
               </p>
 
-              {/* Features List - Responsive Grid */}
+              {/* Features List */}
               <div className={`flex flex-wrap justify-center lg:justify-start gap-2 sm:gap-3 md:gap-4 mb-6 sm:mb-8 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 {features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-1 sm:gap-2 bg-white/10 backdrop-blur-md px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-full border border-[#D4A054]/30">
@@ -127,7 +149,7 @@ const HeroSection = () => {
                 </Link>
               </div>
 
-              {/* Trust Indicators - Responsive */}
+              {/* Trust Indicators */}
               <div className={`flex flex-wrap justify-center lg:justify-start items-center gap-3 sm:gap-4 md:gap-6 mt-6 sm:mt-8 pt-4 border-t border-white/20 transition-all duration-700 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 <div className="flex items-center gap-1 sm:gap-2">
                   <FaStar className="text-[#D4A054] text-xs sm:text-sm" />
@@ -189,7 +211,7 @@ const HeroSection = () => {
                   </div>
                 </div>
 
-                {/* Floating Badges - Hidden on very small screens */}
+                {/* Floating Badges */}
                 <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 bg-[#D4A054] rounded-full p-2 sm:p-3 shadow-lg animate-float">
                   <FaPaw className="text-[#2C1810] text-base sm:text-xl" />
                 </div>
@@ -202,7 +224,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll Down Indicator - Responsive */}
+      {/* Scroll Down Indicator */}
       <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
         <div className="flex flex-col items-center gap-0.5 sm:gap-1">
           <span className="text-white/50 text-[10px] sm:text-xs">Scroll Down</span>
@@ -210,7 +232,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Slide Indicators - Responsive */}
+      {/* Slide Indicators */}
       <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 right-4 sm:right-6 md:right-8 z-20 flex gap-1.5 sm:gap-2">
         {backgroundImages.map((_, idx) => (
           <button
