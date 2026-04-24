@@ -2,17 +2,24 @@ import React from 'react'
 import HeroSection from '../components/HeroSection'
 import HowItWorks from '../components/HowItWorks'
 import WhyChooseUs from '../components/WhyChooseUs'
-import PetServices from '../components/PetServices'
+// import PetServices from '../components/PetServices'
 import BoardingFeatures from '../components/BoardingFeatures'
+import PlayHours from '../components/PlayHours'
+import ServicesOverview from '../components/ServicesOverview'
+import DaycareSection from '../components/DaycareSection'
 
 const Home = () => {
   return (
     <>
       <HeroSection />
-      <HowItWorks />
+      <ServicesOverview />
+      <DaycareSection />
+      {/* <HowItWorks /> */}
       <BoardingFeatures />
       <WhyChooseUs />
-      <PetServices />
+      {/* <PetServices /> */}
+      <PlayHours />
+      
     </>
   )
 }
