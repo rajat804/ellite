@@ -28,7 +28,9 @@ import {
   FaMoneyBillWave,
   FaFileInvoice,
   FaUserSecret,
-  FaBalanceScale
+  FaBalanceScale,
+  FaGem,
+  FaCoffee
 } from 'react-icons/fa';
 import { 
   MdVerified,
@@ -66,8 +68,8 @@ const TermsPage = () => {
       title: "Introduction",
       icon: <MdDescription />,
       content: [
-        "Welcome to Happy Pettings. By accessing or using our website and services, you agree to comply with and be bound by these Terms and Conditions.",
-        "Happy Pettings provides pet boarding, veterinary services, grooming, training, and related pet care services across Delhi NCR.",
+        "Welcome to Bruno's Family & Cafe. By accessing or using our website and services, you agree to comply with and be bound by these Terms and Conditions.",
+        "Bruno's Family & Cafe provides pet boarding, veterinary services, grooming, training, and related pet care services across Delhi NCR.",
         "Please read these Terms carefully before using our services. If you disagree with any part of these terms, please do not use our services."
       ]
     },
@@ -76,7 +78,7 @@ const TermsPage = () => {
       title: "Definitions",
       icon: <MdPolicy />,
       content: [
-        "• 'Company', 'We', 'Us', 'Our' refers to Happy Pettings.",
+        "• 'Company', 'We', 'Us', 'Our' refers to Bruno's Family & Cafe.",
         "• 'You', 'Your', 'Customer' refers to the pet parent using our services.",
         "• 'Services' includes boarding, veterinary care, grooming, training, and all related pet care services.",
         "• 'Pet' refers to any animal boarded or receiving services from us.",
@@ -182,34 +184,34 @@ const TermsPage = () => {
   ];
 
   const importantPoints = [
-    { icon: <FaHandshake />, text: "Mutual Respect", color: "#007B7F" },
-    { icon: <FaLock />, text: "Data Protection", color: "#E67E22" },
-    { icon: <FaShieldAlt />, text: "Safety First", color: "#FF7A2F" },
-    { icon: <FaGavel />, text: "Legal Compliance", color: "#6B4E71" }
+    { icon: <FaHandshake />, text: "Mutual Respect", color: "#8B5E3C" },
+    { icon: <FaLock />, text: "Data Protection", color: "#D4A054" },
+    { icon: <FaShieldAlt />, text: "Safety First", color: "#6B2E2E" },
+    { icon: <FaGavel />, text: "Legal Compliance", color: "#D4A054" }
   ];
 
   return (
-    <div id="terms-page" className="min-h-screen bg-gradient-to-b from-white to-[#FFF9F0]">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-[#007B7F] to-[#005C5F] h-screen max-h-[700px] min-h-[550px] flex items-center justify-center overflow-hidden">
+    <div id="terms-page" className="min-h-screen bg-gradient-to-b from-white to-[#FDF8F0]">
+      {/* Hero Section - Bruno's Theme */}
+      <section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] h-screen max-h-[700px] min-h-[550px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-64 h-64 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute top-20 left-10 w-64 h-64 bg-[#D4A054] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#D4A054] rounded-full blur-3xl"></div>
         </div>
 
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div className={`text-center text-white transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-sm px-5 py-2.5 rounded-full mb-6 mx-auto w-fit">
-              <FaGavel className="text-[#FFD1B3]" />
+              <FaGavel className="text-[#D4A054]" />
               <span className="text-sm font-medium">Legal Information</span>
             </div>
             
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
               Terms and{' '}
-              <span className="relative inline-block text-[#FFD1B3]">
+              <span className="relative inline-block text-[#D4A054]">
                 Conditions
                 <svg className="absolute -bottom-2 left-0 w-full" height="6" viewBox="0 0 200 6">
-                  <path d="M0 3 L200 3" stroke="#FFD1B3" strokeWidth="2" strokeLinecap="round" strokeDasharray="6 6" className="animate-dash"/>
+                  <path d="M0 3 L200 3" stroke="#D4A054" strokeWidth="2" strokeLinecap="round" strokeDasharray="6 6" className="animate-dash"/>
                 </svg>
               </span>
             </h1>
@@ -219,7 +221,7 @@ const TermsPage = () => {
             </p>
             
             <div className="mt-6 text-sm text-white/70">
-              <i className="fas fa-clock"></i> Last Updated: {lastUpdated}
+              <FaClock className="inline mr-1 text-[#D4A054]" /> Last Updated: {lastUpdated}
             </div>
           </div>
         </div>
@@ -227,20 +229,20 @@ const TermsPage = () => {
         {/* Wave */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
-            <path fill="#FFF9F0" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            <path fill="#FDF8F0" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
           </svg>
         </div>
       </section>
 
-      {/* Important Points */}
+      {/* Important Points - Bruno's Theme */}
       <div className="container mx-auto px-4 md:px-8 -mt-12 relative z-20">
         <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {importantPoints.map((point, idx) => (
-            <div key={idx} className="bg-white rounded-xl p-4 text-center shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
-              <div className="w-12 h-12 mx-auto bg-gradient-to-br from-[#007B7F]/10 to-[#FFD1B3]/20 rounded-xl flex items-center justify-center mb-2" style={{ color: point.color }}>
+            <div key={idx} className="bg-white rounded-xl p-4 text-center shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 group">
+              <div className="w-12 h-12 mx-auto bg-gradient-to-br from-[#D4A054]/10 to-[#F5C27B]/20 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform" style={{ color: point.color }}>
                 <span className="text-xl">{point.icon}</span>
               </div>
-              <p className="text-sm font-semibold text-[#2C3E50]">{point.text}</p>
+              <p className="text-sm font-semibold text-gray-800">{point.text}</p>
             </div>
           ))}
         </div>
@@ -249,11 +251,11 @@ const TermsPage = () => {
       {/* Terms Content */}
       <div className="container mx-auto px-4 md:px-8 py-16">
         <div className="grid lg:grid-cols-4 gap-8">
-          {/* Sidebar Navigation */}
+          {/* Sidebar Navigation - Bruno's Theme */}
           <div className={`lg:col-span-1 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="sticky top-24 bg-white rounded-2xl shadow-lg p-5">
-              <h3 className="text-lg font-bold text-[#2C3E50] mb-4 pb-2 border-b border-gray-200 flex items-center gap-2">
-                <MdPolicy className="text-[#007B7F]" /> Contents
+              <h3 className="text-lg font-bold text-gray-800 mb-4 pb-2 border-b border-gray-200 flex items-center gap-2">
+                <MdPolicy className="text-[#D4A054]" /> Contents
               </h3>
               <div className="space-y-2 max-h-[500px] overflow-y-auto">
                 {sections.map((section, idx) => (
@@ -265,8 +267,8 @@ const TermsPage = () => {
                     }}
                     className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all flex items-center gap-2 ${
                       activeSection === idx 
-                        ? 'bg-[#007B7F] text-white' 
-                        : 'text-gray-600 hover:bg-[#007B7F]/10 hover:text-[#007B7F]'
+                        ? 'bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white' 
+                        : 'text-gray-600 hover:bg-[#D4A054]/10 hover:text-[#8B5E3C]'
                     }`}
                   >
                     <span className="text-sm">{section.icon}</span>
@@ -283,22 +285,22 @@ const TermsPage = () => {
               {/* Introduction Text */}
               <div className="mb-8 pb-6 border-b border-gray-200">
                 <p className="text-gray-600 mb-3">
-                  These Terms and Conditions ("Terms") govern your use of Happy Pettings website and services. 
+                  These Terms and Conditions ("Terms") govern your use of Bruno's Family & Cafe website and services. 
                   By using our services, you agree to be bound by these Terms.
                 </p>
                 <p className="text-gray-600">
-                  If you have any questions about these Terms, please contact us at care@happypettings.com.
+                  If you have any questions about these Terms, please contact us at care@brunosfamily.com.
                 </p>
               </div>
 
-              {/* Sections */}
+              {/* Sections - Bruno's Theme */}
               {sections.map((section) => (
                 <div key={section.id} id={`section-${section.id}`} className="mb-8 scroll-mt-24">
-                  <div className="flex items-center gap-3 mb-4 pb-2 border-b border-[#FFD1B3]">
-                    <div className="w-10 h-10 bg-[#007B7F]/10 rounded-xl flex items-center justify-center text-[#007B7F] text-xl">
+                  <div className="flex items-center gap-3 mb-4 pb-2 border-b border-[#D4A054]/30">
+                    <div className="w-10 h-10 bg-[#D4A054]/10 rounded-xl flex items-center justify-center text-[#D4A054] text-xl">
                       {section.icon}
                     </div>
-                    <h2 className="text-xl md:text-2xl font-bold text-[#2C3E50]">
+                    <h2 className="text-xl md:text-2xl font-bold text-gray-800">
                       {section.title}
                     </h2>
                   </div>
@@ -312,29 +314,29 @@ const TermsPage = () => {
                 </div>
               ))}
 
-              {/* Contact Information */}
-              <div className="mt-10 p-6 bg-gradient-to-r from-[#007B7F]/5 to-[#FFD1B3]/20 rounded-2xl">
-                <h3 className="text-lg font-bold text-[#2C3E50] mb-4 flex items-center gap-2">
-                  <FaPhoneAlt className="text-[#007B7F]" /> Need Help?
+              {/* Contact Information - Bruno's Theme */}
+              <div className="mt-10 p-6 bg-gradient-to-r from-[#D4A054]/10 to-[#F5C27B]/20 rounded-2xl">
+                <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                  <FaPhoneAlt className="text-[#D4A054]" /> Need Help?
                 </h3>
                 <p className="text-gray-600 mb-4">
                   If you have any questions about these Terms and Conditions, please contact us:
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="flex items-center gap-3">
-                    <FaPhoneAlt className="text-[#007B7F]" />
+                    <FaPhoneAlt className="text-[#D4A054]" />
                     <span className="text-gray-600">+91-9582582689</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <FaEnvelope className="text-[#007B7F]" />
-                    <span className="text-gray-600">care@happypettings.com</span>
+                    <FaEnvelope className="text-[#D4A054]" />
+                    <span className="text-gray-600">care@brunosfamily.com</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <FaMapMarkerAlt className="text-[#007B7F]" />
+                    <FaMapMarkerAlt className="text-[#D4A054]" />
                     <span className="text-gray-600">Delhi NCR, India</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <FaRegClock className="text-[#007B7F]" />
+                    <FaRegClock className="text-[#D4A054]" />
                     <span className="text-gray-600">24/7 Support Available</span>
                   </div>
                 </div>
@@ -352,11 +354,25 @@ const TermsPage = () => {
         </div>
       </div>
 
-      {/* Footer Note */}
-      <section className="py-8 bg-[#2C3E50] text-white text-center">
+      {/* Premium Badge */}
+      <div className="text-center pb-8">
+        <div className="inline-flex items-center gap-2 bg-white shadow-md px-5 py-2 rounded-full">
+          <FaGem className="text-[#D4A054] text-sm" />
+          <span className="text-xs text-gray-500">Transparent & Fair Policies</span>
+          <FaCoffee className="text-[#D4A054] text-sm" />
+        </div>
+      </div>
+
+      {/* Footer Note - Bruno's Theme */}
+      <section className="py-8 bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] text-white text-center">
         <div className="container mx-auto px-4">
-          <p className="text-sm opacity-80">
-            © 2024 Happy Pettings. All rights reserved. | Last Updated: {lastUpdated}
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <FaHeart className="text-[#D4A054]" />
+            <span className="text-sm">Bruno's Family & Cafe</span>
+            <FaCoffee className="text-[#D4A054]" />
+          </div>
+          <p className="text-xs opacity-80">
+            © 2024 Bruno's Family & Cafe. All rights reserved. | Last Updated: {lastUpdated}
           </p>
         </div>
       </section>
