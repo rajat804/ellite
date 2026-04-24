@@ -22,6 +22,8 @@ import {
   FaPlay,
   FaRocket,
   FaGlobe,
+  FaGem,
+  FaCoffee
 } from "react-icons/fa";
 import { MdVerified, MdLocalHospital, MdEmojiEmotions } from "react-icons/md";
 import WhyChooseUs from "../components/WhyChooseUs";
@@ -142,29 +144,29 @@ const AboutPage = () => {
       icon: <FaHeart className="text-3xl" />,
       title: "Compassion",
       desc: "We treat every pet with the same love and care as our own",
-      color: "#FF6B6B",
-      bg: "bg-gradient-to-br from-rose-50 to-rose-100",
+      color: "#D4A054",
+      bg: "bg-gradient-to-br from-[#D4A054]/10 to-[#F5C27B]/20",
     },
     {
       icon: <FaShieldAlt className="text-3xl" />,
       title: "Safety First",
       desc: "Highest safety standards with 24/7 monitoring",
-      color: "#4ECDC4",
-      bg: "bg-gradient-to-br from-teal-50 to-teal-100",
+      color: "#8B5E3C",
+      bg: "bg-gradient-to-br from-[#8B5E3C]/10 to-[#A0714F]/20",
     },
     {
       icon: <MdVerified className="text-3xl" />,
       title: "Trust & Integrity",
       desc: "Transparent practices and honest communication",
-      color: "#45B7D1",
-      bg: "bg-gradient-to-br from-blue-50 to-blue-100",
+      color: "#D4A054",
+      bg: "bg-gradient-to-br from-[#D4A054]/10 to-[#F5C27B]/20",
     },
     {
       icon: <FaRocket className="text-3xl" />,
       title: "Excellence",
       desc: "Continuous improvement in all our services",
-      color: "#96CEB4",
-      bg: "bg-gradient-to-br from-emerald-50 to-emerald-100",
+      color: "#6B2E2E",
+      bg: "bg-gradient-to-br from-[#6B2E2E]/10 to-[#4A3728]/20",
     },
   ];
 
@@ -174,42 +176,42 @@ const AboutPage = () => {
       title: "The Beginning",
       description: "Started as Delhi NCR's first pet boarding service",
       icon: <FaCalendarAlt className="text-lg" />,
-      color: "#007B7F",
+      color: "#8B5E3C",
     },
     {
       year: 2012,
       title: "Expansion",
       description: "Opened second facility to serve more pets",
       icon: <FaMapMarkerAlt className="text-lg" />,
-      color: "#E67E22",
+      color: "#D4A054",
     },
     {
       year: 2015,
       title: "Vet Services",
       description: "Launched home veterinary services",
       icon: <MdLocalHospital className="text-lg" />,
-      color: "#FF7A2F",
+      color: "#6B2E2E",
     },
     {
       year: 2018,
       title: "10k+ Pets",
       description: "Served over 10,000 happy pets",
       icon: <FaDog className="text-lg" />,
-      color: "#6B4E71",
+      color: "#D4A054",
     },
     {
       year: 2020,
       title: "24/7 Support",
       description: "Introduced round-the-clock emergency care",
       icon: <FaClock className="text-lg" />,
-      color: "#007B7F",
+      color: "#8B5E3C",
     },
     {
       year: 2024,
       title: "17k+ Families",
       description: "Trusted by 17,000+ pet parents",
       icon: <FaUsers className="text-lg" />,
-      color: "#E67E22",
+      color: "#6B2E2E",
     },
   ];
 
@@ -218,42 +220,47 @@ const AboutPage = () => {
       icon: <FaTrophy className="text-2xl" />,
       title: "Best Pet Care Service",
       year: "2022, 2023",
-      color: "#FFD700",
+      color: "#D4A054",
     },
     {
       icon: <FaAward className="text-2xl" />,
       title: "Most Trusted Brand",
       year: "2021-2024",
-      color: "#C0C0C0",
+      color: "#8B5E3C",
     },
     {
       icon: <FaStar className="text-2xl" />,
       title: "5-Star Rated",
       year: "Consistently",
-      color: "#FFB6C1",
+      color: "#D4A054",
     },
     {
       icon: <MdVerified className="text-2xl" />,
       title: "ISO Certified",
       year: "2020",
-      color: "#007B7F",
+      color: "#6B2E2E",
     },
   ];
 
   return (
     <div
       id="about-page"
-      className="min-h-screen bg-gradient-to-b from-white to-[#FFF9F0]"
+      className="min-h-screen bg-gradient-to-b from-white to-[#FDF8F0]"
     >
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-[#007B7F] to-[#005C5F] h-screen max-h-[700px] min-h-[550px] flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Bruno's Theme */}
+      <section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] h-screen max-h-[700px] min-h-[550px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-64 h-64 bg-[#D4A054] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#D4A054] rounded-full blur-3xl"></div>
+        </div>
+
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <div
             className={`text-center text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
             {/* Badge */}
             <div className="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-sm px-5 py-2 rounded-full mb-5 mx-auto w-fit">
-              <FaHeart className="text-[#FFD1B3] animate-pulse text-sm" />
+              <FaHeart className="text-[#D4A054] animate-pulse text-sm" />
               <span className="text-sm font-medium text-white">
                 15+ Years of Love & Care
               </span>
@@ -262,7 +269,7 @@ const AboutPage = () => {
             {/* Heading */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-white">
               Your Pet's{" "}
-              <span className="relative inline-block text-[#FFD1B3]">
+              <span className="relative inline-block text-[#D4A054]">
                 Second Home
                 <svg
                   className="absolute -bottom-2 left-0 w-full"
@@ -271,7 +278,7 @@ const AboutPage = () => {
                 >
                   <path
                     d="M0 3 L200 3"
-                    stroke="#FFD1B3"
+                    stroke="#D4A054"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeDasharray="6 6"
@@ -289,7 +296,7 @@ const AboutPage = () => {
 
             {/* Buttons */}
             <div className="flex flex-wrap justify-center gap-4">
-              <button className="group bg-white text-[#007B7F] px-7 py-2.5 rounded-full font-semibold hover:shadow-xl transition-all hover:scale-105 flex items-center gap-2">
+              <button className="group bg-gradient-to-r from-[#D4A054] to-[#F5C27B] text-[#2C1810] px-7 py-2.5 rounded-full font-semibold hover:shadow-xl transition-all hover:scale-105 flex items-center gap-2">
                 <FaPlay className="text-sm group-hover:scale-110 transition-transform" />
                 Watch Our Story
               </button>
@@ -308,7 +315,7 @@ const AboutPage = () => {
             className="w-full"
           >
             <path
-              fill="#FFF9F0"
+              fill="#FDF8F0"
               fillOpacity="1"
               d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             ></path>
@@ -316,7 +323,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Stats Section - Bruno's Theme */}
       <div className="container mx-auto px-4 md:px-8 -mt-12 relative z-20">
         <div
           className={`grid grid-cols-2 md:grid-cols-4 gap-4 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
@@ -326,29 +333,29 @@ const AboutPage = () => {
               icon: <FaAward className="text-2xl" />,
               value: `${counterValues.years}+`,
               label: "Years of Excellence",
-              color: "#007B7F",
-              gradient: "from-teal-50 to-teal-100",
+              color: "#8B5E3C",
+              gradient: "from-[#8B5E3C]/10 to-[#A0714F]/20",
             },
             {
               icon: <FaUsers className="text-2xl" />,
               value: `${counterValues.families}k+`,
               label: "Happy Families",
-              color: "#E67E22",
-              gradient: "from-orange-50 to-orange-100",
+              color: "#D4A054",
+              gradient: "from-[#D4A054]/10 to-[#F5C27B]/20",
             },
             {
               icon: <FaDog className="text-2xl" />,
               value: `${counterValues.stays}k+`,
               label: "Boarding Stays",
-              color: "#FF7A2F",
-              gradient: "from-amber-50 to-amber-100",
+              color: "#6B2E2E",
+              gradient: "from-[#6B2E2E]/10 to-[#4A3728]/20",
             },
             {
               icon: <FaStar className="text-2xl" />,
               value: `${(counterValues.rating / 10).toFixed(1)}`,
               label: "Google Rating",
-              color: "#6B4E71",
-              gradient: "from-purple-50 to-purple-100",
+              color: "#D4A054",
+              gradient: "from-[#D4A054]/10 to-[#F5C27B]/20",
             },
           ].map((stat, idx) => (
             <div
@@ -361,7 +368,7 @@ const AboutPage = () => {
               >
                 {stat.icon}
               </div>
-              <div className="text-2xl md:text-3xl font-bold text-[#2C3E50]">
+              <div className="text-2xl md:text-3xl font-bold text-gray-800">
                 {stat.value}
               </div>
               <div className="text-xs text-gray-500">{stat.label}</div>
@@ -370,7 +377,7 @@ const AboutPage = () => {
         </div>
       </div>
 
-      {/* Our Story Section */}
+      {/* Our Story Section - Bruno's Theme */}
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col items-center justify-center text-center">
@@ -378,9 +385,9 @@ const AboutPage = () => {
             <div
               className={`mb-4 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
-              <div className="inline-flex items-center justify-center gap-2 bg-[#007B7F]/10 px-4 py-2 rounded-full mx-auto w-fit">
-                <FaHeart className="text-[#007B7F] text-sm" />
-                <span className="text-[#007B7F] font-semibold text-xs uppercase tracking-wide">
+              <div className="inline-flex items-center justify-center gap-2 bg-[#D4A054]/10 px-4 py-2 rounded-full mx-auto w-fit">
+                <FaHeart className="text-[#D4A054] text-sm" />
+                <span className="text-[#8B5E3C] font-semibold text-xs uppercase tracking-wide">
                   Our Story
                 </span>
               </div>
@@ -390,10 +397,10 @@ const AboutPage = () => {
             <div
               className={`mb-6 transition-all duration-700 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C3E50]">
-                A Journey of <span className="text-[#007B7F]">Love & Care</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800">
+                A Journey of <span className="text-[#D4A054]">Love & Care</span>
               </h2>
-              <div className="w-20 h-1 bg-[#FFD1B3] mx-auto mt-3 rounded-full"></div>
+              <div className="w-20 h-1 bg-[#D4A054] mx-auto mt-3 rounded-full"></div>
             </div>
 
             {/* Image */}
@@ -411,11 +418,11 @@ const AboutPage = () => {
 
                 <div className="absolute -top-3 -right-3 bg-white rounded-xl p-2 shadow-lg">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-[#007B7F] rounded-full flex items-center justify-center">
-                      <MdVerified className="text-white text-sm" />
+                    <div className="w-8 h-8 bg-gradient-to-r from-[#D4A054] to-[#F5C27B] rounded-full flex items-center justify-center">
+                      <MdVerified className="text-[#2C1810] text-sm" />
                     </div>
                     <div className="text-left">
-                      <div className="font-bold text-[#2C3E50] text-xs">
+                      <div className="font-bold text-gray-800 text-xs">
                         Trusted Since 2008
                       </div>
                       <div className="text-xs text-gray-500">17k+ Families</div>
@@ -430,8 +437,8 @@ const AboutPage = () => {
               className={`max-w-2xl mx-auto mb-8 transition-all duration-700 delay-600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
               <p className="text-gray-600 mb-3 leading-relaxed">
-                Founded in 2008, Happy Pettings started with a simple belief:{" "}
-                <span className="font-semibold text-[#007B7F]">
+                Founded in 2008, Bruno's Family started with a simple belief:{" "}
+                <span className="font-semibold text-[#8B5E3C]">
                   pets deserve a home away from home
                 </span>
                 .
@@ -442,11 +449,11 @@ const AboutPage = () => {
               </p>
               <p className="text-gray-600 leading-relaxed">
                 Today, we're proud to have served over{" "}
-                <span className="font-bold text-[#007B7F]">
+                <span className="font-bold text-[#8B5E3C]">
                   17,000 families
                 </span>{" "}
                 and provided{" "}
-                <span className="font-bold text-[#007B7F]">
+                <span className="font-bold text-[#8B5E3C]">
                   10,000+ boarding stays
                 </span>
                 .
@@ -457,10 +464,10 @@ const AboutPage = () => {
             <div
               className={`flex flex-wrap justify-center gap-4 transition-all duration-700 delay-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
-              <button className="bg-[#007B7F] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#007B7F]/80 transition-all hover:scale-105 flex items-center gap-2 text-sm">
+              <button className="bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white px-6 py-2 rounded-full font-semibold hover:shadow-xl transition-all hover:scale-105 flex items-center gap-2 text-sm">
                 Learn More <FaArrowRight className="text-xs" />
               </button>
-              <button className="border-2 border-[#007B7F] text-[#007B7F] px-6 py-2 rounded-full font-semibold hover:bg-[#007B7F] hover:text-white transition-all text-sm">
+              <button className="border-2 border-[#D4A054] text-[#8B5E3C] px-6 py-2 rounded-full font-semibold hover:bg-gradient-to-r hover:from-[#8B5E3C] hover:to-[#6B2E2E] hover:text-white transition-all text-sm">
                 Book a Tour
               </button>
             </div>
@@ -468,20 +475,20 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Achievements Section */}
-      <section className="py-12 bg-gradient-to-r from-[#007B7F]/5 to-[#FFD1B3]/20">
+      {/* Achievements Section - Bruno's Theme */}
+      <section className="py-12 bg-gradient-to-r from-[#D4A054]/5 to-[#F5C27B]/20">
         <div className="container mx-auto px-4 md:px-8">
           <div
             className={`text-center mb-8 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
-            <div className="inline-flex items-center justify-center gap-2 bg-[#007B7F]/10 px-3 py-1.5 rounded-full mb-3 mx-auto w-fit">
-              <FaTrophy className="text-[#007B7F] text-sm" />
-              <span className="text-[#007B7F] font-semibold text-xs uppercase tracking-wide">
+            <div className="inline-flex items-center justify-center gap-2 bg-[#D4A054]/10 px-3 py-1.5 rounded-full mb-3 mx-auto w-fit">
+              <FaTrophy className="text-[#D4A054] text-sm" />
+              <span className="text-[#8B5E3C] font-semibold text-xs uppercase tracking-wide">
                 Achievements
               </span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#2C3E50] mb-2">
-              Our <span className="text-[#007B7F]">Recognitions</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
+              Our <span className="text-[#D4A054]">Recognitions</span>
             </h2>
             <p className="text-gray-500 text-sm">
               Awards that validate our commitment to excellence
@@ -495,7 +502,7 @@ const AboutPage = () => {
                 className={`bg-white rounded-xl p-4 text-center shadow-md hover:shadow-lg transition-all hover:-translate-y-1 group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                 style={{ transitionDelay: `${idx * 0.1}s` }}
               >
-                <div className="w-12 h-12 mx-auto bg-gradient-to-br from-[#007B7F]/10 to-[#FFD1B3]/20 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 mx-auto bg-gradient-to-br from-[#D4A054]/10 to-[#F5C27B]/20 rounded-xl flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                   <div
                     className="text-2xl"
                     style={{ color: achievement.color }}
@@ -503,7 +510,7 @@ const AboutPage = () => {
                     {achievement.icon}
                   </div>
                 </div>
-                <h3 className="font-bold text-[#2C3E50] text-sm mb-1">
+                <h3 className="font-bold text-gray-800 text-sm mb-1">
                   {achievement.title}
                 </h3>
                 <p className="text-xs text-gray-400">{achievement.year}</p>
@@ -513,14 +520,14 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Mission & Vision Tabs */}
+      {/* Mission & Vision Tabs - Bruno's Theme */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <div
             className={`text-center max-w-3xl mx-auto mb-10 transition-all duration-700 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-2">
-              Our <span className="text-[#007B7F]">Mission & Vision</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+              Our <span className="text-[#D4A054]">Mission & Vision</span>
             </h2>
             <p className="text-gray-500">
               Guiding principles that drive us every day
@@ -536,19 +543,19 @@ const AboutPage = () => {
                 id: "mission",
                 label: "Our Mission",
                 icon: <FaRocket className="text-sm" />,
-                color: "#007B7F",
+                color: "#8B5E3C",
               },
               {
                 id: "vision",
                 label: "Our Vision",
                 icon: <FaGlobe className="text-sm" />,
-                color: "#E67E22",
+                color: "#D4A054",
               },
               {
                 id: "values",
                 label: "Core Values",
                 icon: <FaHeart className="text-sm" />,
-                color: "#FF7A2F",
+                color: "#6B2E2E",
               },
             ].map((tab) => (
               <button
@@ -556,8 +563,8 @@ const AboutPage = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-2 px-5 py-2 rounded-full font-semibold transition-all duration-300 text-sm ${
                   activeTab === tab.id
-                    ? "bg-[#007B7F] text-white shadow-md"
-                    : "bg-gray-100 text-gray-600 hover:bg-[#007B7F]/10"
+                    ? "bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white shadow-md"
+                    : "bg-gray-100 text-gray-600 hover:bg-[#D4A054]/20 hover:text-[#8B5E3C]"
                 }`}
               >
                 {tab.icon}
@@ -571,11 +578,11 @@ const AboutPage = () => {
             className={`max-w-3xl mx-auto transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
             {activeTab === "mission" && (
-              <div className="bg-gradient-to-br from-[#007B7F]/10 to-[#FFD1B3]/20 rounded-2xl p-6 text-center">
+              <div className="bg-gradient-to-br from-[#D4A054]/10 to-[#F5C27B]/20 rounded-2xl p-6 text-center">
                 <div className="w-14 h-14 mx-auto bg-white rounded-xl flex items-center justify-center mb-4 shadow-md">
-                  <FaRocket className="text-2xl text-[#007B7F]" />
+                  <FaRocket className="text-2xl text-[#D4A054]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#2C3E50] mb-2">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
                   Our Mission
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
@@ -587,11 +594,11 @@ const AboutPage = () => {
             )}
 
             {activeTab === "vision" && (
-              <div className="bg-gradient-to-br from-[#E67E22]/10 to-[#FFD1B3]/20 rounded-2xl p-6 text-center">
+              <div className="bg-gradient-to-br from-[#D4A054]/10 to-[#F5C27B]/20 rounded-2xl p-6 text-center">
                 <div className="w-14 h-14 mx-auto bg-white rounded-xl flex items-center justify-center mb-4 shadow-md">
-                  <FaGlobe className="text-2xl text-[#E67E22]" />
+                  <FaGlobe className="text-2xl text-[#D4A054]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#2C3E50] mb-2">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
                   Our Vision
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
@@ -615,7 +622,7 @@ const AboutPage = () => {
                     >
                       {value.icon}
                     </div>
-                    <h4 className="font-bold text-[#2C3E50] text-sm mb-1">
+                    <h4 className="font-bold text-gray-800 text-sm mb-1">
                       {value.title}
                     </h4>
                     <p className="text-gray-500 text-xs">{value.desc}</p>
@@ -627,20 +634,20 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Our Journey Timeline */}
-      <section className="py-16 bg-[#FFF9F0]">
+      {/* Our Journey Timeline - Bruno's Theme */}
+      <section className="py-16 bg-[#FDF8F0]">
         <div className="container mx-auto px-4 md:px-8">
           <div
             className={`text-center max-w-3xl mx-auto mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
-            <div className="inline-flex items-center justify-center gap-2 bg-[#007B7F]/10 px-3 py-1.5 rounded-full mb-3 mx-auto w-fit">
-              <FaCalendarAlt className="text-[#007B7F] text-sm" />
-              <span className="text-[#007B7F] font-semibold text-xs uppercase tracking-wide">
+            <div className="inline-flex items-center justify-center gap-2 bg-[#D4A054]/10 px-3 py-1.5 rounded-full mb-3 mx-auto w-fit">
+              <FaCalendarAlt className="text-[#D4A054] text-sm" />
+              <span className="text-[#8B5E3C] font-semibold text-xs uppercase tracking-wide">
                 Timeline
               </span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#2C3E50] mb-2">
-              Our <span className="text-[#007B7F]">Journey</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
+              Our <span className="text-[#D4A054]">Journey</span>
             </h2>
             <p className="text-gray-500 text-sm">
               Milestones that shaped who we are today
@@ -669,7 +676,7 @@ const AboutPage = () => {
                       >
                         {milestone.year}
                       </span>
-                      <h3 className="font-bold text-[#2C3E50]">
+                      <h3 className="font-bold text-gray-800">
                         {milestone.title}
                       </h3>
                     </div>
@@ -684,20 +691,20 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Our Team Section */}
+      {/* Our Team Section - Bruno's Theme */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <div
             className={`text-center max-w-3xl mx-auto mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
           >
-            <div className="inline-flex items-center justify-center gap-2 bg-[#007B7F]/10 px-3 py-1.5 rounded-full mb-3 mx-auto w-fit">
-              <FaUsers className="text-[#007B7F] text-sm" />
-              <span className="text-[#007B7F] font-semibold text-xs uppercase tracking-wide">
+            <div className="inline-flex items-center justify-center gap-2 bg-[#D4A054]/10 px-3 py-1.5 rounded-full mb-3 mx-auto w-fit">
+              <FaUsers className="text-[#D4A054] text-sm" />
+              <span className="text-[#8B5E3C] font-semibold text-xs uppercase tracking-wide">
                 Meet Our Team
               </span>
             </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#2C3E50] mb-2">
-              Dedicated <span className="text-[#007B7F]">Professionals</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
+              Dedicated <span className="text-[#D4A054]">Professionals</span>
             </h2>
             <p className="text-gray-500 text-sm">
               Passionate experts committed to your pet's well-being
@@ -720,24 +727,24 @@ const AboutPage = () => {
                     className={`w-full h-full object-cover transition-all duration-500 ${hoveredTeam === member.id ? "scale-110" : "scale-100"}`}
                   />
                   <div
-                    className={`absolute inset-0 bg-gradient-to-t from-[#007B7F] to-transparent transition-all duration-500 ${hoveredTeam === member.id ? "opacity-80" : "opacity-0"} flex items-end justify-center p-4`}
+                    className={`absolute inset-0 bg-gradient-to-t from-[#8B5E3C] to-transparent transition-all duration-500 ${hoveredTeam === member.id ? "opacity-80" : "opacity-0"} flex items-end justify-center p-4`}
                   >
                     <div className="flex gap-2">
                       <a
                         href={member.social.facebook}
-                        className="bg-white p-1.5 rounded-full hover:bg-[#007B7F] hover:text-white transition-all transform hover:scale-110"
+                        className="bg-white p-1.5 rounded-full hover:bg-[#D4A054] hover:text-[#2C1810] transition-all transform hover:scale-110"
                       >
                         <FaFacebook className="text-sm" />
                       </a>
                       <a
                         href={member.social.instagram}
-                        className="bg-white p-1.5 rounded-full hover:bg-[#007B7F] hover:text-white transition-all transform hover:scale-110"
+                        className="bg-white p-1.5 rounded-full hover:bg-[#D4A054] hover:text-[#2C1810] transition-all transform hover:scale-110"
                       >
                         <FaInstagram className="text-sm" />
                       </a>
                       <a
                         href={member.social.linkedin}
-                        className="bg-white p-1.5 rounded-full hover:bg-[#007B7F] hover:text-white transition-all transform hover:scale-110"
+                        className="bg-white p-1.5 rounded-full hover:bg-[#D4A054] hover:text-[#2C1810] transition-all transform hover:scale-110"
                       >
                         <FaLinkedin className="text-sm" />
                       </a>
@@ -745,10 +752,10 @@ const AboutPage = () => {
                   </div>
                 </div>
                 <div className="p-4 text-center">
-                  <h3 className="text-base font-bold text-[#2C3E50] mb-0.5">
+                  <h3 className="text-base font-bold text-gray-800 mb-0.5">
                     {member.name}
                   </h3>
-                  <p className="text-[#007B7F] font-semibold text-xs mb-1">
+                  <p className="text-[#D4A054] font-semibold text-xs mb-1">
                     {member.role}
                   </p>
                   <p className="text-gray-400 text-xs">
