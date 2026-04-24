@@ -16,15 +16,21 @@ import {
   FaQuoteLeft,
   FaPhoneAlt,
   FaEnvelope,
-  FaMapMarkerAlt
+  FaMapMarkerAlt,
+  FaHandHoldingHeart,
+  FaLeaf,
+  FaRegSmile,
+  FaRegHeart,
+  FaGem,
+  FaCrown,
+  FaInfinity,
+  FaCoffee
 } from 'react-icons/fa';
-import { MdPets, MdHealthAndSafety, MdVerified, MdCake } from 'react-icons/md';
-import { GiDogHouse, GiCat, GiMeditation } from 'react-icons/gi';
+import { MdPets, MdHealthAndSafety, MdVerified, MdCake, MdCleaningServices, MdUpdate, MdOutlineSecurity, MdLocalCafe } from 'react-icons/md';
+import { GiDogHouse, GiCat, GiMeditation, GiPawHeart, GiLoveInjection } from 'react-icons/gi';
 
 const WhyChooseUs = () => {
   const [isVisible, setIsVisible] = useState(false);
-  // ❌ Remove this line if not using
-  // const [activeFeature, setActiveFeature] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,151 +48,186 @@ const WhyChooseUs = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Bruno's Family & Cafe Color Palette
+  const colors = {
+    primary: '#8B5E3C',      // Warm Brown
+    secondary: '#6B2E2E',     // Deep Maroon
+    accent1: '#D4A054',       // Golden Amber
+    accent2: '#F5C27B',       // Light Gold
+    accent3: '#4A3728',       // Dark Brown
+    accent4: '#A0714F',       // Medium Brown
+    dark: '#2C1810',          // Darkest Brown
+    light: '#FDF8F0',         // Soft Cream
+    gradient1: 'from-[#8B5E3C] to-[#6B2E2E]',
+    gradient2: 'from-[#6B2E2E] to-[#4A3728]',
+    gradient3: 'from-[#D4A054] to-[#B8860B]',
+    gradient4: 'from-[#A0714F] to-[#8B5E3C]',
+    gradient5: 'from-[#F5C27B] to-[#D4A054]'
+  };
+
   const features = [
     {
-      icon: <FaHome className="text-3xl" />,
-      title: 'Home-Based Environment',
-      subtitle: 'Real Home, Not a Kennel',
-      description: 'Unlike traditional kennels, our boarding is in a real home setup – cozy, clean, and completely stress-free for your furry friend.',
-      benefits: ['No cages or isolation', 'Family-like atmosphere', 'Individual attention'],
-      color: '#007B7F',
-      bg: 'bg-[#007B7F]/10'
+      icon: <FaHandHoldingHeart className="text-3xl" />,
+      title: 'Trusted & Caring Environment',
+      subtitle: 'Home Away From Home',
+      description: 'We provide a warm, loving, and nurturing environment where your pet feels safe, comfortable, and truly at home.',
+      benefits: ['Stress-free atmosphere', 'Loving caretakers', 'Home-like comfort'],
+      gradient: colors.gradient1,
+      color: colors.primary
     },
     {
-      icon: <FaAward className="text-3xl" />,
-      title: '15+ Years Experience',
-      subtitle: 'Pioneers in Pet Boarding',
-      description: 'We are the first pet boarding service in Delhi NCR with years of expertise. Trusted by thousands of pet parents.',
-      benefits: ['Established 2008', 'Expert caretakers', 'Proven track record'],
-      color: '#E67E22',
-      bg: 'bg-orange-100'
-    },
-    {
-      icon: <FaStar className="text-3xl" />,
-      title: '5-Star Rated Service',
-      subtitle: 'Loved by Thousands',
-      description: 'Over 10,000+ happy dogs boarded with excellent reviews. Our reputation speaks for itself.',
-      benefits: ['10,000+ boarding stays', '4.9 Google Rating', 'Verified reviews'],
-      color: '#FF7A2F',
-      bg: 'bg-orange-100'
+      icon: <MdCleaningServices className="text-3xl" />,
+      title: 'Clean & Safe Facility',
+      subtitle: 'Highest Hygiene Standards',
+      description: 'Our facility is meticulously maintained with professional cleaning protocols, air purifiers, and sanitized play areas.',
+      benefits: ['Daily deep cleaning', 'Air purification', 'Sanitized equipment'],
+      gradient: colors.gradient4,
+      color: colors.accent4
     },
     {
       icon: <FaHeart className="text-3xl" />,
-      title: 'Socialization & Fun',
-      subtitle: 'Happy Dogs, Happy Life',
-      description: 'Your dog enjoys interaction, playtime, and behavioral enrichment with other friendly pets.',
-      benefits: ['Daily play sessions', 'Behavioral enrichment', 'New friends'],
-      color: '#6B4E71',
-      bg: 'bg-purple-100'
+      title: 'Personalized Attention',
+      subtitle: 'Every Pet is Unique',
+      description: 'We understand that every pet has different needs. Our customized care plans ensure individual attention for each furry guest.',
+      benefits: ['Individual care plans', 'One-on-one time', 'Special diet handling'],
+      gradient: colors.gradient2,
+      color: colors.secondary
     },
     {
-      icon: <FaShieldAlt className="text-3xl" />,
-      title: 'Safe & Supervised',
-      subtitle: '24/7 Monitoring',
-      description: 'Round-the-clock supervision, regular health checks, and vet-on-call support for complete peace of mind.',
-      benefits: ['24/7 monitoring', 'Vet-on-call', 'Emergency ready'],
-      color: '#007B7F',
-      bg: 'bg-[#007B7F]/10'
-    },
-    {
-      icon: <FaVideo className="text-3xl" />,
-      title: 'Daily Updates',
-      subtitle: 'Stay Connected',
-      description: 'Regular photo and video updates on WhatsApp so you never miss a moment of your pet\'s happy stay.',
+      icon: <MdUpdate className="text-3xl" />,
+      title: 'Regular Updates',
+      subtitle: 'Stay Connected Always',
+      description: 'Never worry about your pet while you\'re away. We send daily photo and video updates via WhatsApp.',
       benefits: ['Daily photos/videos', 'Real-time updates', 'Peace of mind'],
-      color: '#E67E22',
-      bg: 'bg-orange-100'
+      gradient: colors.gradient3,
+      color: colors.accent1
+    },
+    {
+      icon: <GiPawHeart className="text-3xl" />,
+      title: 'Passionate Dog Lovers',
+      subtitle: 'Expert Caretakers',
+      description: 'Our team consists of passionate pet lovers who treat every animal with the same love and care as their own.',
+      benefits: ['Certified staff', 'Experienced team', 'Genuine love for pets'],
+      gradient: colors.gradient5,
+      color: colors.accent2
+    },
+    {
+      icon: <MdOutlineSecurity className="text-3xl" />,
+      title: '24/7 Safety Monitoring',
+      subtitle: 'Round the Clock Care',
+      description: 'Your pet\'s safety is our top priority with 24/7 supervision, CCTV monitoring, and immediate emergency response.',
+      benefits: ['CCTV surveillance', 'Emergency protocols', 'Vet on call'],
+      gradient: colors.gradient2,
+      color: colors.dark
     }
   ];
 
   const stats = [
-    { number: '15+', label: 'Years Experience', icon: <MdVerified />, color: '#007B7F' },
-    { number: '10,000+', label: 'Happy Dogs', icon: <FaDog />, color: '#E67E22' },
-    { number: '4.9', label: 'Google Rating', icon: <FaStar />, color: '#FF7A2F' },
-    { number: '24/7', label: 'Support Available', icon: <FaClock />, color: '#6B4E71' }
+    { number: '15+', label: 'Years of Excellence', icon: <FaCrown />, gradient: colors.gradient1 },
+    { number: '17k+', label: 'Happy Families', icon: <FaUsers />, gradient: colors.gradient2 },
+    { number: '10k+', label: 'Pets Served', icon: <FaDog />, gradient: colors.gradient3 },
+    { number: '100%', label: 'Satisfaction', icon: <FaSmile />, gradient: colors.gradient4 }
+  ];
+
+  const quickPoints = [
+    { icon: <FaHandHoldingHeart />, text: 'Trusted & Caring', gradient: colors.gradient1 },
+    { icon: <MdCleaningServices />, text: 'Clean & Safe', gradient: colors.gradient4 },
+    { icon: <FaHeart />, text: 'Personalized Care', gradient: colors.gradient2 },
+    { icon: <MdUpdate />, text: 'Daily Updates', gradient: colors.gradient3 },
+    { icon: <GiPawHeart />, text: 'Pet Lovers', gradient: colors.gradient5 },
+    { icon: <MdOutlineSecurity />, text: '24/7 Safety', gradient: colors.gradient2 }
   ];
 
   return (
-    <section id="why-choose-us" className="py-20 md:py-28 bg-white">
+    <section id="why-choose-us" className="py-20 md:py-28 bg-gradient-to-br from-white via-[#FDF8F0] to-[#F5EDE4]">
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 bg-[#007B7F]/10 px-4 py-2 rounded-full mb-4">
-            <FaHeart className="text-[#007B7F] text-lg" />
-            <span className="text-[#007B7F] font-semibold text-sm uppercase tracking-wide">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#8B5E3C]/10 to-[#D4A054]/10 px-5 py-2.5 rounded-full mb-5 backdrop-blur-sm">
+            <FaCoffee className="text-[#8B5E3C] text-lg" />
+            <span className="text-[#8B5E3C] font-semibold text-sm uppercase tracking-wide">
               Why Choose Us
             </span>
           </div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C3E50] mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
             Why Choose{' '}
-            <span className="relative inline-block">
-              Happy Pettings?
+            <span className="relative inline-block bg-gradient-to-r from-[#8B5E3C] to-[#D4A054] bg-clip-text text-transparent">
+              Bruno's Family?
               <svg className="absolute -bottom-2 left-0 w-full" height="8" viewBox="0 0 200 8">
-                <path d="M0 4 L200 4" stroke="#FFD1B3" strokeWidth="4" strokeLinecap="round"/>
+                <path d="M0 4 L200 4" stroke="#D4A054" strokeWidth="3" strokeLinecap="round" strokeDasharray="4 4" className="animate-dash"/>
               </svg>
             </span>
           </h2>
           
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-500 text-lg">
             We provide the best care for your furry family members with love, safety, and professionalism
           </p>
         </div>
 
+        {/* Quick Points Row */}
+        <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16 transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          {quickPoints.map((point, idx) => (
+            <div key={idx} className="group relative bg-white rounded-xl p-4 text-center shadow-md hover:shadow-xl transition-all hover:-translate-y-2 overflow-hidden">
+              <div className={`absolute inset-0 bg-gradient-to-r ${point.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
+              <div className={`w-12 h-12 mx-auto rounded-xl flex items-center justify-center mb-3 transition-all group-hover:scale-110 bg-gradient-to-r ${point.gradient} shadow-md`}>
+                <span className="text-white text-xl">{point.icon}</span>
+              </div>
+              <p className="text-xs font-semibold text-gray-700 leading-tight">{point.text}</p>
+            </div>
+          ))}
+        </div>
+
         {/* Stats Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-5 mb-16 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {stats.map((stat, idx) => (
             <div
               key={idx}
-              className={`text-center p-6 bg-gradient-to-br from-white to-[#FFF9F0] rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 ${
-                isVisible ? 'animate-fade-in-up' : 'opacity-0'
-              }`}
-              style={{ animationDelay: `${idx * 0.1}s` }}
+              className="group relative bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 overflow-hidden"
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md mb-4" style={{ color: stat.color }}>
-                <span className="text-2xl">{stat.icon}</span>
+              <div className={`absolute inset-0 bg-gradient-to-r ${stat.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
+              <div className={`w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-4 bg-gradient-to-r ${stat.gradient} shadow-lg group-hover:scale-110 transition-transform`}>
+                <span className="text-white text-2xl">{stat.icon}</span>
               </div>
-              <div className="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-1">{stat.number}</div>
+              <div className="text-3xl md:text-4xl font-bold text-gray-800 mb-1">{stat.number}</div>
               <div className="text-sm text-gray-500">{stat.label}</div>
             </div>
           ))}
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mb-16">
           {features.map((feature, idx) => (
             <div
               key={idx}
-              className={`group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 ${
+              className={`group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 ${
                 isVisible ? 'animate-fade-in-up' : 'opacity-0'
               }`}
               style={{ animationDelay: `${0.3 + idx * 0.1}s` }}
             >
-              {/* Icon */}
-              <div className={`${feature.bg} w-16 h-16 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
-                <div style={{ color: feature.color }} className="text-2xl">
+              <div className="bg-gray-50 w-16 h-16 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-300">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white text-xl shadow-md bg-gradient-to-r ${feature.gradient}`}>
                   {feature.icon}
                 </div>
               </div>
 
-              {/* Title */}
-              <h3 className="text-xl font-bold text-[#2C3E50] mb-1">
+              <h3 className="text-xl font-bold text-gray-800 mb-1 group-hover:text-[#8B5E3C] transition-colors">
                 {feature.title}
               </h3>
               <p className="text-sm font-semibold mb-3" style={{ color: feature.color }}>
                 {feature.subtitle}
               </p>
               
-              {/* Description */}
-              <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+              <p className="text-gray-500 text-sm mb-4 leading-relaxed">
                 {feature.description}
               </p>
 
-              {/* Benefits List */}
               <div className="space-y-2 mt-4 pt-4 border-t border-gray-100">
                 {feature.benefits.map((benefit, bIdx) => (
                   <div key={bIdx} className="flex items-center gap-2 text-xs text-gray-500">
-                    <FaCheckCircle className="text-[#007B7F] text-xs" />
+                    <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${feature.gradient} flex items-center justify-center`}>
+                      <FaCheckCircle className="text-white text-[8px]" />
+                    </div>
                     <span>{benefit}</span>
                   </div>
                 ))}
@@ -196,13 +237,12 @@ const WhyChooseUs = () => {
         </div>
 
         {/* Main Features Banner */}
-        <div className={`bg-gradient-to-r from-[#007B7F] to-[#005C5F] rounded-3xl p-8 md:p-12 shadow-2xl ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.8s' }}>
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            {/* Left Side */}
+        <div className={`bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] rounded-3xl p-8 md:p-12 shadow-2xl ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.8s' }}>
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
             <div className="text-white">
-              <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full mb-4">
-                <GiDogHouse className="text-[#FFD1B3]" />
-                <span className="text-sm font-medium">What Makes Us Different</span>
+              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-5">
+                <FaHeart className="text-[#D4A054]" />
+                <span className="text-sm font-medium">Premium Pet Care</span>
               </div>
               
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
@@ -210,73 +250,74 @@ const WhyChooseUs = () => {
               </h3>
               
               <p className="text-white/90 mb-6 leading-relaxed">
-                At Happy Pettings, we don't just offer boarding – we offer love, companionship, 
-                and care tailored to your dog's personality, routine, and health needs.
+                At Bruno's Family, we don't just offer boarding – we offer love, companionship, 
+                and care tailored to your pet's personality, routine, and health needs.
               </p>
 
               <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <FaCheckCircle className="text-[#FFD1B3]" />
-                  <span>First pet boarding service in Delhi NCR – trusted legacy</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <FaCheckCircle className="text-[#FFD1B3]" />
-                  <span>Dogs live in a similar home environment, no cages, no isolation</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <FaCheckCircle className="text-[#FFD1B3]" />
-                  <span>Regular photo & video updates while you're away</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <FaCheckCircle className="text-[#FFD1B3]" />
-                  <span>Dogs make new friends & enjoy socialization</span>
-                </div>
+                {[
+                  'First pet boarding service in Delhi NCR – trusted legacy',
+                  'Pets live in a home environment, no cages, no isolation',
+                  'Regular photo & video updates while you\'re away',
+                  'Pets make new friends & enjoy socialization'
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                    <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                      <FaCheckCircle className="text-[#D4A054] text-xs" />
+                    </div>
+                    <span>{item}</span>
+                  </div>
+                ))}
               </div>
+
+              <button className="mt-8 bg-[#D4A054] text-[#2C1810] px-6 py-2.5 rounded-full font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center gap-2">
+                Book a Visit <FaHeart className="text-sm" />
+              </button>
             </div>
 
-            {/* Right Side - Testimonial */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
-              <FaQuoteLeft className="text-[#FFD1B3] text-3xl mb-4 opacity-50" />
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+              <FaQuoteLeft className="text-[#D4A054] text-3xl mb-4 opacity-70" />
               <p className="text-white leading-relaxed mb-6">
-                "Leaving my dog at Happy Pettings felt like leaving him with family. 
+                "Leaving my dog at Bruno's Family felt like leaving him with family. 
                 He enjoyed playtime, came back healthier, and I could travel stress-free."
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-[#FFD1B3] rounded-full flex items-center justify-center text-[#007B7F] font-bold">
+                <div className="w-12 h-12 bg-gradient-to-r from-[#D4A054] to-[#F5C27B] rounded-full flex items-center justify-center text-[#2C1810] font-bold shadow-lg">
                   R
                 </div>
                 <div>
                   <h4 className="font-bold text-white">Ritika Sharma</h4>
                   <p className="text-white/70 text-sm">Happy Pet Parent, Gurgaon</p>
+                  <div className="flex items-center gap-1 mt-1">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} className="text-[#D4A054] text-xs" />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Service Types */}
-        <div className={`mt-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '1s' }}>
-          <h3 className="text-2xl font-bold text-center text-[#2C3E50] mb-8">
-            Specialized Boarding Services
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { icon: <FaHome />, title: 'Home Boarding', desc: 'Stress-free alternative to kennels', color: '#007B7F' },
-              { icon: <FaClock />, title: 'Vacation Boarding', desc: 'Perfect for when you travel', color: '#E67E22' },
-              { icon: <MdHealthAndSafety />, title: 'Medical Boarding', desc: 'Special care for health needs', color: '#FF7A2F' },
-              { icon: <GiMeditation />, title: 'Daycare', desc: 'Daytime play & training', color: '#6B4E71' }
-            ].map((service, idx) => (
-              <div key={idx} className="bg-[#FFF9F0] p-4 rounded-xl text-center hover:shadow-lg transition-all hover:-translate-y-1">
-                <div className="w-12 h-12 mx-auto bg-white rounded-xl flex items-center justify-center mb-3 shadow-md" style={{ color: service.color }}>
-                  <span className="text-xl">{service.icon}</span>
+        {/* Trust Badges */}
+        <div className={`mt-12 flex flex-wrap justify-center gap-4 transition-all duration-700 delay-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          {[
+            { icon: <FaCrown />, text: '15+ Years Excellence', gradient: colors.gradient1 },
+            { icon: <FaHeart />, text: '17,000+ Happy Families', gradient: colors.gradient2 },
+            { icon: <FaStar />, text: '4.9 Google Rating', gradient: colors.gradient3 },
+            { icon: <FaShieldAlt />, text: 'Licensed & Insured', gradient: colors.gradient4 },
+            { icon: <FaInfinity />, text: '24/7 Support', gradient: colors.gradient5 }
+          ].map((badge, idx) => (
+            <div key={idx} className="group bg-white px-5 py-2.5 rounded-full shadow-md hover:shadow-xl transition-all hover:-translate-y-1">
+              <div className="flex items-center gap-2">
+                <div className={`w-6 h-6 rounded-full bg-gradient-to-r ${badge.gradient} flex items-center justify-center`}>
+                  <span className="text-white text-xs">{badge.icon}</span>
                 </div>
-                <h4 className="font-bold text-[#2C3E50] mb-1">{service.title}</h4>
-                <p className="text-xs text-gray-500">{service.desc}</p>
+                <span className="text-sm font-medium text-gray-700">{badge.text}</span>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-
       </div>
 
       <style jsx>{`
@@ -291,9 +332,17 @@ const WhyChooseUs = () => {
           }
         }
         
+        @keyframes dash {
+          to { stroke-dashoffset: -200; }
+        }
+        
         .animate-fade-in-up {
           animation: fade-in-up 0.6s ease-out forwards;
           opacity: 0;
+        }
+        
+        .animate-dash {
+          animation: dash 20s linear infinite;
         }
       `}</style>
     </section>
