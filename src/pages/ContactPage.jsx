@@ -21,7 +21,8 @@ import {
   FaGlobe,
   FaBuilding,
   FaMobile,
-  FaFax
+  FaFax,
+  FaSpinner
 } from 'react-icons/fa';
 import { MdVerified, MdLocationOn, MdEmail, MdPhone, MdAccessTime } from 'react-icons/md';
 
@@ -34,8 +35,8 @@ const ContactPage = () => {
     service: '',
     message: ''
   });
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,14 +61,78 @@ const ContactPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  // Send WhatsApp message function
+  const sendWhatsAppMessage = async (data) => {
+    const phoneNumber = "7217747900"; // Your WhatsApp number
+    
+    // Format the message with all details
+    const message = `🐾 *NEW CONTACT FORM SUBMISSION* 🐾
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 *CONTACT DETAILS*
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+👤 *Name:* ${data.name}
+📧 *Email:* ${data.email}
+📞 *Phone:* ${data.phone}
+🎯 *Service:* ${data.service || "Not specified"}
+💬 *Message:* ${data.message}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏰ *Submitted on:* ${new Date().toLocaleString('en-IN', { 
+  timeZone: 'Asia/Kolkata',
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit'
+})}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📌 *Status:* Pending - Need follow-up
+📱 *Contact via:* WhatsApp/Call
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+*Happy Pettings Customer Care* 🐕🐈`;
+
+    // Encode the message for WhatsApp API
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+    
+    return true;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validate form
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(null), 3000);
+      return;
+    }
+    
+    // Validate phone number (10 digits)
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!phoneRegex.test(formData.phone)) {
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(null), 3000);
+      return;
+    }
+    
     setSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setFormSubmitted(true);
-      setSubmitting(false);
+    try {
+      // Send WhatsApp message
+      await sendWhatsAppMessage(formData);
+      
+      setSubmitStatus('success');
+      
+      // Reset form after successful submission
       setFormData({
         name: '',
         email: '',
@@ -76,11 +141,18 @@ const ContactPage = () => {
         message: ''
       });
       
-      // Reset success message after 5 seconds
+      // Clear success message after 5 seconds
       setTimeout(() => {
-        setFormSubmitted(false);
+        setSubmitStatus(null);
       }, 5000);
-    }, 1500);
+      
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus(null), 3000);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -89,30 +161,41 @@ const ContactPage = () => {
       title: "Phone Number",
       details: ["+91-9582582689", "+91-9876543210"],
       color: "#007B7F",
-      bg: "bg-gradient-to-br from-teal-50 to-teal-100"
+      bg: "bg-gradient-to-br from-teal-50 to-teal-100",
+      whatsappClick: false
     },
     {
       icon: <FaWhatsapp />,
       title: "WhatsApp",
-      details: ["+91-9582582689"],
+      details: ["+91-7217747900"],
       color: "#25D366",
-      bg: "bg-gradient-to-br from-green-50 to-green-100"
+      bg: "bg-gradient-to-br from-green-50 to-green-100",
+      whatsappClick: true,
+      whatsappNumber: "7217747900"
     },
     {
       icon: <FaEnvelope />,
       title: "Email Address",
       details: ["care@happypettings.com", "info@happypettings.com"],
       color: "#E67E22",
-      bg: "bg-gradient-to-br from-orange-50 to-orange-100"
+      bg: "bg-gradient-to-br from-orange-50 to-orange-100",
+      whatsappClick: false
     },
     {
       icon: <FaClock />,
       title: "Business Hours",
       details: ["Monday - Sunday: 24/7", "365 Days a Year"],
       color: "#6B4E71",
-      bg: "bg-gradient-to-br from-purple-50 to-purple-100"
+      bg: "bg-gradient-to-br from-purple-50 to-purple-100",
+      whatsappClick: false
     }
   ];
+
+  // Handle WhatsApp click on contact card
+  const handleWhatsAppClick = (number) => {
+    const message = encodeURIComponent(`Hello! I'm interested in your pet services. Can you please help me?`);
+    window.open(`https://wa.me/${number}?text=${message}`, '_blank');
+  };
 
   const locations = [
     {
@@ -149,7 +232,8 @@ const ContactPage = () => {
     "Grooming",
     "Training",
     "Emergency Care",
-    "Pet Taxi"
+    "Pet Taxi",
+    "Play Hours"
   ];
 
   return (
@@ -196,7 +280,11 @@ const ContactPage = () => {
       <div className="container mx-auto px-4 md:px-8 -mt-12 relative z-20">
         <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {contactInfo.map((info, idx) => (
-            <div key={idx} className={`${info.bg} rounded-xl p-5 text-center shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 cursor-pointer group`}>
+            <div 
+              key={idx} 
+              onClick={() => info.whatsappClick && handleWhatsAppClick(info.whatsappNumber)}
+              className={`${info.bg} rounded-xl p-5 text-center shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 cursor-pointer group ${info.whatsappClick ? 'hover:scale-105' : ''}`}
+            >
               <div className="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform" style={{ color: info.color }}>
                 <span className="text-xl">{info.icon}</span>
               </div>
@@ -217,14 +305,31 @@ const ContactPage = () => {
             <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
               <div className="mb-6">
                 <h2 className="text-2xl md:text-3xl font-bold text-[#2C3E50] mb-2">Send Us a Message</h2>
-                <p className="text-gray-500">Fill out the form below and we'll get back to you within 30 minutes</p>
+                <p className="text-gray-500">Fill out the form below and we'll get back to you on WhatsApp within 30 minutes</p>
               </div>
 
-              {formSubmitted && (
+              {/* Success Message */}
+              {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg animate-fade-in">
                   <div className="flex items-center gap-2 text-green-600">
-                    <FaCheckCircle />
-                    <span>Thank you! We'll contact you soon.</span>
+                    <FaCheckCircle className="text-lg" />
+                    <div>
+                      <span className="font-semibold">Message Sent Successfully!</span>
+                      <p className="text-sm mt-1">We'll contact you on WhatsApp shortly.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Error Message */}
+              {submitStatus === 'error' && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg animate-fade-in">
+                  <div className="flex items-center gap-2 text-red-600">
+                    <span className="text-lg">⚠️</span>
+                    <div>
+                      <span className="font-semibold">Error!</span>
+                      <p className="text-sm mt-1">Please fill all fields correctly (10-digit phone number).</p>
+                    </div>
                   </div>
                 </div>
               )}
@@ -274,8 +379,10 @@ const ContactPage = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         required
+                        maxLength="10"
+                        pattern="[0-9]{10}"
                         className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:border-[#007B7F] focus:outline-none transition-all"
-                        placeholder="+91 98765 43210"
+                        placeholder="9876543210"
                       />
                     </div>
                   </div>
@@ -320,9 +427,14 @@ const ContactPage = () => {
                   className="w-full bg-[#007B7F] text-white py-3 rounded-lg font-semibold hover:bg-[#007B7F]/80 transition-all hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {submitting ? (
-                    <>Sending... <FaPaperPlane /></>
+                    <>
+                      <FaSpinner className="animate-spin" />
+                      Sending via WhatsApp...
+                    </>
                   ) : (
-                    <>Send Message <FaPaperPlane /></>
+                    <>
+                      <FaWhatsapp /> Send Message on WhatsApp
+                    </>
                   )}
                 </button>
               </form>
@@ -428,8 +540,11 @@ const ContactPage = () => {
             <p className="text-white/90 mb-5">
               Our emergency helpline is available 24/7 for urgent pet care needs
             </p>
-            <button className="bg-white text-[#007B7F] px-8 py-3 rounded-full font-semibold hover:shadow-xl transition-all hover:scale-105 inline-flex items-center gap-2">
-              <FaPhoneAlt /> Call Emergency: +91-9582582689
+            <button 
+              onClick={() => handleWhatsAppClick("7217747900")}
+              className="bg-white text-[#007B7F] px-8 py-3 rounded-full font-semibold hover:shadow-xl transition-all hover:scale-105 inline-flex items-center gap-2"
+            >
+              <FaWhatsapp /> WhatsApp Emergency: +91-7217747900
             </button>
           </div>
         </div>
@@ -443,11 +558,18 @@ const ContactPage = () => {
           from { opacity: 0; transform: translateY(-10px); }
           to { opacity: 1; transform: translateY(0); }
         }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
         .animate-dash {
           animation: dash 20s linear infinite;
         }
         .animate-fade-in {
           animation: fade-in 0.5s ease-out;
+        }
+        .animate-spin {
+          animation: spin 1s linear infinite;
         }
       `}</style>
     </div>
