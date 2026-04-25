@@ -195,43 +195,82 @@ const VisionPage = () => {
   return (
     <div id="vision-page" className="min-h-screen bg-gradient-to-b from-white to-[#FDF8F0]">
       {/* Hero Section - Bruno's Theme */}
-      <section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] h-screen max-h-[700px] min-h-[550px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-64 h-64 bg-[#D4A054] rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#D4A054] rounded-full blur-3xl"></div>
-        </div>
+{/* Hero Section - Vision Page with Background Image */}
+<section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] min-h-[450px] sm:min-h-[550px] md:min-h-[600px] lg:min-h-[650px] xl:h-screen xl:max-h-[700px] flex items-center justify-center overflow-hidden">
+  
+  {/* Background Image */}
+  <div className="absolute inset-0 z-0">
+    <div 
+      className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      style={{ 
+        // OPTION 1: Dog looking forward (Vision/Future theme)
+        backgroundImage: 'url(https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1600)',
+        backgroundPosition: 'center 35%'
+      }}
+    >
+      {/* Dark Overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#2C1810]/85 via-[#2C1810]/75 to-[#1A0F0A]/80"></div>
+    </div>
+  </div>
 
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div className={`text-center text-white transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-sm px-5 py-2.5 rounded-full mb-6 mx-auto w-fit">
-              <FaEye className="text-[#D4A054]" />
-              <span className="text-sm font-medium">Our Vision & Mission</span>
-            </div>
-            
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
-              Shaping the{' '}
-              <span className="relative inline-block text-[#D4A054]">
-                Future of Pet Care
-                <svg className="absolute -bottom-2 left-0 w-full" height="6" viewBox="0 0 200 6">
-                  <path d="M0 3 L200 3" stroke="#D4A054" strokeWidth="2" strokeLinecap="round" strokeDasharray="6 6" className="animate-dash"/>
-                </svg>
-              </span>
-            </h1>
-            
-            <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
-              Building a world where every pet receives the love, care, and respect they deserve
-            </p>
-          </div>
-        </div>
+  {/* Background Blur Circles */}
+  <div className="absolute inset-0 opacity-20 z-0">
+    <div className="absolute top-20 left-10 w-48 sm:w-64 h-48 sm:h-64 bg-[#D4A054] rounded-full blur-3xl"></div>
+    <div className="absolute bottom-20 right-10 w-60 sm:w-80 h-60 sm:h-80 bg-[#D4A054] rounded-full blur-3xl"></div>
+  </div>
 
-        {/* Wave */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
-            <path fill="#FDF8F0" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+  <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
+    <div className={`text-center text-white transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      
+      {/* Badge - Responsive */}
+      <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-white/20 backdrop-blur-sm px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2.5 rounded-full mb-4 sm:mb-5 md:mb-6 mx-auto w-fit">
+        <FaEye className="text-[#D4A054] text-[10px] sm:text-xs md:text-sm" />
+        <span className="text-[10px] sm:text-xs md:text-sm font-medium text-white">
+          Our Vision & Mission
+        </span>
+      </div>
+      
+      {/* Heading - Responsive */}
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-4 text-white px-2">
+        Shaping the{' '}
+        <span className="relative inline-block text-[#D4A054]">
+          Future of Pet Care
+          <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="4" viewBox="0 0 200 4">
+            <path 
+              d="M0 2 L200 2" 
+              stroke="#D4A054" 
+              strokeWidth="1.5" 
+              strokeLinecap="round" 
+              strokeDasharray="4 4" 
+              className="animate-dash" 
+            />
           </svg>
-        </div>
-      </section>
+        </span>
+      </h1>
+      
+      {/* Description - Responsive */}
+      <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed px-4">
+        Building a world where every pet receives the love, care, and respect they deserve
+      </p>
+    </div>
+  </div>
 
+  {/* Wave - Responsive */}
+  <div className="absolute bottom-0 left-0 right-0">
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 1440 320" 
+      className="w-full h-auto"
+      preserveAspectRatio="none"
+    >
+      <path 
+        fill="#FDF8F0" 
+        fillOpacity="1" 
+        d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+      />
+    </svg>
+  </div>
+</section>
       {/* Our Story Section - Bruno's Theme */}
       <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 md:px-8">
