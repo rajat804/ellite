@@ -297,45 +297,82 @@ const GalleryPage = () => {
 
   return (
     <div id="gallery-page" className="min-h-screen bg-gradient-to-b from-white to-[#FDF8F0]">
-      {/* Hero Section - Bruno's Theme */}
-      <section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] h-screen max-h-[700px] min-h-[550px] flex items-center justify-center overflow-hidden">
-        {/* Background Blur Circles */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-10 left-10 w-72 h-72 bg-[#D4A054] rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#D4A054] rounded-full blur-3xl"></div>
-        </div>
+      {/* Hero Section - Gallery Page with Background Image */}
+<section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] min-h-[450px] sm:min-h-[550px] md:min-h-[600px] lg:min-h-[650px] xl:h-screen xl:max-h-[700px] flex items-center justify-center overflow-hidden">
+  
+  {/* Background Image */}
+  <div className="absolute inset-0 z-0">
+    <div 
+      className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      style={{ 
+        backgroundImage: 'url(https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1600)',
+        backgroundPosition: 'center 35%'
+      }}
+    >
+      {/* Dark Overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#2C1810]/85 via-[#2C1810]/75 to-[#1A0F0A]/80"></div>
+    </div>
+  </div>
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className={`max-w-3xl mx-auto text-center text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-5 py-2 rounded-full mb-6 mx-auto w-fit">
-              <FaCamera className="text-[#D4A054]" />
-              <span className="text-sm font-medium">Happy Moments Gallery</span>
-            </div>
+  {/* Background Blur Circles */}
+  <div className="absolute inset-0 opacity-20 z-0">
+    <div className="absolute top-10 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-[#D4A054] rounded-full blur-3xl"></div>
+    <div className="absolute bottom-10 right-10 w-60 sm:w-96 h-60 sm:h-96 bg-[#D4A054] rounded-full blur-3xl"></div>
+  </div>
 
-            {/* Heading */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Our{" "}
-              <span className="text-[#D4A054] relative inline-block">
-                Happy Pettings
-              </span>
-            </h1>
+  <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
+    <div className={`max-w-3xl mx-auto text-center text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+      
+      {/* Badge - Responsive */}
+      <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-white/20 backdrop-blur-md px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-5 md:mb-6 mx-auto w-fit">
+        <FaCamera className="text-[#D4A054] text-[10px] sm:text-xs md:text-sm" />
+        <span className="text-[10px] sm:text-xs md:text-sm font-medium text-white">
+          Happy Moments Gallery
+        </span>
+      </div>
 
-            {/* Description */}
-            <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-              A glimpse into the joyful lives of our furry friends and the
-              beautiful moments shared with their loving families.
-            </p>
-          </div>
-        </div>
-
-        {/* Bottom Wave */}
-        <div className="absolute bottom-0 left-0 w-full">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
-            <path fill="#FDF8F0" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L0,320Z"></path>
+      {/* Heading - Responsive */}
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-3 sm:mb-4 md:mb-5 lg:mb-6 text-white px-2">
+        Our{" "}
+        <span className="text-[#D4A054] relative inline-block">
+          Happy Pettings
+          <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="4" viewBox="0 0 200 4">
+            <path 
+              d="M0 2 L200 2" 
+              stroke="#D4A054" 
+              strokeWidth="1.5" 
+              strokeLinecap="round" 
+              strokeDasharray="4 4" 
+              className="animate-dash" 
+            />
           </svg>
-        </div>
-      </section>
+        </span>
+      </h1>
+
+      {/* Description - Responsive */}
+      <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/90 leading-relaxed px-4 max-w-2xl mx-auto">
+        A glimpse into the joyful lives of our furry friends and the
+        beautiful moments shared with their loving families.
+      </p>
+    </div>
+  </div>
+
+  {/* Bottom Wave */}
+  <div className="absolute bottom-0 left-0 right-0">
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 1440 320" 
+      className="w-full h-auto"
+      preserveAspectRatio="none"
+    >
+      <path 
+        fill="#FDF8F0" 
+        fillOpacity="1" 
+        d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+      />
+    </svg>
+  </div>
+</section>
 
       {/* Stats Section - Bruno's Theme */}
       <div className="container mx-auto px-4 md:px-8 -mt-12 relative z-20">
