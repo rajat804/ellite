@@ -12,12 +12,13 @@ import {
   FaComment,
   FaEye,
   FaShare,
-  FaDownload,
   FaSearchPlus,
   FaGem,
-  FaCoffee
+  FaCoffee,
+  FaStar
 } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
+import { assets } from "../assets/assets";
 
 const GalleryPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -43,13 +44,69 @@ const GalleryPage = () => {
   }, []);
 
   const categories = [
-    { id: "all", name: "All Photos", icon: <FaCamera />, count: 16 },
-    { id: "dogs", name: "Dogs", icon: <FaPaw />, count: 8 },
-    { id: "cats", name: "Cats", icon: <FaPaw />, count: 8 },
+    { id: "all", name: "All Photos", icon: <FaCamera />, count: 21 },
+    { id: "dogs", name: "Dogs", icon: <FaPaw />, count: 11 },
+    { id: "cats", name: "Cats", icon: <FaPaw />, count: 10 },
   ];
 
-  const galleryImages = [
-    // Dog Photos
+  // Your Local Images from assets
+  const localImages = [
+   
+    {
+      id: "local2",
+      category: "dogs",
+      image: assets.img2,
+      thumbnail: assets.img2,
+      title: "Max - Labrador",
+      description: "Max playing with his favorite toy in the play area",
+      likes: 389,
+      comments: 67,
+      views: 1890,
+      date: "April 12, 2024",
+      featured: true,
+    },
+    {
+      id: "local3",
+      category: "dogs",
+      image: assets.img3,
+      thumbnail: assets.img3,
+      title: "Charlie - Beagle",
+      description: "Charlie exploring the cafe with curiosity",
+      likes: 423,
+      comments: 78,
+      views: 2100,
+      date: "April 10, 2024",
+      featured: true,
+    },
+    {
+      id: "local4",
+      category: "cats",
+      image: assets.img4,
+      thumbnail: assets.img4,
+      title: "Kitty - Persian Cat",
+      description: "Kitty relaxing in the cozy cat corner",
+      likes: 567,
+      comments: 92,
+      views: 2789,
+      date: "April 8, 2024",
+      featured: true,
+    },
+    {
+      id: "local5",
+      category: "cats",
+      image: assets.img5,
+      thumbnail: assets.img5,
+      title: "Oliver - Orange Tabby",
+      description: "Oliver enjoying the window perch with a view",
+      likes: 345,
+      comments: 56,
+      views: 1678,
+      date: "April 5, 2024",
+      featured: true,
+    },
+  ];
+
+  const unsplashImages = [
     {
       id: 1,
       category: "dogs",
@@ -61,6 +118,7 @@ const GalleryPage = () => {
       comments: 45,
       views: 1234,
       date: "March 15, 2024",
+      featured: false,
     },
     {
       id: 2,
@@ -73,6 +131,7 @@ const GalleryPage = () => {
       comments: 32,
       views: 987,
       date: "March 12, 2024",
+      featured: false,
     },
     {
       id: 3,
@@ -85,6 +144,7 @@ const GalleryPage = () => {
       comments: 41,
       views: 1456,
       date: "March 10, 2024",
+      featured: false,
     },
     {
       id: 4,
@@ -97,6 +157,7 @@ const GalleryPage = () => {
       comments: 56,
       views: 1890,
       date: "March 8, 2024",
+      featured: false,
     },
     {
       id: 5,
@@ -109,6 +170,7 @@ const GalleryPage = () => {
       comments: 48,
       views: 1567,
       date: "March 5, 2024",
+      featured: false,
     },
     {
       id: 6,
@@ -121,6 +183,7 @@ const GalleryPage = () => {
       comments: 34,
       views: 1098,
       date: "March 3, 2024",
+      featured: false,
     },
     {
       id: 7,
@@ -133,6 +196,7 @@ const GalleryPage = () => {
       comments: 67,
       views: 2100,
       date: "Feb 28, 2024",
+      featured: false,
     },
     {
       id: 8,
@@ -145,8 +209,8 @@ const GalleryPage = () => {
       comments: 52,
       views: 1678,
       date: "Feb 25, 2024",
+      featured: false,
     },
-    // Cat Photos
     {
       id: 9,
       category: "cats",
@@ -158,6 +222,7 @@ const GalleryPage = () => {
       comments: 39,
       views: 1345,
       date: "Feb 22, 2024",
+      featured: false,
     },
     {
       id: 10,
@@ -170,6 +235,7 @@ const GalleryPage = () => {
       comments: 23,
       views: 987,
       date: "Feb 20, 2024",
+      featured: false,
     },
     {
       id: 11,
@@ -182,6 +248,7 @@ const GalleryPage = () => {
       comments: 31,
       views: 1123,
       date: "Feb 18, 2024",
+      featured: false,
     },
     {
       id: 12,
@@ -194,60 +261,16 @@ const GalleryPage = () => {
       comments: 44,
       views: 1456,
       date: "Feb 15, 2024",
-    },
-    {
-      id: 13,
-      category: "cats",
-      image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=800",
-      thumbnail: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=400",
-      title: "Siamese Cat",
-      description: "Simba in her cozy bed",
-      likes: 189,
-      comments: 28,
-      views: 1098,
-      date: "Feb 12, 2024",
-    },
-    {
-      id: 14,
-      category: "cats",
-      image: "https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=800",
-      thumbnail: "https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=400",
-      title: "White Cat",
-      description: "Snowball enjoying treats",
-      likes: 234,
-      comments: 37,
-      views: 1234,
-      date: "Feb 10, 2024",
-    },
-    {
-      id: 15,
-      category: "cats",
-      image: "https://images.unsplash.com/photo-1577023311546-cdc07a8454d9?w=800",
-      thumbnail: "https://images.unsplash.com/photo-1577023311546-cdc07a8454d9?w=400",
-      title: "Grey Cat",
-      description: "Ash during nap time",
-      likes: 178,
-      comments: 26,
-      views: 987,
-      date: "Feb 8, 2024",
-    },
-    {
-      id: 16,
-      category: "cats",
-      image: "https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?w=800",
-      thumbnail: "https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?w=400",
-      title: "Two Cats",
-      description: "Best friends playing together",
-      likes: 312,
-      comments: 53,
-      views: 1678,
-      date: "Feb 5, 2024",
+      featured: false,
     },
   ];
 
+  // Combine local images first, then unsplash images
+  const allImages = [...localImages, ...unsplashImages];
+  
   const filteredImages = selectedCategory === "all"
-    ? galleryImages
-    : galleryImages.filter((img) => img.category === selectedCategory);
+    ? allImages
+    : allImages.filter((img) => img.category === selectedCategory);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -282,7 +305,6 @@ const GalleryPage = () => {
     setSelectedImage(filteredImages[newIndex]);
   };
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (lightboxOpen) {
@@ -297,84 +319,60 @@ const GalleryPage = () => {
 
   return (
     <div id="gallery-page" className="min-h-screen bg-gradient-to-b from-white to-[#FDF8F0]">
-      {/* Hero Section - Gallery Page with Background Image */}
-<section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] min-h-[450px] sm:min-h-[550px] md:min-h-[600px] lg:min-h-[650px] xl:h-screen xl:max-h-[700px] flex items-center justify-center overflow-hidden">
-  
-  {/* Background Image */}
-  <div className="absolute inset-0 z-0">
-    <div 
-      className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-      style={{ 
-        backgroundImage: 'url(https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1600)',
-        backgroundPosition: 'center 35%'
-      }}
-    >
-      {/* Dark Overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#2C1810]/85 via-[#2C1810]/75 to-[#1A0F0A]/80"></div>
-    </div>
-  </div>
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] min-h-[450px] sm:min-h-[550px] md:min-h-[600px] lg:min-h-[650px] xl:h-screen xl:max-h-[700px] flex items-center justify-center overflow-hidden">
+        
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ 
+              backgroundImage: 'url(https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1600)',
+              backgroundPosition: 'center 35%'
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-[#2C1810]/85 via-[#2C1810]/75 to-[#1A0F0A]/80"></div>
+          </div>
+        </div>
 
-  {/* Background Blur Circles */}
-  <div className="absolute inset-0 opacity-20 z-0">
-    <div className="absolute top-10 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-[#D4A054] rounded-full blur-3xl"></div>
-    <div className="absolute bottom-10 right-10 w-60 sm:w-96 h-60 sm:h-96 bg-[#D4A054] rounded-full blur-3xl"></div>
-  </div>
+        <div className="absolute inset-0 opacity-20 z-0">
+          <div className="absolute top-10 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-[#D4A054] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-60 sm:w-96 h-60 sm:h-96 bg-[#D4A054] rounded-full blur-3xl"></div>
+        </div>
 
-  <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
-    <div className={`max-w-3xl mx-auto text-center text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-      
-      {/* Badge - Responsive */}
-      <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-white/20 backdrop-blur-md px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-5 md:mb-6 mx-auto w-fit">
-        <FaCamera className="text-[#D4A054] text-[10px] sm:text-xs md:text-sm" />
-        <span className="text-[10px] sm:text-xs md:text-sm font-medium text-white">
-          Happy Moments Gallery
-        </span>
-      </div>
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
+          <div className={`max-w-3xl mx-auto text-center text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+            <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-white/20 backdrop-blur-md px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-5 md:mb-6 mx-auto w-fit">
+              <FaCamera className="text-[#D4A054] text-[10px] sm:text-xs md:text-sm" />
+              <span className="text-[10px] sm:text-xs md:text-sm font-medium text-white">
+                Happy Moments Gallery
+              </span>
+            </div>
 
-      {/* Heading - Responsive */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-3 sm:mb-4 md:mb-5 lg:mb-6 text-white px-2">
-        Our{" "}
-        <span className="text-[#D4A054] relative inline-block">
-          Happy Pettings
-          <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="4" viewBox="0 0 200 4">
-            <path 
-              d="M0 2 L200 2" 
-              stroke="#D4A054" 
-              strokeWidth="1.5" 
-              strokeLinecap="round" 
-              strokeDasharray="4 4" 
-              className="animate-dash" 
-            />
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-3 sm:mb-4 md:mb-5 lg:mb-6 text-white px-2">
+              Our{" "}
+              <span className="text-[#D4A054] relative inline-block">
+                Happy Pettings
+                <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="4" viewBox="0 0 200 4">
+                  <path d="M0 2 L200 2" stroke="#D4A054" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="4 4" className="animate-dash" />
+                </svg>
+              </span>
+            </h1>
+
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/90 leading-relaxed px-4 max-w-2xl mx-auto">
+              A glimpse into the joyful lives of our furry friends and the
+              beautiful moments shared with their loving families.
+            </p>
+          </div>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto" preserveAspectRatio="none">
+            <path fill="#FDF8F0" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
           </svg>
-        </span>
-      </h1>
+        </div>
+      </section>
 
-      {/* Description - Responsive */}
-      <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/90 leading-relaxed px-4 max-w-2xl mx-auto">
-        A glimpse into the joyful lives of our furry friends and the
-        beautiful moments shared with their loving families.
-      </p>
-    </div>
-  </div>
-
-  {/* Bottom Wave */}
-  <div className="absolute bottom-0 left-0 right-0">
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      viewBox="0 0 1440 320" 
-      className="w-full h-auto"
-      preserveAspectRatio="none"
-    >
-      <path 
-        fill="#FDF8F0" 
-        fillOpacity="1" 
-        d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-      />
-    </svg>
-  </div>
-</section>
-
-      {/* Stats Section - Bruno's Theme */}
+      {/* Stats Section */}
       <div className="container mx-auto px-4 md:px-8 -mt-12 relative z-20">
         <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
           {[
@@ -392,7 +390,7 @@ const GalleryPage = () => {
         </div>
       </div>
 
-      {/* Category Filters - Bruno's Theme */}
+      {/* Category Filters */}
       <div className="container mx-auto px-4 md:px-8 pt-12 pb-8">
         <div className={`flex flex-wrap justify-center gap-3 mb-10 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
           {categories.map((category) => (
@@ -415,7 +413,7 @@ const GalleryPage = () => {
         </div>
       </div>
 
-      {/* Gallery Grid - Bruno's Theme */}
+      {/* Gallery Grid - All Images (Local + Unsplash) */}
       <div className="container mx-auto px-4 md:px-8 pb-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredImages.map((image, idx) => (
@@ -426,14 +424,16 @@ const GalleryPage = () => {
               onClick={() => openLightbox(idx)}
             >
               <div className="relative bg-white rounded-2xl overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-3">
-                {/* Image Container */}
                 <div className="relative overflow-hidden h-64">
-                  <img src={image.thumbnail} alt={image.title} className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
-
-                  {/* Gradient Overlay */}
+                  <img 
+                    src={image.thumbnail} 
+                    alt={image.title} 
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                    onError={(e) => {
+                      e.target.src = 'https://via.placeholder.com/400x400?text=Image+Not+Found';
+                    }}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-
-                  {/* Hover Content */}
                   <div className="absolute inset-0 flex flex-col justify-between p-5 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-5 group-hover:translate-y-0">
                     <div className="flex justify-end gap-2">
                       <div className="bg-white/20 backdrop-blur-sm p-2 rounded-full hover:bg-white/30 transition-all">
@@ -451,30 +451,42 @@ const GalleryPage = () => {
                     </div>
                   </div>
 
-                  {/* Category Badge */}
+                  {/* Featured Badge for local images */}
+                  {image.featured && (
+                    <div className="absolute top-3 right-3 bg-[#D4A054] text-[#2C1810] text-xs font-bold px-2 py-1 rounded-full z-10">
+                      Featured
+                    </div>
+                  )}
+
                   <div className="absolute top-3 left-3">
                     <span className={`text-xs px-2 py-1 rounded-full ${image.category === "dogs" ? "bg-gradient-to-r from-[#D4A054] to-[#F5C27B] text-[#2C1810]" : "bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white"}`}>
                       {image.category === "dogs" ? "🐕 Dog" : "🐱 Cat"}
                     </span>
                   </div>
                 </div>
-
-                {/* Image Footer */}
                 <div className="p-4 bg-white">
-                  <h3 className="font-bold text-gray-800 mb-1 group-hover:text-[#8B5E3C] transition-colors">{image.title}</h3>
+                  <h3 className="font-bold text-gray-800 mb-1 group-hover:text-[#8B5E3C] transition-colors truncate">{image.title}</h3>
                   <div className="flex items-center justify-between">
                     <p className="text-gray-400 text-xs">{image.date}</p>
                     <div className="flex items-center gap-2 text-gray-400 text-xs">
                       <span className="flex items-center gap-1"><FaHeart className="text-[#D4A054]" /> {image.likes}</span>
                     </div>
                   </div>
+                  {image.featured && (
+                    <div className="flex items-center gap-0.5 mt-1">
+                      <FaStar className="text-[#D4A054] text-[8px]" />
+                      <FaStar className="text-[#D4A054] text-[8px]" />
+                      <FaStar className="text-[#D4A054] text-[8px]" />
+                      <FaStar className="text-[#D4A054] text-[8px]" />
+                      <FaStar className="text-[#D4A054] text-[8px]" />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* No Results */}
         {filteredImages.length === 0 && (
           <div className="text-center py-20">
             <FaCamera className="text-6xl text-gray-300 mx-auto mb-4" />
@@ -484,7 +496,7 @@ const GalleryPage = () => {
         )}
       </div>
 
-      {/* Instagram Section - Bruno's Theme */}
+      {/* Instagram Section */}
       <section className="py-16 bg-gradient-to-r from-[#D4A054]/10 to-[#F5C27B]/20">
         <div className="container mx-auto px-4 md:px-8 text-center">
           <div className={`max-w-2xl mx-auto transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
@@ -509,7 +521,7 @@ const GalleryPage = () => {
         </div>
       </div>
 
-      {/* Lightbox Modal - Bruno's Theme */}
+      {/* Lightbox Modal */}
       {lightboxOpen && selectedImage && (
         <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center animate-fade-in" onClick={closeLightbox}>
           <button onClick={closeLightbox} className="absolute top-4 right-4 text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all z-10 backdrop-blur-sm">
@@ -525,7 +537,14 @@ const GalleryPage = () => {
           </button>
 
           <div className="max-w-5xl max-h-[90vh] mx-4" onClick={(e) => e.stopPropagation()}>
-            <img src={selectedImage.image} alt={selectedImage.title} className="max-w-full max-h-[75vh] object-contain rounded-xl shadow-2xl" />
+            <img 
+              src={selectedImage.image} 
+              alt={selectedImage.title} 
+              className="max-w-full max-h-[75vh] object-contain rounded-xl shadow-2xl"
+              onError={(e) => {
+                e.target.src = 'https://via.placeholder.com/800x600?text=Image+Not+Found';
+              }}
+            />
 
             <div className="bg-black/50 backdrop-blur-md rounded-xl p-5 mt-4">
               <div className="flex items-start justify-between">
