@@ -1,11 +1,11 @@
 // src/pages/ContactPage.jsx
 import React, { useState, useEffect } from 'react';
-import { 
-  FaPaw, 
-  FaHeart, 
-  FaPhoneAlt, 
-  FaEnvelope, 
-  FaMapMarkerAlt, 
+import {
+  FaPaw,
+  FaHeart,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
   FaClock,
   FaFacebook,
   FaInstagram,
@@ -50,7 +50,7 @@ const ContactPage = () => {
         }
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
@@ -66,7 +66,7 @@ const ContactPage = () => {
   // Send WhatsApp message function
   const sendWhatsAppMessage = async (data) => {
     const phoneNumber = "";
-    
+
     const message = `🐾 *NEW CONTACT FORM SUBMISSION - Bruno's Family* 🐾
 
 ☕━━━━━━━━━━━━━━━━━━━━━━━━━━━☕
@@ -80,15 +80,15 @@ const ContactPage = () => {
 💬 *Message:* ${data.message}
 
 ☕━━━━━━━━━━━━━━━━━━━━━━━━━━━☕
-⏰ *Submitted on:* ${new Date().toLocaleString('en-IN', { 
-  timeZone: 'Asia/Kolkata',
-  day: '2-digit',
- month: '2-digit',
-  year: 'numeric',
-  hour: '2-digit',
-  minute: '2-digit',
-  second: '2-digit'
-})}
+⏰ *Submitted on:* ${new Date().toLocaleString('en-IN', {
+      timeZone: 'Asia/Kolkata',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    })}
 ☕━━━━━━━━━━━━━━━━━━━━━━━━━━━☕
 
 📌 *Status:* Pending - Need follow-up
@@ -105,22 +105,22 @@ const ContactPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.email || !formData.phone || !formData.message) {
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus(null), 3000);
       return;
     }
-    
+
     const phoneRegex = /^[0-9]{10}$/;
     if (!phoneRegex.test(formData.phone)) {
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus(null), 3000);
       return;
     }
-    
+
     setSubmitting(true);
-    
+
     try {
       await sendWhatsAppMessage(formData);
       setSubmitStatus('success');
@@ -225,40 +225,78 @@ const ContactPage = () => {
 
   return (
     <div id="contact-page" className="min-h-screen bg-gradient-to-b from-white to-[#FDF8F0]">
-      {/* Hero Section - Bruno's Theme */}
-      <section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] h-screen max-h-[700px] min-h-[550px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-64 h-64 bg-[#D4A054] rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#D4A054] rounded-full blur-3xl"></div>
+      {/* Hero Section - Contact Page with Background Image */}
+      <section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] min-h-[450px] sm:min-h-[550px] md:min-h-[600px] lg:min-h-[650px] xl:h-screen xl:max-h-[700px] flex items-center justify-center overflow-hidden" style={{ border: 'none' }}>
+
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: 'url(https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?w=1600)',
+              backgroundPosition: 'center 40%'
+            }}
+          >
+            {/* Dark Overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#2C1810]/85 via-[#2C1810]/75 to-[#1A0F0A]/80"></div>
+          </div>
         </div>
 
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
+        {/* Decorative Blur Elements */}
+        <div className="absolute inset-0 opacity-20 z-0">
+          <div className="absolute top-20 left-10 w-48 sm:w-64 h-48 sm:h-64 bg-[#D4A054] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-60 sm:w-80 h-60 sm:h-80 bg-[#D4A054] rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
           <div className={`text-center text-white transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-sm px-5 py-2.5 rounded-full mb-6 mx-auto w-fit">
-              <FaHeart className="text-[#D4A054]" />
-              <span className="text-sm font-medium">Get in Touch</span>
+
+            {/* Badge - Responsive */}
+            <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-white/20 backdrop-blur-sm px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 md:py-2.5 rounded-full mb-4 sm:mb-5 md:mb-6 mx-auto w-fit">
+              <FaHeart className="text-[#D4A054] text-[10px] sm:text-xs md:text-sm" />
+              <span className="text-[10px] sm:text-xs md:text-sm font-medium text-white">
+                Get in Touch
+              </span>
             </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+
+            {/* Heading - Responsive */}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-4 text-white px-2">
               Contact{' '}
               <span className="relative inline-block text-[#D4A054]">
                 Us
-                <svg className="absolute -bottom-2 left-0 w-full" height="6" viewBox="0 0 200 6">
-                  <path d="M0 3 L200 3" stroke="#D4A054" strokeWidth="2" strokeLinecap="round" strokeDasharray="6 6" className="animate-dash"/>
+                <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="4" viewBox="0 0 200 4">
+                  <path
+                    d="M0 2 L200 2"
+                    stroke="#D4A054"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeDasharray="4 4"
+                    className="animate-dash"
+                  />
                 </svg>
               </span>
             </h1>
-            
-            <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed">
+
+            {/* Description - Responsive */}
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 max-w-2xl mx-auto leading-relaxed px-4">
               We'd love to hear from you! Reach out to us for any queries, bookings, or feedback.
             </p>
           </div>
         </div>
 
-        {/* Wave */}
+        {/* Wave - Responsive */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
-            <path fill="#FDF8F0" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            className="w-full h-auto"
+            preserveAspectRatio="none"
+          >
+            <path style={{ border: 'none' }}
+              fill="#FDF8F0"
+              fillOpacity="1"
+              d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            />
           </svg>
         </div>
       </section>
@@ -267,8 +305,8 @@ const ContactPage = () => {
       <div className="container mx-auto px-4 md:px-8 -mt-12 relative z-20">
         <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {contactInfo.map((info, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               onClick={() => info.whatsappClick && handleWhatsAppClick(info.whatsappNumber)}
               className={`${info.bg} rounded-xl p-5 text-center shadow-lg hover:shadow-xl transition-all hover:-translate-y-2 cursor-pointer group ${info.whatsappClick ? 'hover:scale-105' : ''}`}
             >
@@ -527,11 +565,11 @@ const ContactPage = () => {
             <p className="text-white/90 mb-5">
               Our emergency helpline is available 24/7 for urgent pet care needs
             </p>
-            <button 
-              onClick={() => handleWhatsAppClick("7217747900")}
+            <button
+              onClick={() => handleWhatsAppClick("7894561230")}
               className="bg-gradient-to-r from-[#D4A054] to-[#F5C27B] text-[#2C1810] px-8 py-3 rounded-full font-semibold hover:shadow-xl transition-all hover:scale-105 inline-flex items-center gap-2"
             >
-              <FaWhatsapp /> WhatsApp Emergency: +91-7217747900
+              <FaWhatsapp /> WhatsApp Emergency: +91-7894561230
             </button>
           </div>
         </div>
