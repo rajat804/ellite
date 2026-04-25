@@ -247,60 +247,63 @@ const AboutPage = () => {
       id="about-page"
       className="min-h-screen bg-gradient-to-b from-white to-[#FDF8F0]"
     >
-      {/* Hero Section - Bruno's Theme */}
-      <section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] h-screen max-h-[700px] min-h-[550px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-64 h-64 bg-[#D4A054] rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-[#D4A054] rounded-full blur-3xl"></div>
+      {/* // Full Hero Section Code - Copy this directly */}
+      <section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] min-h-[450px] sm:min-h-[550px] md:min-h-[600px] lg:min-h-[650px] xl:h-screen xl:max-h-[700px] flex items-center justify-center overflow-hidden">
+
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: 'url(https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1600)',
+              backgroundPosition: 'center 30%'
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-[#2C1810]/85 via-[#2C1810]/75 to-[#1A0F0A]/80"></div>
+          </div>
         </div>
 
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
-          <div
-            className={`text-center text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-          >
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 opacity-20 z-0">
+          <div className="absolute top-20 left-10 w-48 sm:w-64 h-48 sm:h-64 bg-[#D4A054] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-60 sm:w-80 h-60 sm:h-80 bg-[#D4A054] rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10 py-8 sm:py-12 md:py-16 lg:py-20">
+          <div className={`text-center text-white transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+
             {/* Badge */}
-            <div className="inline-flex items-center justify-center gap-2 bg-white/20 backdrop-blur-sm px-5 py-2 rounded-full mb-5 mx-auto w-fit">
-              <FaHeart className="text-[#D4A054] animate-pulse text-sm" />
-              <span className="text-sm font-medium text-white">
+            <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-white/20 backdrop-blur-sm px-3 sm:px-4 md:px-5 py-1 sm:py-1.5 md:py-2 rounded-full mb-3 sm:mb-4 md:mb-5 mx-auto w-fit">
+              <FaHeart className="text-[#D4A054] animate-pulse text-[10px] sm:text-xs md:text-sm" />
+              <span className="text-[10px] sm:text-xs md:text-sm font-medium text-white">
                 15+ Years of Love & Care
               </span>
             </div>
 
             {/* Heading */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-white">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-2 sm:mb-3 md:mb-4 text-white px-2">
               Your Pet's{" "}
               <span className="relative inline-block text-[#D4A054]">
                 Second Home
-                <svg
-                  className="absolute -bottom-2 left-0 w-full"
-                  height="6"
-                  viewBox="0 0 200 6"
-                >
-                  <path
-                    d="M0 3 L200 3"
-                    stroke="#D4A054"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeDasharray="6 6"
-                    className="animate-dash"
-                  />
+                <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="3" viewBox="0 0 200 3">
+                  <path d="M0 1.5 L200 1.5" stroke="#D4A054" strokeWidth="1.2" strokeLinecap="round" strokeDasharray="3 3" className="animate-dash" />
                 </svg>
               </span>
             </h1>
 
             {/* Description */}
-            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed mb-8">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed mb-4 sm:mb-6 md:mb-8 px-4">
               Providing loving, professional pet care services across Delhi NCR
               since 2008. Where every pet is treated like family.
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-wrap justify-center gap-4">
-              <button className="group bg-gradient-to-r from-[#D4A054] to-[#F5C27B] text-[#2C1810] px-7 py-2.5 rounded-full font-semibold hover:shadow-xl transition-all hover:scale-105 flex items-center gap-2">
-                <FaPlay className="text-sm group-hover:scale-110 transition-transform" />
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
+              <button className="group bg-gradient-to-r from-[#D4A054] to-[#F5C27B] text-[#2C1810] px-4 sm:px-5 md:px-6 lg:px-7 py-1 sm:py-1.5 md:py-2 lg:py-2.5 rounded-full font-semibold hover:shadow-xl transition-all hover:scale-105 flex items-center gap-1 sm:gap-1.5 md:gap-2 text-xs sm:text-sm md:text-base">
+                <FaPlay className="text-[10px] sm:text-xs md:text-sm group-hover:scale-110 transition-transform" />
                 Watch Our Story
               </button>
-              <button className="border-2 border-white text-white px-7 py-2.5 rounded-full font-semibold hover:bg-white/10 transition-all">
+              <button className="border-2 border-white text-white px-4 sm:px-5 md:px-6 lg:px-7 py-1 sm:py-1.5 md:py-2 lg:py-2.5 rounded-full font-semibold hover:bg-white/10 transition-all text-xs sm:text-sm md:text-base">
                 Contact Us
               </button>
             </div>
@@ -309,16 +312,8 @@ const AboutPage = () => {
 
         {/* Wave */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 320"
-            className="w-full"
-          >
-            <path
-              fill="#FDF8F0"
-              fillOpacity="1"
-              d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            ></path>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto" preserveAspectRatio="none">
+            <path fill="#FDF8F0" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
           </svg>
         </div>
       </section>
@@ -561,11 +556,10 @@ const AboutPage = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-5 py-2 rounded-full font-semibold transition-all duration-300 text-sm ${
-                  activeTab === tab.id
+                className={`flex items-center gap-2 px-5 py-2 rounded-full font-semibold transition-all duration-300 text-sm ${activeTab === tab.id
                     ? "bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white shadow-md"
                     : "bg-gray-100 text-gray-600 hover:bg-[#D4A054]/20 hover:text-[#8B5E3C]"
-                }`}
+                  }`}
               >
                 {tab.icon}
                 {tab.label}
