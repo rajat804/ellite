@@ -334,23 +334,49 @@ const ServicesPage = () => {
   return (
     <div id="services-page" className="min-h-screen bg-gradient-to-b from-white to-[#FDF8F0]">
       {/* Hero Section - Bruno's Theme */}
-      <section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] h-screen max-h-[700px] min-h-[550px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-72 h-72 bg-[#D4A054] rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#D4A054] rounded-full blur-3xl"></div>
+      <section className="relative bg-gradient-to-r from-[#2C1810] to-[#1A0F0A] min-h-[450px] sm:min-h-[550px] md:min-h-[600px] lg:min-h-[650px] xl:h-screen xl:max-h-[700px] flex items-center justify-center overflow-hidden">
+
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: 'url(https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=800)',
+              backgroundPosition: 'center 40%'
+            }}
+          >
+            {/* Dark Overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#2C1810]/85 via-[#2C1810]/75 to-[#1A0F0A]/80"></div>
+          </div>
         </div>
 
-        <div className="container mx-auto px-4 md:px-8 relative z-10">
+        {/* Background Blur Circles */}
+        <div className="absolute inset-0 opacity-20 z-0">
+          <div className="absolute top-10 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-[#D4A054] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-60 sm:w-96 h-60 sm:h-96 bg-[#D4A054] rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
           <div className={`text-center text-white transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 mx-auto w-fit">
-              <FaPaw className="text-[#D4A054]" />
-              <span className="text-sm font-medium">Our Services</span>
+
+            {/* Badge - Responsive */}
+            <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 bg-white/20 backdrop-blur-sm px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-5 md:mb-6 mx-auto w-fit">
+              <FaPaw className="text-[#D4A054] text-[10px] sm:text-xs md:text-sm" />
+              <span className="text-[10px] sm:text-xs md:text-sm font-medium text-white">
+                Our Services
+              </span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+
+            {/* Heading - Responsive */}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-2 sm:mb-3 md:mb-4 text-white px-2">
               Professional Pet Care
-              <span className="block text-[#D4A054]">at Your Doorstep</span>
+              <span className="block text-[#D4A054] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-1 sm:mt-2">
+                at Your Doorstep
+              </span>
             </h1>
-            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+
+            {/* Description - Responsive */}
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed px-4">
               Comprehensive, loving, and professional services tailored to your pet's unique needs
             </p>
           </div>
@@ -358,8 +384,17 @@ const ServicesPage = () => {
 
         {/* Animated Wave */}
         <div className="absolute bottom-0 left-0 right-0">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full">
-            <path fill="#FDF8F0" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            className="w-full h-auto"
+            preserveAspectRatio="none"
+          >
+            <path
+              fill="#FDF8F0"
+              fillOpacity="1"
+              d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            />
           </svg>
         </div>
       </section>
@@ -371,11 +406,10 @@ const ServicesPage = () => {
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`group flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
-                selectedCategory === category.id
+              className={`group flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${selectedCategory === category.id
                   ? "bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white shadow-lg scale-105"
                   : "bg-white text-gray-600 hover:bg-[#D4A054]/20 hover:text-[#8B5E3C] shadow-md"
-              }`}
+                }`}
               style={{ transitionDelay: `${idx * 0.05}s` }}
             >
               <span className="text-sm">{category.icon}</span>
@@ -394,9 +428,8 @@ const ServicesPage = () => {
           {filteredServices.map((service, idx) => (
             <div
               key={service.id}
-              className={`group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              } ${service.popular ? "relative ring-2 ring-[#D4A054]" : ""}`}
+              className={`group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                } ${service.popular ? "relative ring-2 ring-[#D4A054]" : ""}`}
               style={{ transitionDelay: `${idx * 0.1}s` }}
             >
               {/* Popular Badge */}
