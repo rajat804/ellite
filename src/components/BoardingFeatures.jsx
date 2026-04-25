@@ -166,11 +166,7 @@ const BoardingFeatures = () => {
   // Check screen size for responsive show more
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const displayedFeatures = isMobile && !showAllFeatures ? features.slice(0, 4) : features;
-  const groomingServices = [
-    { icon: <FaBath />, title: "Bath & Drying", price: "₹299", description: "Premium shampoo bath with gentle drying", gradient: "from-[#8B5E3C] to-[#A0714F]" },
-    { icon: <FaCut />, title: "Basic Brushing", price: "₹149", description: "Thorough brushing to remove loose fur", gradient: "from-[#D4A054] to-[#B8860B]" },
-    { icon: <MdCleaningServices />, title: "Hygiene Cleaning", price: "₹199", description: "Ear cleaning, nail trimming, paw care", gradient: "from-[#6B2E2E] to-[#4A3728]" }
-  ];
+  
 
   // Listen for window resize to reset show more state
   useEffect(() => {
@@ -270,34 +266,68 @@ const BoardingFeatures = () => {
           <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 md:mb-10">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#D4A054]/10 to-[#F5C27B]/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-3 sm:mb-4 mx-auto w-fit">
               <FaCut className="text-[#D4A054] text-sm sm:text-base" />
-              <span className="text-xs sm:text-sm font-semibold text-[#D4A054]">Optional Add-On</span>
+              <span className="text-xs sm:text-sm font-semibold text-[#D4A054]">Grooming Services</span>
             </div>
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2 sm:mb-3">
-              Grooming{' '}
-              <span className="bg-gradient-to-r from-[#D4A054] to-[#F5C27B] bg-clip-text text-transparent">Services</span>
+              Keep Your Pet{' '}
+              <span className="bg-gradient-to-r from-[#D4A054] to-[#F5C27B] bg-clip-text text-transparent">Clean & Happy</span>
             </h3>
             <p className="text-gray-500 text-sm sm:text-base md:text-lg px-4 sm:px-0">
-              Keep Your Pet Clean & Happy — We offer basic grooming services to keep your dog fresh and comfortable.
+              We offer basic grooming services to keep your dog fresh and comfortable.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
-            {groomingServices.map((service, idx) => (
-              <div key={idx} className="group bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 text-center shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-gray-100">
-                <div className={`w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-xl sm:rounded-2xl bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white text-2xl sm:text-3xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
-                  {service.icon}
-                </div>
-                <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-1 sm:mb-2">{service.title}</h4>
-                <p className="text-gray-500 text-xs sm:text-sm mb-2 sm:mb-3 leading-relaxed">{service.description}</p>
-                <p className="text-xl sm:text-2xl font-bold text-[#D4A054] mb-2 sm:mb-3">{service.price}</p>
-                <Link
-                  to={'/booknow'}
-                  className="w-full bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white py-1.5 sm:py-2 rounded-lg font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base"
-                >
-                  Add to Booking <FaArrowRight className="text-xs sm:text-sm group-hover:translate-x-1 transition-transform" />
-                </Link>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6 max-w-2xl mx-auto">
+            {/* Small Bread - ₹500 */}
+            <div className="group bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 text-center shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-gray-100">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] flex items-center justify-center text-white text-2xl sm:text-3xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <FaCut className="text-2xl sm:text-3xl" />
               </div>
-            ))}
+              <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-1 sm:mb-2">Small Bread</h4>
+              <p className="text-gray-500 text-xs sm:text-sm mb-2 sm:mb-3 leading-relaxed">
+                Complete grooming package for small breed dogs
+              </p>
+              <p className="text-2xl sm:text-3xl font-bold text-[#D4A054] mb-2 sm:mb-3">₹500</p>
+              <Link
+                to={'/booknow'}
+                className="w-full bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white py-1.5 sm:py-2 rounded-lg font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base"
+              >
+                Add to Booking <FaArrowRight className="text-xs sm:text-sm group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
+            {/* Large Bread - ₹700 */}
+            <div className="group bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 text-center shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 border border-gray-100">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] flex items-center justify-center text-white text-2xl sm:text-3xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                <FaDog className="text-2xl sm:text-3xl" />
+              </div>
+              <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-1 sm:mb-2">Large Bread</h4>
+              <p className="text-gray-500 text-xs sm:text-sm mb-2 sm:mb-3 leading-relaxed">
+                Complete grooming package for large breed dogs
+              </p>
+              <p className="text-2xl sm:text-3xl font-bold text-[#D4A054] mb-2 sm:mb-3">₹700</p>
+              <Link
+                to={'/booknow'}
+                className="w-full bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white py-1.5 sm:py-2 rounded-lg font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base"
+              >
+                Add to Booking <FaArrowRight className="text-xs sm:text-sm group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Grooming Includes Section */}
+          <div className="mt-8 text-center">
+            <div className="inline-block bg-white rounded-xl p-4 shadow-md">
+              <h4 className="font-semibold text-gray-800 mb-2">✨ Grooming Includes:</h4>
+              <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
+                <span>• Premium Shampoo Bath</span>
+                <span>• Breed-Specific Haircut</span>
+                <span>• Nail Trimming</span>
+                <span>• Ear Cleaning</span>
+                <span>• Teeth Brushing</span>
+                <span>• Paw Pad Trimming</span>
+              </div>
+            </div>
           </div>
         </div>
 
