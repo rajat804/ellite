@@ -29,7 +29,7 @@ import { GiDogHouse, GiMeditation } from "react-icons/gi";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Testimonial from "../components/Testimonial";
 import Faq from "../components/Faq";
-import Cta from "../components/Cta";
+import Cta from "../components/BookingForm";
 import { Link } from "react-router-dom";
 
 const ServicesPage = () => {
