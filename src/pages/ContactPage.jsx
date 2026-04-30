@@ -65,7 +65,7 @@ const ContactPage = () => {
 
   // Send WhatsApp message function
   const sendWhatsAppMessage = async (data) => {
-    const phoneNumber = "";
+    const phoneNumber = "9971200705";
 
     const message = `🐾 *NEW CONTACT FORM SUBMISSION - Bruno's Family* 🐾
 
@@ -147,7 +147,7 @@ const ContactPage = () => {
     {
       icon: <FaPhoneAlt />,
       title: "Phone Number",
-      details: ["+91-9582582689", "+91-9876543210"],
+      details: ["+91-9971200705"],
       color: "#8B5E3C",
       bg: "bg-gradient-to-br from-[#8B5E3C]/10 to-[#A0714F]/20",
       whatsappClick: false
@@ -155,11 +155,11 @@ const ContactPage = () => {
     {
       icon: <FaWhatsapp />,
       title: "WhatsApp",
-      details: ["+91-7217747900"],
+      details: ["+91-9971200705"],
       color: "#25D366",
       bg: "bg-gradient-to-br from-[#D4A054]/10 to-[#F5C27B]/20",
       whatsappClick: true,
-      whatsappNumber: "7217747900"
+      whatsappNumber: "9971200705"
     },
     {
       icon: <FaEnvelope />,
@@ -188,7 +188,7 @@ const ContactPage = () => {
     {
       name: "Head Office - Gurgaon",
       address: "DLF Phase 3, Sector 24, Gurugram, Haryana 122002",
-      phone: "+91-9582582689",
+      phone: "+91-9971200705",
       email: "gurgaon@brunosfamily.com",
       timing: "24/7 Open",
       mapUrl: "https://maps.google.com/?q=DLF+Phase+3+Gurgaon"
@@ -196,7 +196,7 @@ const ContactPage = () => {
     {
       name: "Branch - Noida",
       address: "Sector 18, Noida, Uttar Pradesh 201301",
-      phone: "+91-9876543210",
+      phone: "+91-9971200705",
       email: "noida@brunosfamily.com",
       timing: "24/7 Open",
       mapUrl: "https://maps.google.com/?q=Sector+18+Noida"
@@ -204,7 +204,7 @@ const ContactPage = () => {
     {
       name: "Branch - Delhi",
       address: "Connaught Place, New Delhi 110001",
-      phone: "+91-9999998888",
+      phone: "+91-9971200705",
       email: "delhi@brunosfamily.com",
       timing: "24/7 Open",
       mapUrl: "https://maps.google.com/?q=Connaught+Place+Delhi"
@@ -566,10 +566,10 @@ const ContactPage = () => {
               Our emergency helpline is available 24/7 for urgent pet care needs
             </p>
             <button
-              onClick={() => handleWhatsAppClick("7894561230")}
+              onClick={() => handleWhatsAppClick("9971200705")}
               className="bg-gradient-to-r from-[#D4A054] to-[#F5C27B] text-[#2C1810] px-8 py-3 rounded-full font-semibold hover:shadow-xl transition-all hover:scale-105 inline-flex items-center gap-2"
             >
-              <FaWhatsapp /> WhatsApp Emergency: +91-7894561230
+              <FaWhatsapp /> WhatsApp Emergency: +91-9971200705
             </button>
           </div>
         </div>
