@@ -11,7 +11,6 @@ import ContactPage from "./pages/ContactPage";
 import VisionPage from "./pages/VisionPage";
 import TermsPage from "./pages/TermsPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
-import Cta from "./components/Cta";
 import PetCafe from "./components/PetCafe";
 import BookingForm from "./components/BookingForm";
 
@@ -31,7 +30,7 @@ const App = () => {
           <Route path="/vision" element={<VisionPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
-          <Route path="/booknow" element={<Cta />} />
+          <Route path="/booknow" element={<BookingForm />} />
 
 
         </Routes>
