@@ -13,6 +13,7 @@ import TermsPage from "./pages/TermsPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import Cta from "./components/Cta";
 import PetCafe from "./components/PetCafe";
+import BookingForm from "./components/BookingForm";
 
 const App = () => {
   return (
