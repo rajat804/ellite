@@ -36,7 +36,7 @@ const Header = () => {
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2 group cursor-pointer">
                 <FaPhone className="text-[#D4A054] group-hover:scale-110 transition-transform" />
-                <span>Emergency: +91-9582582689</span>
+                <span>Emergency: +91-9971200705</span>
               </div>
               <div className="flex items-center gap-2 group cursor-pointer">
                 <FaHeart className="text-[#D4A054] group-hover:scale-110 transition-transform" />
