@@ -47,7 +47,7 @@ import {
 import { GiDogHouse, GiCat, GiMeditation, GiPawHeart } from 'react-icons/gi';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Testimonial from '../components/Testimonial';
-import Cta from '../components/Cta';
+import Cta from '../components/BookingForm';
 
 const VisionPage = () => {
   const [isVisible, setIsVisible] = useState(false);
