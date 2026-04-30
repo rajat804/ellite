@@ -33,7 +33,6 @@ import Cta from "../components/BookingForm";
 const AboutPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeTab, setActiveTab] = useState("mission");
-  const [hoveredTeam, setHoveredTeam] = useState(null);
   const [counterValues, setCounterValues] = useState({
     years: 0,
     families: 0,
@@ -96,48 +95,7 @@ const AboutPage = () => {
     }
   }, [isVisible]);
 
-  const teamMembers = [
-    {
-      id: 1,
-      name: "Dr. Sarah Johnson",
-      role: "Lead Veterinarian",
-      experience: "12+ years",
-      specialty: "Small Animal Medicine",
-      image: "https://randomuser.me/api/portraits/women/44.jpg",
-      quote: "Every pet deserves the best medical care",
-      social: { facebook: "#", instagram: "#", linkedin: "#" },
-    },
-    {
-      id: 2,
-      name: "Michael Chen",
-      role: "Head of Boarding",
-      experience: "8+ years",
-      specialty: "Pet Behavior",
-      image: "https://randomuser.me/api/portraits/men/45.jpg",
-      quote: "Creating a home away from home",
-      social: { facebook: "#", instagram: "#", linkedin: "#" },
-    },
-    {
-      id: 3,
-      name: "Priya Sharma",
-      role: "Senior Groomer",
-      experience: "10+ years",
-      specialty: "Creative Styling",
-      image: "https://randomuser.me/api/portraits/women/46.jpg",
-      quote: "Making pets look and feel beautiful",
-      social: { facebook: "#", instagram: "#", linkedin: "#" },
-    },
-    {
-      id: 4,
-      name: "Rajesh Kumar",
-      role: "Pet Trainer",
-      experience: "15+ years",
-      specialty: "Behavior Modification",
-      image: "https://randomuser.me/api/portraits/men/47.jpg",
-      quote: "Positive reinforcement for happy pets",
-      social: { facebook: "#", instagram: "#", linkedin: "#" },
-    },
-  ];
+  
 
   const values = [
     {
@@ -685,82 +643,6 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Our Team Section - Bruno's Theme */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 md:px-8">
-          <div
-            className={`text-center max-w-3xl mx-auto mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-          >
-            <div className="inline-flex items-center justify-center gap-2 bg-[#D4A054]/10 px-3 py-1.5 rounded-full mb-3 mx-auto w-fit">
-              <FaUsers className="text-[#D4A054] text-sm" />
-              <span className="text-[#8B5E3C] font-semibold text-xs uppercase tracking-wide">
-                Meet Our Team
-              </span>
-            </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
-              Dedicated <span className="text-[#D4A054]">Professionals</span>
-            </h2>
-            <p className="text-gray-500 text-sm">
-              Passionate experts committed to your pet's well-being
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {teamMembers.map((member, idx) => (
-              <div
-                key={member.id}
-                className={`group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 cursor-pointer ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-                style={{ transitionDelay: `${0.3 + idx * 0.1}s` }}
-                onMouseEnter={() => setHoveredTeam(member.id)}
-                onMouseLeave={() => setHoveredTeam(null)}
-              >
-                <div className="relative overflow-hidden h-56">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className={`w-full h-full object-cover transition-all duration-500 ${hoveredTeam === member.id ? "scale-110" : "scale-100"}`}
-                  />
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-t from-[#8B5E3C] to-transparent transition-all duration-500 ${hoveredTeam === member.id ? "opacity-80" : "opacity-0"} flex items-end justify-center p-4`}
-                  >
-                    <div className="flex gap-2">
-                      <a
-                        href={member.social.facebook}
-                        className="bg-white p-1.5 rounded-full hover:bg-[#D4A054] hover:text-[#2C1810] transition-all transform hover:scale-110"
-                      >
-                        <FaFacebook className="text-sm" />
-                      </a>
-                      <a
-                        href={member.social.instagram}
-                        className="bg-white p-1.5 rounded-full hover:bg-[#D4A054] hover:text-[#2C1810] transition-all transform hover:scale-110"
-                      >
-                        <FaInstagram className="text-sm" />
-                      </a>
-                      <a
-                        href={member.social.linkedin}
-                        className="bg-white p-1.5 rounded-full hover:bg-[#D4A054] hover:text-[#2C1810] transition-all transform hover:scale-110"
-                      >
-                        <FaLinkedin className="text-sm" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-4 text-center">
-                  <h3 className="text-base font-bold text-gray-800 mb-0.5">
-                    {member.name}
-                  </h3>
-                  <p className="text-[#D4A054] font-semibold text-xs mb-1">
-                    {member.role}
-                  </p>
-                  <p className="text-gray-400 text-xs">
-                    {member.specialty} • {member.experience}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Why Choose Us Features */}
       <WhyChooseUs />
