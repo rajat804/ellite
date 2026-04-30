@@ -24,7 +24,7 @@ const Header = () => {
     { name: 'About', path: '/about' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Contact', path: '/contact' },
-    { name: 'Vision', path: '/vision' },
+    // { name: 'Vision', path: '/vision' },
   ];
 
   return (
@@ -36,7 +36,7 @@ const Header = () => {
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2 group cursor-pointer">
                 <FaPhone className="text-[#D4A054] group-hover:scale-110 transition-transform" />
-                <span>Emergency: +91-9971200705</span>
+                <span>Contact us: +91-9971200705</span>
               </div>
               <div className="flex items-center gap-2 group cursor-pointer">
                 <FaHeart className="text-[#D4A054] group-hover:scale-110 transition-transform" />
@@ -57,7 +57,7 @@ const Header = () => {
                 <span className="ml-2">4.9 Rating (17,000+ Reviews)</span>
               </div>
               <span className="w-px h-4 bg-white/30"></span>
-              <span>📍 Delhi NCR</span>
+              <span>📍 Rajnagar Extension</span>
             </div>
           </div>
         </div>
