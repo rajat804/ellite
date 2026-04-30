@@ -28,7 +28,7 @@ import {
 import { MdVerified, MdLocalHospital, MdEmojiEmotions } from "react-icons/md";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Testimonial from "../components/Testimonial";
-import Cta from "../components/Cta";
+import Cta from "../components/BookingForm";
 
 const AboutPage = () => {
   const [isVisible, setIsVisible] = useState(false);
