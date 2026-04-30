@@ -506,7 +506,7 @@ const GalleryPage = () => {
             <h2 className="text-3xl font-bold text-gray-800 mb-3">Follow Our Journey</h2>
             <p className="text-gray-600 mb-6">Get daily updates and cute moments on Instagram</p>
             <button className="bg-gradient-to-r from-[#D4A054] to-[#F5C27B] text-[#2C1810] px-8 py-3 rounded-full font-semibold hover:shadow-xl transition-all hover:scale-105 inline-flex items-center gap-2">
-              <FaInstagram /> @brunosfamilycafe
+              <FaInstagram /> @bru_nofamily
             </button>
           </div>
         </div>
