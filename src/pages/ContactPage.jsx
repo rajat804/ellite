@@ -187,28 +187,13 @@ const ContactPage = () => {
   const locations = [
     {
       name: "Head Office - Gurgaon",
-      address: "DLF Phase 3, Sector 24, Gurugram, Haryana 122002",
+      address: "Bruno’s Pet Boarding & Cafe, Bhatta Road, Sikroad, Rajnagar Extension, Ghaziabad, 201003",
       phone: "+91-9971200705",
       email: "gurgaon@brunosfamily.com",
       timing: "24/7 Open",
-      mapUrl: "https://maps.google.com/?q=DLF+Phase+3+Gurgaon"
+      mapUrl: ""
     },
-    {
-      name: "Branch - Noida",
-      address: "Sector 18, Noida, Uttar Pradesh 201301",
-      phone: "+91-9971200705",
-      email: "noida@brunosfamily.com",
-      timing: "24/7 Open",
-      mapUrl: "https://maps.google.com/?q=Sector+18+Noida"
-    },
-    {
-      name: "Branch - Delhi",
-      address: "Connaught Place, New Delhi 110001",
-      phone: "+91-9971200705",
-      email: "delhi@brunosfamily.com",
-      timing: "24/7 Open",
-      mapUrl: "https://maps.google.com/?q=Connaught+Place+Delhi"
-    }
+    
   ];
 
   const services = [
@@ -486,8 +471,7 @@ const ContactPage = () => {
 
               {/* Map Embed */}
               <div className="rounded-xl overflow-hidden mb-6 h-64">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.947123456789!2d77.1025!3d28.4595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1f5a8b5f8b5f%3A0x8b5f8b5f8b5f8b5f!2sDelhi!5e0!3m2!1sen!2sin!4v1234567890!5m2!1sen!2sin"
+                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3499.384800469539!2d77.4332999755036!3d28.70804407562353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDQyJzI5LjAiTiA3N8KwMjYnMDkuMiJF!5e0!3m2!1sen!2sin!4v1777555070208!5m2!1sen!2sin" 
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -539,7 +523,7 @@ const ContactPage = () => {
             {[
               { q: "How do I book a service?", a: "You can book online through our website, call us directly, or visit any of our locations. We'll confirm your booking within 30 minutes." },
               { q: "What are your operating hours?", a: "We are open 24/7, 365 days a year. Our emergency services are available round the clock." },
-              { q: "Do you offer pickup and drop?", a: "Yes, we offer free pickup and drop service for boarding within Delhi NCR." },
+              { q: "Do you offer pickup and drop?", a: "only under 5km free pick up and drop else 500 for both and 250 for drop or pickup." },
               { q: "Is my pet safe with you?", a: "Absolutely! We have 24/7 monitoring, trained staff, and vet-on-call for emergencies." }
             ].map((faq, idx) => (
               <div key={idx} className="bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all">
