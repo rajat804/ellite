@@ -298,7 +298,7 @@ const WhyChooseUs = () => {
 
               <div className="space-y-2 sm:space-y-3 text-left">
                 {[
-                  'First pet boarding service in Delhi NCR – trusted legacy',
+                  'First pet boarding service in Rajnagar Extension – trusted legacy',
                   'Pets live in a home environment, no cages, no isolation',
                   'Regular photo & video updates while you\'re away',
                   'Pets make new friends & enjoy socialization'
