@@ -4,7 +4,7 @@ import {
   FaPaw, FaHeart, FaFacebook, FaInstagram, FaTwitter, FaYoutube,
   FaLinkedin, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock,
   FaChevronRight, FaShieldAlt, FaTruck, FaCreditCard, FaAward,
-  FaArrowUp, FaGem, FaCoffee
+  FaArrowUp, FaGem, FaCoffee, FaWhatsapp
 } from 'react-icons/fa';
 import { MdVerified, MdPets, MdLocalCafe } from 'react-icons/md';
 import { GiPawHeart } from 'react-icons/gi';
@@ -28,22 +28,21 @@ const Footer = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-
+  // WhatsApp button click handler
+  const openWhatsApp = () => {
+    const phoneNumber = "919971200705";
+    const message = encodeURIComponent("Hello! I'm interested in your pet services. Can you please help me?");
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+  };
 
   const quickLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { name: 'Services', path: '/service' },
-    { name: 'Testimonials', path: '/testimonial' },
+    { name: 'Gallery', path: '/gallery' },
     { name: 'Contact', path: '/contact' },
-    { name: 'FAQs', path: '/faq' },
     { name: 'Privacy Policy', path: '/privacy' },
     { name: 'Terms & Conditions', path: '/terms' },
-  ];
-
-  const services = [
-    'Cat Boarding', 'Dog Boarding', 'Pet Training',
-    'Grooming Services', 'Pet Taxi'
   ];
 
   return (
@@ -61,7 +60,7 @@ const Footer = () => {
                   src={logo}
                   alt="Bruno's Family & Cafe"
                   className='
-                              w-14 xs:w-16 sm:w-20 md:w-24 lg:w-28 xl:w-[100px] group-hover:scale-105 transition-all duration-300'
+                    w-14 xs:w-16 sm:w-20 md:w-24 lg:w-28 xl:w-[100px] group-hover:scale-105 transition-all duration-300'
                 />
               </Link>
             </div>
@@ -125,36 +124,15 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 3 - Services */}
+          {/* Column 3 - Contact Info */}
           <div>
             <h3 className="text-xl font-bold mb-6 relative inline-block">
-              Our Services
-              <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-[#D4A054]"></span>
-            </h3>
-            <ul className="space-y-2">
-              {services.map((service, idx) => (
-                <li key={idx}>
-                  <a
-                    href="#services"
-                    className="text-gray-400 hover:text-[#D4A054] transition-colors text-sm flex items-center gap-2"
-                  >
-                    <MdPets className="text-[#D4A054] text-xs" />
-                    {service}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 4 - Contact & Newsletter */}
-          <div>
-            <h3 className="text-xl font-bold mb-6 relative inline-block">
-              Get In Touch
+              Contact Info
               <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-[#D4A054]"></span>
             </h3>
 
             {/* Contact Info */}
-            <div className="space-y-4 mb-6">
+            <div className="space-y-4">
               <div className="flex gap-3 items-start">
                 <div className="bg-[#D4A054]/20 p-2 rounded-lg text-[#D4A054] mt-1">
                   <FaPhoneAlt />
@@ -168,11 +146,22 @@ const Footer = () => {
 
               <div className="flex gap-3 items-start">
                 <div className="bg-[#D4A054]/20 p-2 rounded-lg text-[#D4A054] mt-1">
+                  <FaWhatsapp />
+                </div>
+                <div>
+                  <p className="text-xs text-gray-400">WhatsApp</p>
+                  <p className="font-semibold text-sm">+91-9971200705</p>
+                  <p className="text-xs text-gray-500">Quick Response</p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 items-start">
+                <div className="bg-[#D4A054]/20 p-2 rounded-lg text-[#D4A054] mt-1">
                   <FaEnvelope />
                 </div>
                 <div>
                   <p className="text-xs text-gray-400">Email Us</p>
-                  <p className="font-semibold text-sm">care@brunosfamily.com</p>
+                  <p className="font-semibold text-sm">brunospetboarding@gmail.com</p>
                   <p className="text-xs text-gray-500">Response within 1 hour</p>
                 </div>
               </div>
@@ -183,7 +172,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-xs text-gray-400">Visit Us</p>
-                  <p className="font-semibold text-sm"> Bruno’s Pet Boarding & Cafe, Bhatta Road, Sikroad, Rajnagar Extension, Ghaziabad, 201003.</p>
+                  <p className="font-semibold text-sm"> Bruno's Pet Boarding & Cafe, Bhatta Road, Sikroad, Rajnagar Extension, Ghaziabad, 201003.</p>
                   <p className="text-xs text-gray-500">Rajnagar Extension, Ghaziabad</p>
                 </div>
               </div>
@@ -199,10 +188,16 @@ const Footer = () => {
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Newsletter */}
+          {/* Column 4 - Newsletter */}
+          <div>
+            <h3 className="text-xl font-bold mb-6 relative inline-block">
+              Newsletter
+              <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-[#D4A054]"></span>
+            </h3>
+
             <div className="space-y-3">
-              <h4 className="font-semibold">Newsletter</h4>
               <p className="text-xs text-gray-400">Get pet care tips & exclusive offers</p>
               <form onSubmit={handleSubscribe} className="flex gap-2">
                 <input
@@ -225,6 +220,12 @@ const Footer = () => {
                   ✓ Subscribed successfully!
                 </p>
               )}
+            </div>
+
+            {/* QR Code or Trust Badge */}
+            <div className="mt-6 p-3 bg-white/5 rounded-xl text-center">
+              <GiPawHeart className="text-[#D4A054] text-2xl mx-auto mb-2" />
+              <p className="text-xs text-gray-400">Trusted by pet parents since 2008</p>
             </div>
           </div>
         </div>
@@ -282,6 +283,17 @@ const Footer = () => {
         </button>
       </div>
 
+      {/* Floating WhatsApp Button */}
+      <button
+        onClick={openWhatsApp}
+        className="fixed bottom-24 right-8 z-50 bg-green-500 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-110 group animate-pulse"
+      >
+        <FaWhatsapp className="text-2xl" />
+        <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
+          Chat with us on WhatsApp
+        </span>
+      </button>
+
       <style jsx>{`
         @keyframes fade-in {
           from { opacity: 0; transform: translateY(-5px); }
@@ -292,7 +304,7 @@ const Footer = () => {
         }
         @keyframes pulse {
           0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.1); }
+          50% { transform: scale(1.05); }
         }
         .animate-pulse {
           animation: pulse 1.5s ease-in-out infinite;
