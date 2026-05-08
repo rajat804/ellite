@@ -186,7 +186,7 @@ const ContactPage = () => {
 
   const locations = [
     {
-      name: "Head Office - Gurgaon",
+      name: "Location",
       address: "Bruno’s Pet Boarding & Cafe, Bhatta Road, Sikroad, Rajnagar Extension, Ghaziabad, 201003.",
       phone: "+91-9971200705",
       email: "brunoboardingcafe@gmail.com",
