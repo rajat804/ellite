@@ -29,7 +29,7 @@ import {
   FaMapMarkerAlt,
   FaWhatsapp
 } from 'react-icons/fa';
-import { GiDogHouse, GiPawHeart, GiMuscleUp } from 'react-icons/gi';
+import { GiDogHouse, GiPawHeart } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 
 const DaycareSection = () => {
@@ -98,24 +98,6 @@ const DaycareSection = () => {
     { icon: <FaStar />, title: 'First Booking', discount: '10% OFF', color: '#FF7A2F' }
   ];
 
-  // Spa Therapy Services
-  const spaServices = [
-    { 
-      icon: <FaBath />, 
-      title: 'Small Bread', 
-      price: '₹1200', 
-      description: 'Premium spa therapy for small breeds',
-      color: '#D4A054'
-    },
-    { 
-      icon: <FaDog />, 
-      title: 'Large Bread', 
-      price: '₹2000', 
-      description: 'Premium spa therapy for large breeds',
-      color: '#8B5E3C'
-    }
-  ];
-
   // Summer Special - Cold Water Therapy
   const summerSpecial = {
     title: 'Cold Water Therapy',
@@ -145,15 +127,6 @@ const DaycareSection = () => {
     }
   ];
 
-  const spaFeatures = [
-    'Oil Massage',
-    'Deep Tissue Massage',
-    'Bath with Premium Products',
-    'Relaxing Foot Massage',
-    'Aromatherapy',
-    'Stress Relief Treatment'
-  ];
-
   const location = {
     address: "Bhatta Road, Sikroad, Raj Nagar Extension, Ghaziabad – 201003",
     phone: "+91-9971200705",
@@ -179,16 +152,15 @@ const DaycareSection = () => {
           </h2>
           
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            From daycare to luxury spa, we provide everything your furry friend needs
+            From daycare to grooming, we provide everything your furry friend needs
           </p>
         </div>
 
-        {/* Service Tabs */}
+        {/* Service Tabs - Removed Spa Therapy */}
         <div className={`flex flex-wrap justify-center gap-3 mb-10 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {[
             { id: 'daycare', label: 'Daycare', icon: <FaPlay /> },
             { id: 'grooming', label: 'Grooming', icon: <FaCut /> },
-            { id: 'spa', label: 'Spa Therapy', icon: <GiMuscleUp /> },
             { id: 'summer', label: 'Summer Special', icon: <FaSnowflake /> }
           ].map((tab) => (
             <button
@@ -283,7 +255,7 @@ const DaycareSection = () => {
           </div>
         )}
 
-        {/* Grooming Section - Updated */}
+        {/* Grooming Section */}
         {activeService === 'grooming' && (
           <div>
             {/* Offers Banner */}
@@ -384,56 +356,6 @@ const DaycareSection = () => {
                 
                 <p className="text-xs text-center text-gray-400">🐾 Limited slots available — Reserve your pet's spa day today!</p>
               </div>
-            </div>
-          </div>
-        )}
-
-        {/* Spa Therapy Section */}
-        {activeService === 'spa' && (
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <div className="flex items-center gap-2 mb-4">
-                  <GiMuscleUp className="text-[#D4A054] text-2xl" />
-                  <h3 className="text-2xl font-bold text-gray-800">Dog Spa Therapy</h3>
-                </div>
-                <p className="text-gray-500 mb-6">Pamper your furry friend with luxury spa treatment</p>
-                <div className="space-y-4">
-                  {spaServices.map((service, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:shadow-md transition-all">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#8B5E3C]/20 to-[#D4A054]/20 flex items-center justify-center" style={{ color: service.color }}>
-                          {service.icon}
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-800">{service.title}</h4>
-                          <p className="text-xs text-gray-500">{service.description}</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-2xl font-bold text-[#D4A054]">{service.price}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className={`space-y-4 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
-              <div className="bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] rounded-2xl p-6 text-white">
-                <h3 className="text-xl font-bold mb-3">💆 Spa Package Includes:</h3>
-                <div className="space-y-2">
-                  {spaFeatures.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <FaCheckCircle className="text-[#D4A054] text-xs" />
-                      <span className="text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <Link to="/booknow" className="block w-full bg-gradient-to-r from-[#D4A054] to-[#B8860B] text-white text-center py-3.5 rounded-xl font-semibold hover:shadow-xl transition-all hover:scale-105">
-                Book Spa Therapy →
-              </Link>
             </div>
           </div>
         )}
