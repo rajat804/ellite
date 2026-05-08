@@ -22,7 +22,12 @@ import {
   FaCalendarWeek,
   FaCalendarCheck,
   FaWind,
-  FaWater
+  FaWater,
+  FaGift,
+  FaStar,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaWhatsapp
 } from 'react-icons/fa';
 import { GiDogHouse, GiPawHeart, GiMuscleUp } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
@@ -60,25 +65,40 @@ const DaycareSection = () => {
     { plan: 'Weekly Pass', hours: '5 Days', price: '₹2499', color: '#D4A054' }
   ];
 
-  // Grooming Services - Updated Prices
+  // Updated Grooming Services Prices
   const groomingServices = [
     { 
-      icon: <FaCut />, 
-      title: 'Small Bread', 
-      price: '₹500', 
-      description: 'Complete grooming for small breed dogs',
-      color: '#D4A054'
+      icon: <FaDog />, 
+      title: 'Small Breed Basic Grooming', 
+      price: '₹600', 
+      originalPrice: '₹800',
+      description: 'Complete grooming package for small breed dogs',
+      features: ['Premium Shampoo Bath', 'Breed-Specific Haircut', 'Nail Trimming', 'Ear Cleaning', 'Teeth Brushing', 'Paw Pad Trimming'],
+      duration: '45-60 mins',
+      color: '#D4A054',
+      gradient: 'from-[#D4A054] to-[#F5C27B]'
     },
     { 
       icon: <FaDog />, 
-      title: 'Large Bread', 
-      price: '₹700', 
-      description: 'Complete grooming for large breed dogs',
-      color: '#8B5E3C'
+      title: 'Large Breed Basic Grooming', 
+      price: '₹900', 
+      originalPrice: '₹1200',
+      description: 'Complete grooming package for large breed dogs',
+      features: ['Premium Shampoo Bath', 'Breed-Specific Haircut', 'Nail Trimming', 'Ear Cleaning', 'Teeth Brushing', 'Paw Pad Trimming'],
+      duration: '60-90 mins',
+      color: '#8B5E3C',
+      gradient: 'from-[#8B5E3C] to-[#A0714F]'
     }
   ];
 
-  // Spa Therapy Services - Updated Prices
+  // Grooming Offers
+  const groomingOffers = [
+    { icon: <FaGift />, title: 'New Customer Special', discount: 'Flat ₹200 OFF', color: '#D4A054' },
+    { icon: <FaGem />, title: 'Complimentary Grooming', discount: 'On 4+ Days Boarding', color: '#8B5E3C' },
+    { icon: <FaStar />, title: 'First Booking', discount: '10% OFF', color: '#FF7A2F' }
+  ];
+
+  // Spa Therapy Services
   const spaServices = [
     { 
       icon: <FaBath />, 
@@ -107,7 +127,7 @@ const DaycareSection = () => {
     color: '#06B6D4'
   };
 
-  // Package Deals - Updated Prices
+  // Package Deals
   const packages = [
     { 
       days: '3 Days Package', 
@@ -133,6 +153,12 @@ const DaycareSection = () => {
     'Aromatherapy',
     'Stress Relief Treatment'
   ];
+
+  const location = {
+    address: "Bhatta Road, Sikroad, Raj Nagar Extension, Ghaziabad – 201003",
+    phone: "+91-9971200705",
+    timing: "10:00 AM - 7:00 PM (Mon-Sun)"
+  };
 
   return (
     <section id="daycare-section" className="py-20 bg-gradient-to-br from-white to-[#FDF8F0]">
@@ -257,59 +283,107 @@ const DaycareSection = () => {
           </div>
         )}
 
-        {/* Grooming Section */}
+        {/* Grooming Section - Updated */}
         {activeService === 'grooming' && (
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
-              <div className="bg-white rounded-2xl p-6 shadow-lg">
-                <div className="flex items-center gap-2 mb-4">
-                  <FaCut className="text-[#D4A054] text-2xl" />
-                  <h3 className="text-2xl font-bold text-gray-800">Grooming Services</h3>
+          <div>
+            {/* Offers Banner */}
+            <div className={`bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] rounded-2xl p-4 mb-6 text-white ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+              <div className="flex flex-col md:flex-row items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <GiPawHeart className="text-2xl" />
+                  <div>
+                    <h3 className="font-bold">Pamper Your Pet with Love & Care! 🐶✂️</h3>
+                    <p className="text-sm opacity-90">Give your furry friend the grooming experience they deserve</p>
+                  </div>
                 </div>
-                <p className="text-gray-500 mb-6">Keep your pet clean, fresh, and stylish</p>
-                <div className="space-y-4">
-                  {groomingServices.map((service, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:shadow-md transition-all">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#8B5E3C]/20 to-[#D4A054]/20 flex items-center justify-center" style={{ color: service.color }}>
-                          {service.icon}
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-800">{service.title}</h4>
-                          <p className="text-xs text-gray-500">{service.description}</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-2xl font-bold text-[#D4A054]">{service.price}</span>
-                      </div>
+                <div className="flex flex-wrap gap-2">
+                  {groomingOffers.map((offer, idx) => (
+                    <div key={idx} className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-1 text-xs">
+                      <span>{offer.icon}</span>
+                      <span>{offer.title}: {offer.discount}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            <div className={`space-y-4 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
-              <div className="bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] rounded-2xl p-6 text-white">
-                <h3 className="text-xl font-bold mb-3">✨ Grooming Includes:</h3>
-                <div className="space-y-2">
-                  {[
-                    'Premium Shampoo Bath',
-                    'Breed-Specific Haircut',
-                    'Nail Trimming',
-                    'Ear Cleaning',
-                    'Teeth Brushing',
-                    'Paw Pad Trimming'
-                  ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <FaCheckCircle className="text-[#D4A054] text-xs" />
-                      <span className="text-sm">{item}</span>
-                    </div>
-                  ))}
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
+                <div className="bg-white rounded-2xl p-6 shadow-lg">
+                  <div className="flex items-center gap-2 mb-4">
+                    <FaCut className="text-[#D4A054] text-2xl" />
+                    <h3 className="text-2xl font-bold text-gray-800">Grooming Services</h3>
+                  </div>
+                  <p className="text-gray-500 mb-6">Keep your pet clean, fresh, and stylish</p>
+                  <div className="space-y-4">
+                    {groomingServices.map((service, idx) => (
+                      <div key={idx} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:shadow-md transition-all">
+                        <div className="flex items-center gap-3">
+                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white`}>
+                            {service.icon}
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-gray-800">{service.title}</h4>
+                            <p className="text-xs text-gray-500">{service.description}</p>
+                            <div className="flex items-center gap-2 mt-1">
+                              <FaClock className="text-[#D4A054] text-xs" />
+                              <span className="text-xs text-gray-400">{service.duration}</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-2xl font-bold text-[#D4A054]">{service.price}</span>
+                          <span className="text-xs text-gray-400 line-through ml-1">{service.originalPrice}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-              <Link to="/booknow" className="block w-full bg-gradient-to-r from-[#D4A054] to-[#B8860B] text-white text-center py-3.5 rounded-xl font-semibold hover:shadow-xl transition-all hover:scale-105">
-                Book Grooming →
-              </Link>
+
+              <div className={`space-y-4 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
+                <div className="bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] rounded-2xl p-6 text-white">
+                  <h3 className="text-xl font-bold mb-3">✨ Grooming Includes:</h3>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      'Premium Shampoo Bath',
+                      'Breed-Specific Haircut',
+                      'Nail Trimming',
+                      'Ear Cleaning',
+                      'Teeth Brushing',
+                      'Paw Pad Trimming'
+                    ].map((item, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <FaCheckCircle className="text-[#D4A054] text-xs" />
+                        <span className="text-sm">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Location Card */}
+                <div className="bg-white rounded-2xl p-5 shadow-lg border border-gray-100">
+                  <div className="flex items-center gap-2 mb-3">
+                    <FaMapMarkerAlt className="text-[#D4A054]" />
+                    <h3 className="font-bold text-gray-800">📍 Visit Us</h3>
+                  </div>
+                  <p className="text-gray-500 text-sm">{location.address}</p>
+                  <div className="mt-3 flex items-center gap-2">
+                    <FaPhoneAlt className="text-[#D4A054] text-sm" />
+                    <span className="text-gray-600 text-sm">{location.phone}</span>
+                  </div>
+                  <div className="mt-2 flex items-center gap-2">
+                    <FaClock className="text-[#D4A054] text-sm" />
+                    <span className="text-gray-600 text-sm">{location.timing}</span>
+                  </div>
+                </div>
+
+                <Link to="/booknow" className="block w-full bg-gradient-to-r from-[#D4A054] to-[#B8860B] text-white text-center py-3.5 rounded-xl font-semibold hover:shadow-xl transition-all hover:scale-105 flex items-center justify-center gap-2">
+                  <FaWhatsapp /> Book Grooming on WhatsApp →
+                </Link>
+                
+                <p className="text-xs text-center text-gray-400">🐾 Limited slots available — Reserve your pet's spa day today!</p>
+              </div>
             </div>
           </div>
         )}
