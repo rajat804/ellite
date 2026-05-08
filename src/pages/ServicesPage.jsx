@@ -73,9 +73,7 @@ const ServicesPage = () => {
     { id: "all", name: "All Services", icon: <MdPets />, color: "#8B5E3C", count: 16 },
     { id: "boarding", name: "Boarding", icon: <GiDogHouse />, color: "#D4A054", count: 5 },
     { id: "play", name: "Play Hours", icon: <FaPlay />, color: "#D4A054", count: 2 },
-    { id: "medical", name: "Medical", icon: <MdLocalHospital />, color: "#6B2E2E", count: 3 },
     { id: "grooming", name: "Grooming", icon: <MdFace />, color: "#D4A054", count: 2 },
-    { id: "training", name: "Training", icon: <MdTrain />, color: "#8B5E3C", count: 3 },
   ];
 
   const services = [
