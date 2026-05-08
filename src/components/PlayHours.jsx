@@ -29,7 +29,12 @@ import {
   FaCalendarWeek,
   FaCalendarCheck,
   FaUtensils,
-  FaBed
+  FaBed,
+  FaWhatsapp,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaGift,
+  FaStar
 } from 'react-icons/fa';
 import { GiDogBowl, GiDogHouse, GiPawHeart, GiMuscleUp } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
@@ -108,12 +113,6 @@ const PlayHours = () => {
   const toggleBenefits = () => {
     setShowAllBenefits(!showAllBenefits);
   };
-
-  // Grooming Services
-  const groomingServices = [
-    { icon: <FaCut />, title: 'Small Bread', price: '₹500', description: 'Complete grooming package for small breed dogs', color: '#D4A054' },
-    { icon: <FaDog />, title: 'Large Bread', price: '₹700', description: 'Complete grooming package for large breed dogs', color: '#8B5E3C' }
-  ];
 
   // Spa Services
   const spaServices = [
@@ -336,33 +335,141 @@ const PlayHours = () => {
           </div>
         )}
 
-        {/* ==================== GROOMING TAB ==================== */}
+        {/* ==================== GROOMING TAB - UPDATED ==================== */}
         {activeTab === 'grooming' && (
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {groomingServices.map((service, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
-                <div className="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] flex items-center justify-center text-white text-3xl mb-4">
-                  {service.icon}
+          <div>
+            {/* Offers Banner */}
+            <div className={`bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] rounded-2xl p-4 mb-6 text-white ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+              <div className="flex flex-col md:flex-row items-center justify-between gap-3">
+                <div className="flex items-center gap-2">
+                  <GiPawHeart className="text-2xl" />
+                  <div>
+                    <h3 className="font-bold">Pamper Your Pet with Love & Care! 🐶✂️</h3>
+                    <p className="text-sm opacity-90">Give your furry friend the grooming experience they deserve</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{service.title}</h3>
-                <p className="text-gray-500 text-sm mb-3">{service.description}</p>
-                <p className="text-3xl font-bold text-[#D4A054] mb-4">{service.price}</p>
-                <Link to="/booknow" className="w-full bg-gradient-to-r from-[#D4A054] to-[#B8860B] text-white py-2 rounded-lg font-semibold hover:shadow-lg transition-all hover:scale-105 block text-center">
-                  Book Now →
-                </Link>
+                <div className="flex flex-wrap gap-2">
+                  <div className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-1 text-xs">
+                    <FaGift /> New Customer: ₹200 OFF
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-1 text-xs">
+                    <FaGem /> Free Grooming on 4+ Days Boarding
+                  </div>
+                  <div className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-1 text-xs">
+                    <FaStar /> First Booking: 10% OFF
+                  </div>
+                </div>
               </div>
-            ))}
-            <div className="md:col-span-2 text-center mt-4">
-              <div className="inline-block bg-white rounded-xl p-4 shadow-md">
-                <h4 className="font-semibold text-gray-800 mb-2">✨ Grooming Includes:</h4>
-                <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
-                  <span>• Premium Shampoo Bath</span>
-                  <span>• Breed-Specific Haircut</span>
-                  <span>• Nail Trimming</span>
-                  <span>• Ear Cleaning</span>
-                  <span>• Teeth Brushing</span>
-                  <span>• Paw Pad Trimming</span>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.1s' }}>
+                <div className="bg-white rounded-2xl p-6 shadow-lg">
+                  <div className="flex items-center gap-2 mb-4">
+                    <FaCut className="text-[#D4A054] text-2xl" />
+                    <h3 className="text-2xl font-bold text-gray-800">Grooming Services</h3>
+                  </div>
+                  <p className="text-gray-500 mb-6">Keep your pet clean, fresh, and stylish</p>
+                  <div className="space-y-4">
+                    {/* Small Breed - ₹600 */}
+                    <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:shadow-md transition-all">
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#D4A054] to-[#F5C27B] flex items-center justify-center text-white">
+                          <FaDog className="text-xl" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-gray-800">Small Breed Basic Grooming</h4>
+                          <p className="text-xs text-gray-500">Complete grooming for small breed dogs</p>
+                          <div className="flex items-center gap-2 mt-1">
+                            <FaClock className="text-[#D4A054] text-xs" />
+                            <span className="text-xs text-gray-400">45-60 mins</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-2xl font-bold text-[#D4A054]">₹600</span>
+                        <span className="text-xs text-gray-400 line-through ml-1">₹800</span>
+                      </div>
+                    </div>
+
+                    {/* Large Breed - ₹900 */}
+                    <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:shadow-md transition-all">
+                      <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] flex items-center justify-center text-white">
+                          <FaDog className="text-xl" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-gray-800">Large Breed Basic Grooming</h4>
+                          <p className="text-xs text-gray-500">Complete grooming for large breed dogs</p>
+                          <div className="flex items-center gap-2 mt-1">
+                            <FaClock className="text-[#D4A054] text-xs" />
+                            <span className="text-xs text-gray-400">60-90 mins</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-2xl font-bold text-[#D4A054]">₹900</span>
+                        <span className="text-xs text-gray-400 line-through ml-1">₹1200</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
+
+              <div className={`space-y-4 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
+                <div className="bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] rounded-2xl p-6 text-white">
+                  <h3 className="text-xl font-bold mb-3">✨ Grooming Includes:</h3>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      'Premium Shampoo Bath',
+                      'Breed-Specific Haircut',
+                      'Nail Trimming',
+                      'Ear Cleaning',
+                      'Teeth Brushing',
+                      'Paw Pad Trimming'
+                    ].map((item, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <FaCheckCircle className="text-[#D4A054] text-xs" />
+                        <span className="text-sm">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Special Offers Card */}
+                <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-4 border border-amber-200">
+                  <h4 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
+                    <FaGift className="text-amber-500" /> Special Offers
+                  </h4>
+                  <div className="space-y-1 text-sm text-gray-600">
+                    <p>🎉 New Customer Special – Flat ₹200 OFF</p>
+                    <p>💎 Complimentary Grooming on 4+ Days Boarding</p>
+                    <p>⭐ First Booking – 10% OFF</p>
+                  </div>
+                </div>
+
+                {/* Location Card */}
+                <div className="bg-white rounded-2xl p-4 shadow-lg border border-gray-100">
+                  <div className="flex items-center gap-2 mb-2">
+                    <FaMapMarkerAlt className="text-[#D4A054]" />
+                    <h4 className="font-semibold text-gray-800">📍 Visit Us</h4>
+                  </div>
+                  <p className="text-gray-500 text-xs">Bhatta Road, Sikroad, Raj Nagar Extension, Ghaziabad – 201003</p>
+                  <div className="flex items-center gap-2 mt-2">
+                    <FaPhoneAlt className="text-[#D4A054] text-xs" />
+                    <span className="text-gray-500 text-xs">+91-9971200705</span>
+                  </div>
+                  <div className="flex items-center gap-2 mt-1">
+                    <FaClock className="text-[#D4A054] text-xs" />
+                    <span className="text-gray-500 text-xs">10:00 AM - 7:00 PM (Mon-Sun)</span>
+                  </div>
+                </div>
+
+                <Link to="/booknow" className="block w-full bg-gradient-to-r from-[#D4A054] to-[#B8860B] text-white text-center py-3.5 rounded-xl font-semibold hover:shadow-xl transition-all hover:scale-105 flex items-center justify-center gap-2">
+                  <FaWhatsapp /> Book Grooming on WhatsApp →
+                </Link>
+
+                <p className="text-xs text-center text-gray-400 mt-2">🐾 Limited slots available — Reserve your pet's spa day today!</p>
               </div>
             </div>
           </div>
@@ -400,11 +507,10 @@ const PlayHours = () => {
           </div>
         )}
 
-        {/* ==================== SUMMER SPECIAL TAB (Therapy + Packages) ==================== */}
+        {/* ==================== SUMMER SPECIAL TAB ==================== */}
         {activeTab === 'summer' && (
           <div>
             <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {/* Cold Water Therapy Card */}
               <div className="bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl p-6 md:p-8 text-white shadow-xl">
                 <div className="flex items-center gap-3 mb-4">
                   <FaSnowflake className="text-5xl animate-pulse" />
@@ -429,7 +535,6 @@ const PlayHours = () => {
                 </div>
               </div>
 
-              {/* Packages Card */}
               <div className="space-y-5">
                 <div className="bg-white rounded-2xl p-6 shadow-lg">
                   <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
@@ -479,7 +584,6 @@ const PlayHours = () => {
               </p>
             </div>
 
-            {/* Important Safety Rules */}
             <div className="bg-red-50 border-l-4 border-red-500 rounded-xl p-4 mb-6 max-w-3xl mx-auto">
               <div className="flex items-start gap-3">
                 <div className="text-red-500 text-xl">⚠️</div>
@@ -497,7 +601,6 @@ const PlayHours = () => {
               </div>
             </div>
 
-            {/* Drinks Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
               {summerDrinks.map((drink) => (
                 <div key={drink.day} className={`bg-gradient-to-br from-white to-${drink.color}-50 rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 border border-${drink.color}-200`}>
@@ -520,7 +623,6 @@ const PlayHours = () => {
                 </div>
               ))}
 
-              {/* Day 6 & 7 Combo Card */}
               <div className="bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl p-5 shadow-lg text-white md:col-span-2 lg:col-span-1">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-2xl">
@@ -541,7 +643,6 @@ const PlayHours = () => {
               </div>
             </div>
 
-            {/* Complete 7-Day Menu List */}
             <div className="mt-8 bg-white rounded-2xl p-5 shadow-lg max-w-4xl mx-auto">
               <h4 className="font-bold text-gray-800 mb-3 text-center flex items-center justify-center gap-2">
                 <span className="text-xl">📋</span> Complete 7-Day Summer Drinks Menu <span className="text-xl">☀️</span>
@@ -574,7 +675,6 @@ const PlayHours = () => {
               </div>
             </div>
 
-            {/* Safety Reminder */}
             <div className="mt-6 text-center">
               <div className="inline-flex items-center gap-2 bg-amber-50 px-4 py-2 rounded-full border border-amber-200">
                 <span className="text-amber-600">💚</span>
