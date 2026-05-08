@@ -32,6 +32,7 @@ import { GiDogHouse, GiCat, GiMeditation, GiPawHeart, GiLoveInjection } from 're
 const WhyChooseUs = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showAllFeatures, setShowAllFeatures] = useState(false);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,6 +48,14 @@ const WhyChooseUs = () => {
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Auto rotate testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % newTestimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   // Bruno's Family & Cafe Color Palette
@@ -137,6 +146,55 @@ const WhyChooseUs = () => {
     { icon: <MdUpdate />, text: 'Daily Updates', gradient: colors.gradient3 },
     { icon: <GiPawHeart />, text: 'Pet Lovers', gradient: colors.gradient5 },
     { icon: <MdOutlineSecurity />, text: '24/7 Safety', gradient: colors.gradient2 }
+  ];
+
+  // New Testimonials
+  const newTestimonials = [
+    {
+      name: "Amit Sharma",
+      location: "Ghaziabad",
+      petName: "Rocky (German Shepherd)",
+      text: "Bruno's Family is truly a home away from home for my Rocky. The staff is incredibly caring and professional. Rocky loves his stays here and always comes back happy and energetic. Highly recommended!",
+      rating: 5,
+      image: "https://randomuser.me/api/portraits/men/1.jpg",
+      date: "May 2024"
+    },
+    {
+      name: "Neha Verma",
+      location: "Raj Nagar Extension",
+      petName: "Coco (Persian Cat)",
+      text: "The best pet boarding facility in town! They took amazing care of my cat Coco. The daily video updates gave me so much peace of mind. Will definitely book again!",
+      rating: 5,
+      image: "https://randomuser.me/api/portraits/women/2.jpg",
+      date: "April 2024"
+    },
+    {
+      name: "Rahul Mehta",
+      location: "Indirapuram",
+      petName: "Bruno (Labrador)",
+      text: "Excellent service! The grooming and play area are top-notch. My dog Bruno had a blast. The staff is very friendly and knowledgeable about pet care. Five stars!",
+      rating: 5,
+      image: "https://randomuser.me/api/portraits/men/3.jpg",
+      date: "April 2024"
+    },
+    {
+      name: "Priya Singh",
+      location: "Vaishali",
+      petName: "Bella (Beagle)",
+      text: "I was nervous leaving my pet for the first time, but the team at Bruno's Family made it so easy. Regular updates, clean facility, and genuine care. Thank you!",
+      rating: 5,
+      image: "https://randomuser.me/api/portraits/women/4.jpg",
+      date: "March 2024"
+    },
+    {
+      name: "Vikram Rajput",
+      location: "Kaushambi",
+      petName: "Max (Husky)",
+      text: "The swimming pool and play area are amazing! Max enjoyed every moment. The staff is very professional and caring. Best decision to board my pet here.",
+      rating: 5,
+      image: "https://randomuser.me/api/portraits/men/5.jpg",
+      date: "March 2024"
+    }
   ];
 
   // Mobile check
@@ -278,7 +336,7 @@ const WhyChooseUs = () => {
           </div>
         )}
 
-        {/* Main Features Banner - Mobile Optimized */}
+        {/* Main Features Banner with New Testimonial */}
         <div className={`bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 lg:p-12 shadow-2xl ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.8s' }}>
           <div className="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-10 items-center">
             <div className="flex-1 text-white text-center lg:text-left">
@@ -320,22 +378,34 @@ const WhyChooseUs = () => {
             <div className="flex-1 bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-white/20">
               <FaQuoteLeft className="text-[#D4A054] text-2xl sm:text-3xl mb-3 sm:mb-4 opacity-70" />
               <p className="text-white leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-                "Leaving my dog at Bruno's Family felt like leaving him with family. 
-                He enjoyed playtime, came back healthier, and I could travel stress-free."
+                "{newTestimonials[activeTestimonial].text}"
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-[#D4A054] to-[#F5C27B] rounded-full flex items-center justify-center text-[#2C1810] font-bold shadow-lg">
-                  R
+                  {newTestimonials[activeTestimonial].name.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="font-bold text-white text-sm sm:text-base">Ritika Sharma</h4>
-                  <p className="text-white/70 text-xs sm:text-sm">Happy Pet Parent, Gurgaon</p>
+                  <h4 className="font-bold text-white text-sm sm:text-base">{newTestimonials[activeTestimonial].name}</h4>
+                  <p className="text-white/70 text-xs sm:text-sm">{newTestimonials[activeTestimonial].location}</p>
                   <div className="flex items-center gap-0.5 sm:gap-1 mt-1">
                     {[...Array(5)].map((_, i) => (
                       <FaStar key={i} className="text-[#D4A054] text-[10px] sm:text-xs" />
                     ))}
                   </div>
                 </div>
+              </div>
+              
+              {/* Testimonial Dots */}
+              <div className="flex justify-center gap-1.5 mt-4 pt-3 border-t border-white/20">
+                {newTestimonials.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveTestimonial(idx)}
+                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                      activeTestimonial === idx ? 'w-4 bg-[#D4A054]' : 'bg-white/50'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
           </div>
