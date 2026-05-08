@@ -40,78 +40,7 @@ const HeroSection = () => {
       type: "image",
       src: assets.dogInsideImg,
     },
-    {
-      type: "image",
-      src: assets.dogSalonOne,
-    },
-    {
-      type: "image",
-      src: assets.dogSalonTwo,
-    },
-    {
-      type: "image",
-      src: assets.dogSalonThree,
-    },
-    {
-      type: "image",
-      src: assets.gateOne,
-    },
-    {
-      type: "image",
-      src: assets.gateTwo,
-    },
-    {
-      type: "image",
-      src: assets.gateThree,
-    },
-    {
-      type: "image",
-      src: assets.gateFour,
-    },
-    {
-      type: "image",
-      src: assets.outsideOne,
-    },
-    {
-      type: "image",
-      src: assets.posterImgOne,
-    },
-    {
-      type: "image",
-      src: assets.posterImgTwo,
-    },
-    {
-      type: "image",
-      src: assets.posterImgThree,
-    },
-    {
-      type: "image",
-      src: assets.posterImgFour,
-    },
-    {
-      type: "image",
-      src: assets.swimmingOne,
-    },
-    {
-      type: "image",
-      src: assets.swimmingTwo,
-    },
-    {
-      type: "image",
-      src: assets.swimmingThree,
-    },
-    {
-      type: "image",
-      src: assets.swimmingFour,
-    },
-    {
-      type: "video",
-      src: assets.videoOne,
-    },
-    {
-      type: "video",
-      src: assets.videoTwo,
-    },
+    
   ];
 
   // Auto Slide
@@ -269,9 +198,7 @@ const HeroSection = () => {
       </div>
 
       {/* Slide Counter */}
-      <div className="absolute top-6 right-6 z-30 bg-black/40 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full text-white text-sm">
-        {currentSlide + 1} / {sliderItems.length}
-      </div>
+     
     </section>
   );
 };
