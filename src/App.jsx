@@ -19,10 +19,10 @@ const App = () => {
     <>
       <Router>
         <ScrollToTop />
-      <Header />
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/cafe" element={<PetCafe/>} />
+          <Route path="/cafe" element={<PetCafe />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
@@ -31,10 +31,8 @@ const App = () => {
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
           <Route path="/booknow" element={<BookingForm />} />
-
-
         </Routes>
-      <Footer />
+        <Footer />
       </Router>
 
     </>
