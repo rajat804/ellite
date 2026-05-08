@@ -163,9 +163,7 @@ const Header = () => {
                   </Link>
                 ))}
                 <hr className="my-2 border-gray-100" />
-                <button className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 border-[#8B5E3C] text-[#8B5E3C] font-semibold hover:bg-[#8B5E3C] hover:text-white transition-all">
-                  <FaUser /> Login
-                </button>
+                
                 <Link to={'/booknow'} className="bg-[#8B5E3C] text-white px-4 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-[#6B2E2E] transition-all">
                   Book Now <FaChevronRight />
                 </Link>
