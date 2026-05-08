@@ -287,7 +287,7 @@ const BoardingFeatures = () => {
               <p className="text-gray-500 text-xs sm:text-sm mb-2 sm:mb-3 leading-relaxed">
                 Complete grooming package for small breed dogs
               </p>
-              <p className="text-2xl sm:text-3xl font-bold text-[#D4A054] mb-2 sm:mb-3">₹500</p>
+              <p className="text-2xl sm:text-3xl font-bold text-[#D4A054] mb-2 sm:mb-3">₹600</p>
               <Link
                 to={'/booknow'}
                 className="w-full bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white py-1.5 sm:py-2 rounded-lg font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base"
@@ -305,7 +305,7 @@ const BoardingFeatures = () => {
               <p className="text-gray-500 text-xs sm:text-sm mb-2 sm:mb-3 leading-relaxed">
                 Complete grooming package for large breed dogs
               </p>
-              <p className="text-2xl sm:text-3xl font-bold text-[#D4A054] mb-2 sm:mb-3">₹700</p>
+              <p className="text-2xl sm:text-3xl font-bold text-[#D4A054] mb-2 sm:mb-3">₹900</p>
               <Link
                 to={'/booknow'}
                 className="w-full bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white py-1.5 sm:py-2 rounded-lg font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base"
