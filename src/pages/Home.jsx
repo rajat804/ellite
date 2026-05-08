@@ -8,6 +8,7 @@ import PlayHours from '../components/PlayHours'
 import ServicesOverview from '../components/ServicesOverview'
 import DaycareSection from '../components/DaycareSection'
 import SummerSpecialMenu from '../components/SummerSpecialMenu'
+import PremiumDogMenu from '../components/PremiumDogMenu'
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <ServicesOverview />
       <DaycareSection />
       {/* <HowItWorks /> */}
+      <PremiumDogMenu />
       <BoardingFeatures />
       <WhyChooseUs />
       {/* <PetServices /> */}
