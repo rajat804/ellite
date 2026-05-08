@@ -42,8 +42,7 @@ const Footer = () => {
   ];
 
   const services = [
-    'Cat Boarding', 'Dog Boarding', 'Vet Home Visit',
-    'Vaccinations', 'Emergency Care', 'Pet Training',
+    'Cat Boarding', 'Dog Boarding', 'Pet Training',
     'Grooming Services', 'Pet Taxi'
   ];
 
