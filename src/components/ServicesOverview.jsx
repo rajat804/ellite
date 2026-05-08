@@ -53,13 +53,13 @@ const ServicesOverview = () => {
       gradient: 'from-[#8B5E3C] to-[#6B2E2E]',
       color: '#8B5E3C'
     },
-    { 
-      icon: <MdLocalCafe className="text-xl sm:text-2xl" />, 
-      text: 'Visit Café', 
-      link: '/cafe',
-      gradient: 'from-[#D4A054] to-[#B8860B]',
-      color: '#D4A054'
-    },
+    // { 
+    //   icon: <MdLocalCafe className="text-xl sm:text-2xl" />, 
+    //   text: 'Visit Café', 
+    //   link: '/cafe',
+    //   gradient: 'from-[#D4A054] to-[#B8860B]',
+    //   color: '#D4A054'
+    // },
     { 
       icon: <FaPhoneAlt className="text-xl sm:text-2xl" />, 
       text: 'Contact Us', 
