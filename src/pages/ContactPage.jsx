@@ -164,7 +164,7 @@ const ContactPage = () => {
     {
       icon: <FaEnvelope />,
       title: "Email Address",
-      details: ["care@brunosfamily.com", "info@brunosfamily.com"],
+      details: ["brunoboardingcafe@gmail.com"],
       color: "#6B2E2E",
       bg: "bg-gradient-to-br from-[#6B2E2E]/10 to-[#4A3728]/20",
       whatsappClick: false
@@ -187,9 +187,9 @@ const ContactPage = () => {
   const locations = [
     {
       name: "Head Office - Gurgaon",
-      address: "Bruno’s Pet Boarding & Cafe, Bhatta Road, Sikroad, Rajnagar Extension, Ghaziabad, 201003",
+      address: "Bruno’s Pet Boarding & Cafe, Bhatta Road, Sikroad, Rajnagar Extension, Ghaziabad, 201003.",
       phone: "+91-9971200705",
-      email: "gurgaon@brunosfamily.com",
+      email: "brunoboardingcafe@gmail.com",
       timing: "24/7 Open",
       mapUrl: ""
     },
