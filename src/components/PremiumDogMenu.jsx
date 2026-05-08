@@ -287,12 +287,12 @@ const PremiumDogMenu = () => {
                   <FaCheckCircle className="text-[10px]" /> {item.benefits}
                 </div>
 
-                <Link 
+                {/* <Link 
                   to="/booknow" 
                   className="w-full bg-gradient-to-r from-[#8B5E3C] to-[#6B2E2E] text-white py-2 rounded-lg font-semibold hover:shadow-lg transition-all hover:scale-105 flex items-center justify-center gap-2 text-sm group"
                 >
-                  Order Now <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </Link>
+                  Book Now <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+                </Link> */}
               </div>
             </div>
           ))}
