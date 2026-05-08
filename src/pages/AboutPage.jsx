@@ -128,50 +128,50 @@ const AboutPage = () => {
     },
   ];
 
-  const milestones = [
-    {
-      year: 2008,
-      title: "The Beginning",
-      description: "Started as Delhi NCR's first pet boarding service",
-      icon: <FaCalendarAlt className="text-lg" />,
-      color: "#8B5E3C",
-    },
-    {
-      year: 2012,
-      title: "Expansion",
-      description: "Opened second facility to serve more pets",
-      icon: <FaMapMarkerAlt className="text-lg" />,
-      color: "#D4A054",
-    },
-    {
-      year: 2015,
-      title: "Vet Services",
-      description: "Launched home veterinary services",
-      icon: <MdLocalHospital className="text-lg" />,
-      color: "#6B2E2E",
-    },
-    {
-      year: 2018,
-      title: "10k+ Pets",
-      description: "Served over 10,000 happy pets",
-      icon: <FaDog className="text-lg" />,
-      color: "#D4A054",
-    },
-    {
-      year: 2020,
-      title: "24/7 Support",
-      description: "Introduced round-the-clock emergency care",
-      icon: <FaClock className="text-lg" />,
-      color: "#8B5E3C",
-    },
-    {
-      year: 2024,
-      title: "17k+ Families",
-      description: "Trusted by 17,000+ pet parents",
-      icon: <FaUsers className="text-lg" />,
-      color: "#6B2E2E",
-    },
-  ];
+  // const milestones = [
+  //   {
+  //     year: 2008,
+  //     title: "The Beginning",
+  //     description: "Started as Delhi NCR's first pet boarding service",
+  //     icon: <FaCalendarAlt className="text-lg" />,
+  //     color: "#8B5E3C",
+  //   },
+  //   {
+  //     year: 2012,
+  //     title: "Expansion",
+  //     description: "Opened second facility to serve more pets",
+  //     icon: <FaMapMarkerAlt className="text-lg" />,
+  //     color: "#D4A054",
+  //   },
+  //   {
+  //     year: 2015,
+  //     title: "Vet Services",
+  //     description: "Launched home veterinary services",
+  //     icon: <MdLocalHospital className="text-lg" />,
+  //     color: "#6B2E2E",
+  //   },
+  //   {
+  //     year: 2018,
+  //     title: "10k+ Pets",
+  //     description: "Served over 10,000 happy pets",
+  //     icon: <FaDog className="text-lg" />,
+  //     color: "#D4A054",
+  //   },
+  //   {
+  //     year: 2020,
+  //     title: "24/7 Support",
+  //     description: "Introduced round-the-clock emergency care",
+  //     icon: <FaClock className="text-lg" />,
+  //     color: "#8B5E3C",
+  //   },
+  //   {
+  //     year: 2024,
+  //     title: "17k+ Families",
+  //     description: "Trusted by 17,000+ pet parents",
+  //     icon: <FaUsers className="text-lg" />,
+  //     color: "#6B2E2E",
+  //   },
+  // ];
 
   const achievements = [
     {
@@ -331,10 +331,9 @@ const AboutPage = () => {
       </div>
 
       {/* Our Story Section - Bruno's Theme */}
-      <section className="py-16 md:py-20">
+      {/* <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 md:px-8">
           <div className="flex flex-col items-center justify-center text-center">
-            {/* Badge */}
             <div
               className={`mb-4 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
@@ -346,7 +345,6 @@ const AboutPage = () => {
               </div>
             </div>
 
-            {/* Heading */}
             <div
               className={`mb-6 transition-all duration-700 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
@@ -356,7 +354,6 @@ const AboutPage = () => {
               <div className="w-20 h-1 bg-[#D4A054] mx-auto mt-3 rounded-full"></div>
             </div>
 
-            {/* Image */}
             <div
               className={`mb-8 transition-all duration-700 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
@@ -385,7 +382,6 @@ const AboutPage = () => {
               </div>
             </div>
 
-            {/* Description */}
             <div
               className={`max-w-2xl mx-auto mb-8 transition-all duration-700 delay-600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
@@ -413,7 +409,6 @@ const AboutPage = () => {
               </p>
             </div>
 
-            {/* Buttons */}
             <div
               className={`flex flex-wrap justify-center gap-4 transition-all duration-700 delay-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             >
@@ -426,7 +421,7 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Achievements Section - Bruno's Theme */}
       <section className="py-12 bg-gradient-to-r from-[#D4A054]/5 to-[#F5C27B]/20">
@@ -587,7 +582,7 @@ const AboutPage = () => {
       </section>
 
       {/* Our Journey Timeline - Bruno's Theme */}
-      <section className="py-16 bg-[#FDF8F0]">
+      {/* <section className="py-16 bg-[#FDF8F0]">
         <div className="container mx-auto px-4 md:px-8">
           <div
             className={`text-center max-w-3xl mx-auto mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
@@ -641,7 +636,7 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
 
       {/* Why Choose Us Features */}
